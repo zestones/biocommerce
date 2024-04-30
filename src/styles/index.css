@@ -384,32 +384,14 @@ header .burger-menu hr:last-child {
   align-items: center;
   justify-content: center;
   margin-top: 45px;
-  flex-direction: column;
 }
 
-.main-container .hero .left .more button {
-  background-color: var(--secondary);
-  color: white;
-  font-size: 20px;
-  font-weight: 700;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 35px;
-  cursor: pointer;
-  width: 200px;
+.main-container .hero .left .more a {
+  text-decoration: none;
 }
 
-.main-container .hero .left .more button:hover {
-  background-color: var(--tertiary);
-}
-
-.main-container .hero .left .more hr {
-  width: 75px;
-  background-color: var(--secondary);
-  height: 2px;
-  border: none;
-  border-radius: 5px;
-  margin-top: 20px;
+.main-container .hero .left .more a.signup-btn {
+  border-color: var(--secondary);
 }
 
 .main-container .hero .right {
