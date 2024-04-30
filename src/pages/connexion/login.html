@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agrovia</title>
 
-    <link rel="stylesheet" href="../styles/index.css">
-    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../../styles/connexion/login.css">
+    <link rel="stylesheet" href="../../styles/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -15,21 +15,21 @@
     <header>
         <span class="social-media">
             <a href="https://www.twitter.com/agrovia/" target="_blank">
-                <img src="../assets/icons/twitter.png" alt="Twitter">
+                <img src="../../assets/icons/twitter.png" alt="Twitter">
             </a>
 
             <a href="https://www.facebook.com/Agrovia-100101101852101" target="_blank">
-                <img src="../assets/icons/facebook.png" alt="Facebook">
+                <img src="../../assets/icons/facebook.png" alt="Facebook">
             </a>
 
             <a href="https://www.instagram.com/agrovia/" target="_blank">
-                <img src="../assets/icons/instagram.png" alt="Instagram">
+                <img src="../../assets/icons/instagram.png" alt="Instagram">
             </a>
         </span>
 
         <span class="logo">
-            <a href="./index.html">
-                <img id="logo" src="../assets/logo/agrovia-white.png" alt="Agrovia">
+            <a href="../index.html">
+                <img id="logo" src="../../assets/logo/agrovia-white.png" alt="Agrovia">
             </a>
         </span>
 
@@ -73,34 +73,47 @@
     </div>
 
     <div class="background"></div>
-    <div class="main-container">
-        <div class="hero">
-            <div class="left">
-                <h1>Développons ensemble</h1>
-                <p>
-                    Bienvenue sur Agrovia, où nous croyons au pouvoir des connexions pour transformer l'industrie
-                    agroalimentaire. Que vous soyez producteur, distributeur ou investisseur, Agrovia est votre
-                    plateforme pour forger des partenariats significatifs et stimuler la croissance.
-                </p>
-                <div class="more">
-                    <a href="./connexion/login.html" class="login-btn">Connexion</a>
-                    <a href="#" class="signup-btn">Inscription</a>
-                </div>
+    <div class="background-2"></div>
 
+    <div class="main-container">
+        <div class="connexion">
+            <div class="header" id="connexion-header">
+                <a href="#" class="login-link active">Login</a>
+                <a href="#" class="signup-link">Sign up</a>
             </div>
-            <div class="right">
-                <img src="../assets/icons/revenue-bro.png" alt="revenue bro">
-            </div>
+
+            <form class="form" action="../../scripts/connexion/login.php" method="POST">
+                <span id="email-span">
+                    <i class="fa fa-user"></i>
+                    <input type="text" placeholder="Enter Email" name="email" required>
+                </span>
+
+                <span class="phone-number hidden" id="phone-span">
+                    <i class="fa fa-phone"></i>
+                    <input type="text" placeholder="Enter Phone Number" name="phone">
+                </span>
+
+                <span id="password-span">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+                </span>
+                <div class="footer">
+                    <a href="#">Forgot Password ?</a>
+                    <button type="submit" id="submit-btn">Login</button>
+                </div>
+            </form>
         </div>
     </div>
-
-
 </body>
-<script src="../scripts/index.js"></script>
-<script src="../scripts/theme/theme.js"></script>
+
+<script src="../../scripts/theme/theme.js"></script>
+<script src="../../scripts/index.js"></script>
+<script src="../../scripts/connexion/login.js"></script>
 
 <script>
     load_theme();
 </script>
+
+
 
 </html>
