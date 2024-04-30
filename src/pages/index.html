@@ -7,9 +7,10 @@
     <title>Agrovia</title>
 
     <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body class="dark-theme">
     <header>
         <span class="social-media">
             <a href="https://www.twitter.com/agrovia/" target="_blank">
@@ -26,28 +27,60 @@
         </span>
 
         <span class="logo">
-            <img src="../assets/logo/agrovia-white.png" alt="Agrovia">
+            <img id="logo" src="../assets/logo/agrovia-white.png" alt="Agrovia">
         </span>
 
-        <span class="burger-menu">
+        <span class="burger-menu" onclick="toggle_navigation()">
             <hr>
             <hr>
             <hr>
         </span>
     </header>
 
+    <div class="navigation" id="navbar">
+        <div class="navbar-top">
+            <span class="close" onclick="toggle_navigation()">&times;</span>
+            <div class="toggle-theme">
+                <input type="checkbox" class="checkbox" id="checkbox">
+                <label for="checkbox" class="checkbox-label">
+                    <i class="fa fa-moon-o" aria-hidden="true"></i>
+                    <i class="fa fa-sun-o" aria-hidden="true"></i>
+
+                    <span class="ball"></span>
+                </label>
+            </div>
+
+        </div>
+
+        <div class="navigation-content">
+            <ul class="navbar-links">
+                <li><a href="#"><i class="fa fa-home"></i> Accueil</a></li>
+                <li><a href="#"><i class="fa fa-info-circle"></i> À propos</a></li>
+                <li><a href="#"><i class="fa fa-cogs"></i> Services</a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="navbar-bottom">
+            <div class="login">
+                <button class="login-btn">Connexion</button>
+                <button class="signup-btn">Inscription</button>
+            </div>
+        </div>
+    </div>
+
     <div class="background"></div>
     <div class="main-container">
         <div class="hero">
             <div class="left">
-                <h1>Connect and Grow Together</h1>
+                <h1>Développons ensemble</h1>
                 <p>
-                    Welcome to Agrovia, where we believe in the power of connections to transform the agri-food
-                    industry. Whether you're a producer, distributor, or investor, Agrovia is your platform to forge
-                    meaningful partnerships and drive growth.
+                    Bienvenue sur Agrovia, où nous croyons au pouvoir des connexions pour transformer l'industrie
+                    agroalimentaire. Que vous soyez producteur, distributeur ou investisseur, Agrovia est votre
+                    plateforme pour forger des partenariats significatifs et stimuler la croissance.
                 </p>
                 <div class="more">
-                    <button>Learn More</button>
+                    <button>En savoir plus</button>
                     <hr>
                 </div>
             </div>
@@ -55,9 +88,10 @@
         <div class="right">
             <img src="../assets/icons/revenue-bro.png" alt="revenue bro">
         </div>
-
     </div>
 
+
 </body>
+<script src="../scripts/index.js"></script>
 
 </html>
