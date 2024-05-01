@@ -46,6 +46,7 @@ body {
 
   margin-bottom: 42px;
   font-size: 36px;
+  position: relative;
 }
 
 .main-container .connexion .header a {
@@ -58,7 +59,19 @@ body {
 
 .main-container .connexion .header a.active {
   color: var(--secondary);
-  border-bottom: 2px solid var(--secondary);
+  transition: color 0.5s ease-in-out;
+}
+
+.main-container .connexion .header hr {
+  position: absolute;
+  height: 4px;
+
+  bottom: -15px;
+  border: none;
+  border-radius: 10px;
+
+  background: var(--secondary);
+  transition: transform 0.5s ease-in-out;
 }
 
 .main-container .connexion .header a:last-child {
@@ -74,7 +87,6 @@ body {
 
 .main-container .connexion .form span {
   position: relative;
-  /* margin-bottom: 33px; */
 }
 
 .main-container .connexion .form span i {

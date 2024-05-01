@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const emailSpan = document.getElementById('email-span');
     const passwordSpan = document.getElementById('password-span');
 
+    const hrLine = document.querySelector('.header hr');
+    positionHrLine();
+
     signupLink.addEventListener('click', function (event) {
         event.preventDefault();
         loginLink.classList.remove('active');
@@ -17,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         connexionHeader.style.transform = 'translateY(-25px)';
         emailSpan.style.transform = 'translateY(-25px)';
         passwordSpan.style.transform = 'translateY(25px)';
+        positionHrLine();
     });
 
     loginLink.addEventListener('click', function (event) {
@@ -30,5 +34,13 @@ document.addEventListener("DOMContentLoaded", function () {
         connexionHeader.style.transform = 'translateY(0)';
         emailSpan.style.transform = 'translateY(0)';
         passwordSpan.style.transform = 'translateY(0)';
+        positionHrLine();
     });
+
+    function positionHrLine() {
+        const activeLink = document.querySelector('.header .active');
+        hrLine.style.transform = `translateX(${activeLink.offsetLeft}px)`;
+        hrLine.style.transition = 'transform 0.3s ease-in-out';
+        hrLine.style.width = activeLink.offsetWidth + 'px';
+    }
 });
