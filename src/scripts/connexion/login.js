@@ -52,4 +52,30 @@ document.addEventListener("DOMContentLoaded", function () {
         hrLine.style.transition = 'transform 0.3s ease-in-out';
         hrLine.style.width = activeLink.offsetWidth + 'px';
     }
+
+    // Add event listener to form submission
+    document.getElementById('auth-form').addEventListener('submit', function (event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        var formData = new FormData(this);
+        fetch('../../php/login.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (!response.ok) {
+                    return response.text();
+                }
+                else {
+                    window.location.href = '../home/home.html';
+                }
+            })
+            .then(message => {
+                document.getElementById('error-message').textContent = message;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
 });

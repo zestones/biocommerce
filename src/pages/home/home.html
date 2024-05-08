@@ -41,6 +41,48 @@
             </a>
         </div>
     </header>
+
+    <div class="separator-background"></div>
+
+    <div class="filter">
+        <button class="filter-btn" onclick="toggleDropdown()">
+            Filter <i class="fa fa-filter"></i>
+        </button>
+        <div class="dropdown">
+            <span class="dropbtn">All Categories <i class="fa fa-caret-down"></i></span>
+            <div class="dropdown-content">
+                <label><input type="checkbox" name="category" value="category1"> Category 1</label>
+                <label><input type="checkbox" name="category" value="category2"> Category 2</label>
+                <label><input type="checkbox" name="category" value="category3"> Category 3</label>
+            </div>
+        </div>
+    </div>
+
 </body>
+
+<script>
+    function toggleDropdown() {
+        var dropdownContent = document.getElementsByClassName('dropdown-content');
+        if (dropdownContent[0].classList.contains('show')) {
+            dropdownContent[0].classList.remove('show');
+        } else {
+            dropdownContent[0].classList.add('show');
+        }
+    }
+
+    // Close the dropdown when clicking outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+
 
 </html>
