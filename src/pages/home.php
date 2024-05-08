@@ -123,6 +123,14 @@
         </div>
     </div>
 
+    <div>
+        <?php
+        require '../php/test.php';
+
+        $announce = get_all_announce();
+        display_announce($announce);
+        ?>
+    </div>
 </body>
 
 <script src="../../scripts/slider.js"></script>

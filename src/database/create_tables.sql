@@ -1,24 +1,24 @@
 CREATE TABLE IF NOT EXISTS User (
   id INTEGER PRIMARY KEY,
-  firstname VARCHAR,
-  lastname VARCHAR,
-  email VARCHAR,
-  phone_number VARCHAR,
-  password VARCHAR,
+  firstname TEXT,
+  lastname TEXT,
+  email TEXT,
+  phone_number TEXT,
+  password TEXT,
   is_admin INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS Category (
   id INTEGER PRIMARY KEY,
-  name VARCHAR
+  name TEXT
 );
 
 CREATE TABLE IF NOT EXISTS Announce (
   id INTEGER PRIMARY KEY,
   id_category INTEGER,
-  image VARCHAR,
-  title VARCHAR,
-  description VARCHAR,
+  image TEXT,
+  title TEXT,
+  description TEXT,
   price FLOAT,
   quantity INTEGER,
   rating INTEGER,
