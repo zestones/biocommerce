@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const connexionHeader = document.getElementById('connexion-header');
     const emailSpan = document.getElementById('email-span');
     const passwordSpan = document.getElementById('password-span');
+    const errorMessageDiv = document.getElementById('error-message');
 
     const hrLine = document.querySelector('.header hr');
     positionHrLine();
@@ -21,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
         connexionHeader.style.transform = 'translateY(-25px)';
         emailSpan.style.transform = 'translateY(-25px)';
         passwordSpan.style.transform = 'translateY(25px)';
+        errorMessageDiv.style.transform = 'translateY(25px)';
+
         positionHrLine();
         switchMode("../../php/signup.php", "Signup");
     });
@@ -36,6 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
         connexionHeader.style.transform = 'translateY(0)';
         emailSpan.style.transform = 'translateY(0)';
         passwordSpan.style.transform = 'translateY(0)';
+        errorMessageDiv.style.transform = 'translateY(0)';
+
         positionHrLine();
         switchMode("../../php/login.php", "Login");
     });
@@ -65,7 +70,10 @@ document.addEventListener("DOMContentLoaded", function () {
         })
             .then(response => {
                 if (!response.ok) {
-                    return response.text();
+                    return response.text().then(errorMessage => {
+                        showError(errorMessage);
+                        throw new Error(errorMessage);
+                    });
                 }
                 else {
                     window.location.href = '../home/home.html';
@@ -78,4 +86,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error('Error:', error);
             });
     });
+
+    function showError(message) {
+        const errorMessageDiv = document.getElementById('error-message');
+        errorMessageDiv.textContent = message;
+        errorMessageDiv.classList.add('shake');
+        setTimeout(() => {
+            errorMessageDiv.classList.remove('shake');
+        }, 500);
+    }
 });
+
