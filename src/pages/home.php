@@ -125,7 +125,7 @@
 
     <div>
         <?php
-        require '../php/test.php';
+        require '../php/announce.php';
 
         $announce = get_all_announce();
         display_announce($announce);
