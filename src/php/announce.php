@@ -14,15 +14,37 @@ function get_all_announce()
     return $announce;
 }
 
+function generate_star($rating)
+{
+    $stars = "";
+    for ($i = 0; $i < 5; $i++) {
+        if ($i < $rating) {
+            $stars .= "<i class='fa fa-star checked'></i>";
+        } else {
+            $stars .= "<i class='fa fa-star'></i>";
+        }
+    }
+    return $stars;
+}
+
 function display_announce($announce)
 {
     foreach ($announce as $row) {
-        echo "<div class='product'>";
-        echo "<img src='../../assets/products/" . $row['image'] . "' alt='product'>";
-        echo "<h3>" . $row['name'] . "</h3>";
-        echo "<p>" . $row['description'] . "</p>";
-        echo "<p>Price: " . $row['price'] . "€</p>";
-        echo "<button>Add to cart</button>";
+        echo "<div class='announce'>";
+        echo "<img src='../public/patate.png' alt='product'>";
+        echo "<div class='infos'>";
+        echo "<div class='details'>";
+        echo "<h4>" . $row['title'] . "</h4>";
+        echo "<span>" . $row['price'] . "€</span>";
+        echo "<span class='rating '>";
+        echo generate_star($row['rating']);
+        echo "</span>";
+        echo "</div>";
+        echo "<div class='actions'>";
+        echo "<button class='cart'><i class='fa fa-shopping-cart'></i></button>";
+        echo "<button class='wish'><i class='fa fa-heart'></i></button>";
+        echo "</div>";
+        echo "</div>";
         echo "</div>";
     }
 }

@@ -13,12 +13,15 @@ VALUES ('Electronics'),
 INSERT INTO Announce (id_category, image, title, description, price, quantity, rating, out_of_stock)
 VALUES (1, 'electronics_image.jpg', 'Smartphone', 'Brand new smartphone with the latest features', 499.99, 10, 4, 0),
        (2, 'clothing_image.jpg', 'T-shirt', 'Casual cotton t-shirt available in multiple colors', 19.99, 50, 5, 0),
-       (3, 'book_image.jpg', 'Novel', 'Best-selling novel by a renowned author', 29.99, 20, 4, 0);
+       (3, 'book_image.jpg', 'Novel', 'Best-selling novel by a renowned author', 29.99, 20, 4, 0),
+       (1, 'electronics_image.jpg', 'Laptop', 'High-performance laptop for work and entertainment', 899.99, 5, 5, 1);
 
 -- Insert sample data into UserAnnounce table
 INSERT INTO UserAnnounce (user_id, announce_id)
 VALUES (1, 1),
-       (2, 2);
+       (2, 2),
+       (1, 3),
+       (2, 4);
 
 -- Insert sample data into UserSaved table
 INSERT INTO UserSaved (user_id, announce_id, quantity_selected, is_in_cart, is_in_favourite)
