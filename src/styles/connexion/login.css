@@ -111,6 +111,7 @@ body {
   border-radius: 25px;
   font-size: 16px;
   padding-left: 55px;
+  color: var(--text);
 }
 
 .main-container .connexion .form span input::placeholder {
