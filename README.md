@@ -6,7 +6,7 @@ This project is written in html, css, js, and php. You will need to have php and
 You can simply run the following command to install the dependencies:
 
 ```bash
-./setup.sh
+./install.sh
 ```
 
 > [!NOTE]
@@ -27,7 +27,7 @@ Then you can open your browser and navigate to `localhost:8000/pages/index.html`
 For development purposes, you can run the following script to enable hot reloading:
 
 ```bash
-./run.sh
+./hot-reload.sh
 ```
 
 This will open a port on `localhost:3000` and you can view the project there with hot reloading enabled.
