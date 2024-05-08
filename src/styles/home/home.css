@@ -82,16 +82,11 @@ header .user a i {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100vw;
+  width: 100%;
   height: 100px;
 
   position: absolute;
   left: 0;
-}
-
-.filter {
-  margin-top: 120px;
-  position: relative;
 }
 
 .filter-btn {
@@ -109,41 +104,172 @@ header .user a i {
 }
 
 .filter-btn i {
+  margin-left: 5px;
   font-size: 16px;
   color: var(--white);
-  margin-left: 5px;
 }
 
-.dropdown {
+.filter {
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 25%;
+}
+
+.categories-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.categories {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.categories span {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.categories input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.categories label {
+  font-size: 14px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.categories span:last-child {
+  margin-bottom: 20px;
+}
+
+.filter-btn.active + .categories {
+  display: flex;
+}
+
+.filter-btn:hover {
+  background-color: var(--secondary);
+}
+
+.categories input[type="checkbox"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--secondary);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.categories input[type="checkbox"]:checked {
+  background-color: var(--secondary);
+}
+
+hr.separator {
+  width: 100%;
+  border: 0;
+  border: 2px solid var(--secondary);
+}
+
+.price-section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+
+  width: 100%;
   position: relative;
-  display: inline-block;
 }
 
-.dropdown-content {
+.slide-container {
+  position: relative;
+  width: 100%;
+  margin-top: 15px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  outline: none;
   position: absolute;
-  background-color: var(--white);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  opacity: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
   pointer-events: none;
-  transition: opacity 0.3s ease;
 }
 
-.dropdown-content.show {
-  display: block;
-  opacity: 1;
+.slider-track {
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+  -moz-appearance: none;
+  height: 5px;
+}
+
+input[type="range"]::-ms-track {
+  appearance: none;
+  height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.7em;
+  width: 1.7em;
+  background-color: var(--white);
+  border: 3px solid var(--secondary);
+  cursor: pointer;
+  margin-top: -9px;
+  pointer-events: auto;
+  border-radius: 50%;
+}
+
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 1.7em;
+  width: 1.7em;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: 3px solid var(--secondary);
+  pointer-events: auto;
+  border: none;
+}
+
+input[type="range"]::-ms-thumb {
+  appearance: none;
+  height: 1.7em;
+  width: 1.7em;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: 3px solid var(--secondary);
   pointer-events: auto;
 }
 
-.dropdown-content label {
-  display: block;
-  padding: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  color: var(--text);
+input[type="range"]:active::-webkit-slider-thumb {
+  background-color: var(--secondary);
+  border: 3px solid var(--secondary);
 }
 
-.dropdown-content label:hover {
-  background-color: var(--secondary);
+.values {
+  margin-top: 22px;
 }
