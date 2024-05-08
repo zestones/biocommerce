@@ -80,7 +80,8 @@ header .burger-menu hr:last-child {
   background-color: var(--primary);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-  width: 450px;
+  width: 0;
+  max-width: 450px;
   padding-top: 60px;
 
   z-index: 1000;
@@ -93,6 +94,7 @@ header .burger-menu hr:last-child {
 
 .navigation.active {
   display: block;
+  width: 450px;
 
   animation-name: slideInRight;
   animation-duration: 0.3s;
