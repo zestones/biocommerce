@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // If the user already exists, redirect back to signup page with an error message
     if ($stmt->fetch(PDO::FETCH_ASSOC)) {
+        http_response_code(400);
         echo "Email already taken";
         exit();
     }
@@ -29,8 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':password', $password);
     $stmt->execute();
 
-    // Redirect to login page
-    echo "Signup successful";
+    header('Location: ../pages/connexion/login.html');
     exit();
 }
 ?>

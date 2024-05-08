@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
 
         var formData = new FormData(this);
-        fetch('../../php/login.php', {
+        fetch(authForm.action, {
             method: 'POST',
             body: formData
         })
