@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const authForm = document.getElementById('auth-form');
     const signupLink = document.querySelector('.signup-link');
     const loginLink = document.querySelector('.login-link');
     const phoneNumberField = document.querySelector('.phone-number');
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         emailSpan.style.transform = 'translateY(-25px)';
         passwordSpan.style.transform = 'translateY(25px)';
         positionHrLine();
+        switchMode("../../php/signup.php", "Signup");
     });
 
     loginLink.addEventListener('click', function (event) {
@@ -35,7 +37,14 @@ document.addEventListener("DOMContentLoaded", function () {
         emailSpan.style.transform = 'translateY(0)';
         passwordSpan.style.transform = 'translateY(0)';
         positionHrLine();
+        switchMode("../../php/login.php", "Login");
     });
+
+    function switchMode(action, buttonText) {
+        authForm.action = action;
+        authForm.querySelector('#submit-btn').innerText = buttonText;
+    }
+
 
     function positionHrLine() {
         const activeLink = document.querySelector('.header .active');

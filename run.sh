@@ -1,1 +1,1 @@
-cd src/ && sudo browser-sync start --proxy "localhost:8000" --files "pages/**/*.html" "styles/**/*.css" "scripts/**/*.js" "assets/**/*.png" "assets/**/*.jpg" "assets/**/*.svg"
+cd src/ && sudo browser-sync start --proxy "localhost:8000" --files "pages/**/*.html" "styles/**/*.css" "scripts/**/*.js" "php/**/*.php" "assets/**/*.png" "assets/**/*.jpg" "assets/**/*.svg"
