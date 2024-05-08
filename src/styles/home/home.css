@@ -1,0 +1,78 @@
+@import url("../global.css");
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a img {
+  width: 100px;
+}
+
+header .search-bar {
+  display: flex;
+  align-items: center;
+}
+
+header .search-bar form {
+  display: flex;
+  align-items: center;
+}
+
+header .search-bar form span {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+header .search-bar form span i {
+  position: absolute;
+  left: 10px;
+  color: var(--text);
+}
+
+header .search-bar form span input {
+  padding: 7px;
+  border: 1px solid var(--secondary);
+  border-radius: 5px 0 0 5px;
+  padding-left: 30px;
+  min-width: 300px;
+}
+
+header .search-bar form span input::placeholder {
+  color: var(--text);
+  position: absolute;
+  left: 30px;
+}
+
+header .search-bar form button {
+  padding: 7px;
+  border-radius: 0 5px 5px 0;
+  background-color: var(--secondary);
+  color: var(--white);
+  border: 1px solid var(--secondary);
+  cursor: pointer;
+}
+
+/* change focus style */
+header .search-bar form span input:focus {
+  border: 1px solid rgba(149, 177, 173, 0.3);
+  outline: none;
+  box-shadow: 0 0 10px rgba(112, 112, 112, 0.2);
+}
+
+header .user {
+  display: flex;
+  align-items: center;
+}
+
+header .user a {
+  text-decoration: none;
+  padding: 10px;
+}
+
+header .user a i {
+  font-size: 20px;
+  color: var(--text);
+}

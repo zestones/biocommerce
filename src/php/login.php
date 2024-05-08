@@ -22,7 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['username'] = $row['username'];
         // Redirect to dashboard or home page
-        echo "Login successful";
+
+        header('Location: ../pages/home/home.html');
         exit();
     } else {
         // User doesn't exist or incorrect credentials
