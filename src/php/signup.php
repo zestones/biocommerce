@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':password', $password);
     $stmt->execute();
 
-    header('Location: ../pages/connexion/login.html');
+    header('Location: ../pages/login.html');
     exit();
 }
 ?>

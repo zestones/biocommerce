@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agrovia - Home</title>
 
-    <script src="../../scripts/theme/theme.js"></script>
+    <script src="../../scripts/theme.js"></script>
 
-    <link rel="stylesheet" href="../../styles/home/home.css" onload="load_theme()">
+    <link rel="stylesheet" href="../../styles/home.css" onload="load_theme()">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -124,6 +124,6 @@
     </div>
 </body>
 
-<script src="../../scripts/home/slider.js"></script>
+<script src="../../scripts/slider.js"></script>
 
 </html>
