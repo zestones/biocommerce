@@ -1,5 +1,5 @@
-const green_logo = window.location.origin + '/src/assets/logo/agrovia-green.png';
-const white_logo = window.location.origin + '/src/assets/logo/agrovia-white.png';
+const green_logo = window.location.origin + '/assets/logo/agrovia-green.png';
+const white_logo = window.location.origin + '/assets/logo/agrovia-white.png';
 
 
 const checkbox = document.getElementById("checkbox")
