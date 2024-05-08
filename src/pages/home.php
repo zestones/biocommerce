@@ -122,6 +122,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 <script src="../../scripts/slider.js"></script>

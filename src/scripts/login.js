@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         errorMessageDiv.style.transform = 'translateY(25px)';
 
         positionHrLine();
-        switchMode("../../php/signup.php", "Signup");
+        switchMode("../php/signup.php", "Signup");
     });
 
     loginLink.addEventListener('click', function (event) {
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         errorMessageDiv.style.transform = 'translateY(0)';
 
         positionHrLine();
-        switchMode("../../php/login.php", "Login");
+        switchMode("../php/login.php", "Login");
     });
 
     function switchMode(action, buttonText) {

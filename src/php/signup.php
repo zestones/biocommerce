@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Check if the user with the same email already exists
-    $query = "SELECT * FROM users WHERE email = :email";
+    $query = "SELECT * FROM User WHERE email = :email";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':email', $email);
     $stmt->execute();
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // If the user doesn't exist, insert the new user into the database
-    $query = "INSERT INTO users (email, phone_number, password) VALUES (:email, :phone_number, :password)";
+    $query = "INSERT INTO User (email, phone_number, password) VALUES (:email, :phone_number, :password)";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':phone_number', $phone_number);
