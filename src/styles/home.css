@@ -1,89 +1,5 @@
 @import url("./global.css");
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header a img {
-  width: 100px;
-}
-
-header .search-bar {
-  display: flex;
-  align-items: center;
-}
-
-header .search-bar span {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-header .search-bar span i {
-  position: absolute;
-  left: 10px;
-  color: var(--text);
-}
-
-header .search-bar span input {
-  padding: 7px;
-  border: 1px solid var(--secondary);
-  border-radius: 5px 0 0 5px;
-  padding-left: 30px;
-  min-width: 300px;
-}
-
-header .search-bar span input::placeholder {
-  color: var(--text);
-  position: absolute;
-  left: 30px;
-}
-
-header .search-bar button {
-  padding: 7px;
-  border-radius: 0 5px 5px 0;
-  background-color: var(--secondary);
-  color: var(--white);
-  border: 1px solid var(--secondary);
-  cursor: pointer;
-}
-
-/* change focus style */
-header .search-bar span input:focus {
-  border: 1px solid rgba(149, 177, 173, 0.3);
-  outline: none;
-  box-shadow: 0 0 10px rgba(112, 112, 112, 0.2);
-}
-
-header .user {
-  display: flex;
-  align-items: center;
-}
-
-header .user a {
-  text-decoration: none;
-  padding: 10px;
-}
-
-header .user a i {
-  font-size: 20px;
-  color: var(--text);
-}
-
-.separator-background {
-  background-image: url("../../assets/backgrounds/separator-background.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100px;
-
-  position: absolute;
-  left: 0;
-}
-
 .container-options {
   margin-top: 120px;
   display: flex;
@@ -377,6 +293,9 @@ input[type="range"]:active::-webkit-slider-thumb {
   border: 1px solid var(--text);
 
   transition: all 0.3s ease-in-out;
+
+  text-decoration: none;
+  color: var(--text);
 }
 
 .announce img {

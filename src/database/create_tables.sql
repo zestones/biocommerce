@@ -26,6 +26,23 @@ CREATE TABLE IF NOT EXISTS Announce (
   FOREIGN KEY (id_category) REFERENCES Category(id)
 );
 
+CREATE TABLE IF NOT EXISTS AnnounceComment (
+  id INTEGER PRIMARY KEY,
+  announce_id INTEGER,
+  user_id INTEGER,
+  comment TEXT,
+  rating INTEGER,
+  FOREIGN KEY (announce_id) REFERENCES Announce(id),
+  FOREIGN KEY (user_id) REFERENCES User(id)
+);
+
+CREATE TABLE IF NOT EXISTS AnnounceImage (
+  id INTEGER PRIMARY KEY,
+  announce_id INTEGER,
+  image TEXT,
+  FOREIGN KEY (announce_id) REFERENCES Announce(id)
+);
+
 CREATE TABLE IF NOT EXISTS UserAnnounce (
   id INTEGER PRIMARY KEY,
   user_id INTEGER,

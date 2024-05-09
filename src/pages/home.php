@@ -9,6 +9,7 @@
     <script src="../../scripts/theme.js"></script>
 
     <link rel="stylesheet" href="../../styles/home.css" onload="load_theme()">
+    <link rel="stylesheet" href="../../styles/main-header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 

@@ -1,0 +1,92 @@
+@import url("./global.css");
+
+.main-container {
+  display: flex;
+  margin-top: 120px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.checked {
+  color: orange;
+}
+
+.gallery {
+  display: flex;
+  width: 600px;
+  min-width: 600px;
+  position: relative;
+}
+
+@media screen and (min-width: 600px) {
+  .gallery {
+    padding-top: 400px;
+  }
+}
+
+.gallery-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.gallery-thumb {
+  padding-top: 6px;
+  margin: 6px;
+  display: block;
+}
+
+.gallery-selector {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.gallery-selector:checked + .gallery-img {
+  opacity: 1;
+}
+
+.gallery-selector:checked ~ .gallery-thumb > img {
+  box-shadow: 0 0 0 3px var(--secondary);
+}
+
+.quick-view {
+  margin-left: 5%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-view .main-infos {
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-view .main-infos h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.quick-view .main-infos i {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.quick-view hr {
+  margin: 20px 0;
+  width: 100%;
+  color: var(--text);
+}
+
+.quick-view .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary);
+}

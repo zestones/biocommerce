@@ -70,6 +70,32 @@ function generate_star($rating)
     return $stars;
 }
 
+function get_announce_by_id($id)
+{
+    global $pdo;
+
+    $query = "SELECT * FROM Announce WHERE id = :id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+
+    $announce = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $announce;
+}
+
+function get_announce_category($id_announce)
+{
+    global $pdo;
+
+    $query = 'SELECT * FROM Category WHERE id IN (SELECT id_category FROM Announce WHERE id = :id_announce)';
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':id_announce', $id_announce);
+    $stmt->execute();
+
+    $category = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $category;
+}
+
 function get_saved_announce($user_id)
 {
     global $pdo;
@@ -102,7 +128,9 @@ function display_announce($announce)
     $saved_announce = get_saved_announce($_SESSION['user_id']);
     foreach ($announce as $row) {
         $is_saved = _is_announce_saved_by_user($row, $saved_announce);
-        echo "<div class='announce' id='" . $row['id'] . "-announce'";
+        echo "<a  
+                  class='announce' id='" . $row['id'] . "-announce' 
+                  href='../pages/announce-view.php?id=" . $row['id'] . "'";
         if ($is_saved) {
             echo " style='border: 1px solid var(--secondary); box-shadow: 0 0 5px var(--secondary);'";
         }
@@ -121,9 +149,8 @@ function display_announce($announce)
         echo "<button class='wish'><i class='fa fa-heart'></i></button>";
         echo "</div>";
         echo "</div>";
-        echo "</div>";
+        echo "</a>";
     }
 }
-
 
 ?>
