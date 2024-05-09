@@ -426,7 +426,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .announce:hover {
-  box-shadow: 0 0 5px var(--secondary);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   border: 1px solid var(--secondary);
   cursor: pointer;
 }

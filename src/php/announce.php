@@ -44,9 +44,6 @@ function get_filtered_announce($categories = [], $keyword = '', $minPrice, $maxP
     return $announce;
 }
 
-
-
-
 function get_all_announce()
 {
     global $pdo;
@@ -73,10 +70,43 @@ function generate_star($rating)
     return $stars;
 }
 
+function get_saved_announce($user_id)
+{
+    global $pdo;
+
+    $query = "SELECT * FROM Announce WHERE id IN (SELECT announce_id FROM UserSaved WHERE user_id = :user_id)";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->execute();
+
+    $announce = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $announce;
+}
+
+
+function _is_announce_saved_by_user($announce, $saved_announce)
+{
+    $is_saved = false;
+    foreach ($saved_announce as $saved_row) {
+        if ($announce["id"] === $saved_row["id"]) {
+            $is_saved = true;
+            break;
+        }
+    }
+
+    return $is_saved;
+}
+
 function display_announce($announce)
 {
+    $saved_announce = get_saved_announce($_SESSION['user_id']);
     foreach ($announce as $row) {
-        echo "<div class='announce' id='" . $row['id'] . "-announce'>";
+        $is_saved = _is_announce_saved_by_user($row, $saved_announce);
+        echo "<div class='announce' id='" . $row['id'] . "-announce'";
+        if ($is_saved) {
+            echo " style='border: 1px solid var(--secondary); box-shadow: 0 0 5px var(--secondary);'";
+        }
+        echo ">";
         echo "<img src='../public/patate.png' alt='product'>";
         echo "<div class='infos'>";
         echo "<div class='details'>";
@@ -94,5 +124,6 @@ function display_announce($announce)
         echo "</div>";
     }
 }
+
 
 ?>

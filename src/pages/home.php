@@ -119,6 +119,7 @@
 
         <div class="announce-section">
             <?php
+            session_start();
             require '../php/announce.php';
 
             $announce = get_all_announce();

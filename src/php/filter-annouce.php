@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include '../php/announce.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

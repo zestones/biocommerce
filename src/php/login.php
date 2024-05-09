@@ -2,6 +2,8 @@
 
 require './pdo.php';
 
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -13,16 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
 
     if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        session_start();
         $_SESSION['user_id'] = $row['id'];
-        $_SESSION['username'] = $row['username'];
+        $_SESSION['email'] = $row['email'];
+
+        echo 'user id \'' . $_SESSION['user_id'] . '\'<br>';
+        echo 'email \'' . $_SESSION['email'] . '\'<br>';
 
         header('Location: ../pages/home.php');
-        exit();
     } else {
         http_response_code(400);
         echo "Invalid email or password";
-        exit();
     }
 }
 ?>
