@@ -64,7 +64,7 @@ function generate_star($rating)
 function display_announce($announce)
 {
     foreach ($announce as $row) {
-        echo "<div class='announce'>";
+        echo "<div class='announce' id='" . $row['id'] . "-announce'>";
         echo "<img src='../public/patate.png' alt='product'>";
         echo "<div class='infos'>";
         echo "<div class='details'>";

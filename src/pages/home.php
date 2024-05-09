@@ -101,8 +101,8 @@
                 <h3>Price Range</h3>
                 <div class="slide-container">
                     <div class="slider-track"></div>
-                    <input type="range" min="0" max="100" value="30" id="slider-1" oninput="slideOne()">
-                    <input type="range" min="0" max="100" value="70" id="slider-2" oninput="slideTwo()">
+                    <input type="range" min="0" max="1000" value="30" id="slider-1" oninput="slideOne()">
+                    <input type="range" min="0" max="1000" value="700" id="slider-2" oninput="slideTwo()">
                 </div>
 
                 <div class="values">
@@ -118,12 +118,12 @@
         </div>
 
         <div class="announce-section">
-            <!-- <?php
-            // require '../php/announce.php';
-            
-            // $announce = get_all_announce();
-            // display_announce($announce);
-            ?> -->
+            <?php
+            require '../php/announce.php';
+
+            $announce = get_all_announce();
+            display_announce($announce);
+            ?>
         </div>
 </body>
 
