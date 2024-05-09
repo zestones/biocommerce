@@ -63,6 +63,11 @@
                 </div>
             </div>
 
+            <div class="number-results">
+                <span id="number-results">(10)</span>
+                <span>Results Found</span>
+            </div>
+
             <div class="view-section">
                 <button onclick="view('grid')">
                     <i class="fa fa-th"></i>

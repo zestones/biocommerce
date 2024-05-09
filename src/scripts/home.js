@@ -92,3 +92,12 @@ function view(type) {
         }
     });
 }
+
+// number results
+function numberResults() {
+    const results = document.querySelectorAll('.announce').length;
+    const numberResults = document.getElementById('number-results');
+    numberResults.textContent = "(" + results + ")";
+}
+
+numberResults();

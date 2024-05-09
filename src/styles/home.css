@@ -101,6 +101,57 @@ header .user a i {
   width: 75%;
 }
 
+.container-options .centered-options .sort {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.container-options .centered-options .sort .sort-btn {
+  background-color: var(--primary);
+  color: var(--text);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.container-options .centered-options .sort .sort-section {
+  display: none;
+  position: absolute;
+  background-color: var(--primary);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.container-options .centered-options .sort .sort-section button {
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  border: none;
+  background-color: var(--primary);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.container-options .centered-options .sort .sort-section button:hover {
+  background-color: var(--secondary);
+}
+
+.container-options .centered-options .sort .sort-section.show {
+  display: block;
+}
+
+.container-options .centered-options .number-results {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.container-options .centered-options .number-results #number-results {
+  font-weight: bold;
+}
+
 .container-options span {
   display: flex;
   justify-content: flex-start;
@@ -310,46 +361,6 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .values {
   margin-top: 22px;
-}
-
-.sort {
-  position: relative;
-  display: inline-block;
-}
-
-.sort-btn {
-  background-color: var(--primary);
-  color: var(--text);
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.sort-section {
-  display: none;
-  position: absolute;
-  background-color: var(--primary);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.sort-section button {
-  width: 100%;
-  padding: 12px 16px;
-  text-align: left;
-  border: none;
-  background-color: var(--primary);
-  color: var(--text);
-  cursor: pointer;
-}
-
-.sort-section button:hover {
-  background-color: var(--secondary);
-}
-
-.sort-section.show {
-  display: block;
 }
 
 .announce-section {
