@@ -101,3 +101,35 @@ function numberResults() {
 }
 
 numberResults();
+
+
+function updateAnnouncements() {
+    const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked'))
+        .map(checkbox => checkbox.id.replace("-category", ""));
+
+    const minPrice = document.getElementById('slider-1').value;
+    const maxPrice = document.getElementById('slider-2').value;
+
+    console.log(selectedCategories, minPrice, maxPrice);
+
+    fetch('../php/filter-annouce.php', {
+        method: 'POST',
+        body: JSON.stringify({
+            category: selectedCategories,
+            minPrice: minPrice,
+            maxPrice: maxPrice
+        }),
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector('.announce-section').innerHTML = data;
+            numberResults();
+        })
+        .catch(error => console.error('Error:', error));
+
+}
+
+document.querySelectorAll('input[name="category"], #slider-1, #slider-2').forEach(input => {
+    input.addEventListener('change', updateAnnouncements);
+});

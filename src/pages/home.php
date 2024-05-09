@@ -118,17 +118,16 @@
         </div>
 
         <div class="announce-section">
-            <?php
-            require '../php/announce.php';
-
-            $announce = get_all_announce();
-            display_announce($announce);
-            ?>
+            <!-- <?php
+            // require '../php/announce.php';
+            
+            // $announce = get_all_announce();
+            // display_announce($announce);
+            ?> -->
         </div>
 </body>
 
 <script src="../../scripts/slider.js"></script>
-<script src="../../scripts/stars.js"></script>
 <script src="../../scripts/home.js"></script>
 
 </html>

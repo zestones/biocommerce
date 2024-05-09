@@ -1,6 +1,40 @@
 <?php
 require '../php/pdo.php';
 
+function get_filtered_announce($categories = [], $minPrice, $maxPrice)
+{
+    global $pdo;
+
+    $categoryCondition = '';
+    if (!empty($categories)) {
+        $categoryPlaceholders = implode(',', array_fill(0, count($categories), '?'));
+        $categoryCondition = "AND id_category IN ($categoryPlaceholders)";
+    }
+
+    $query = "SELECT * FROM Announce 
+              WHERE 1=1
+              $categoryCondition
+              AND price >= :minPrice 
+              AND price <= :maxPrice";
+
+    $stmt = $pdo->prepare($query);
+
+    // Bind category IDs
+    foreach ($categories as $key => $category) {
+        $stmt->bindValue($key + 1, $category, PDO::PARAM_INT);
+    }
+
+    $stmt->bindParam(':minPrice', $minPrice);
+    $stmt->bindParam(':maxPrice', $maxPrice);
+
+    $stmt->execute();
+    $announce = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $announce;
+}
+
+
+
 function get_all_announce()
 {
     global $pdo;

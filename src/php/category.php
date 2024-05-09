@@ -19,7 +19,7 @@ function display_categories($categories)
     foreach ($categories as $category) {
 
         echo "<span>";
-        echo "<input type='checkbox' id='" . $category['name'] . "' name='category' value='" . $category['name'] . "'>";
+        echo "<input type='checkbox' id='" . $category['id'] . "-category' name='category' value='" . $category['name'] . "'>";
         echo "<label for='" . $category['name'] . "'>" . $category['name'] . "</label>";
         echo "</span>";
     }
