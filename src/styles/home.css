@@ -185,9 +185,8 @@ header .user a i {
 }
 
 hr.separator {
-  width: 75%;
-  border: 2px solid var(--secondary);
-  margin-right: auto;
+  width: 100%;
+  border: 1px solid var(--text);
 }
 
 .price-section {
