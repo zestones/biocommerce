@@ -59,3 +59,36 @@ function sort(criteria) {
     var sortSection = document.querySelector('.sort-section');
     sortSection.classList.remove('show');
 }
+
+
+function view(type) {
+    const announceContainers = document.querySelectorAll('.announce');
+    const viewButtons = document.querySelectorAll('.view button');
+
+    if (type === 'grid') {
+        announceContainers.forEach(container => {
+            container.style.flexDirection = 'column';
+            container.style.minWidth = '250px';
+            container.style.height = '350px';
+        });
+    } else if (type === 'list') {
+        announceContainers.forEach(container => {
+            container.style.flexDirection = 'row';
+            container.style.minWidth = '100%';
+            container.style.width = '100%';
+            container.style.height = '150px';
+        });
+        const detailsh4 = document.querySelectorAll('.details h4');
+        detailsh4.forEach(h4 => {
+            h4.style.marginTop = '0';
+        });
+    }
+
+    // Toggle active class for view buttons
+    viewButtons.forEach(button => {
+        button.classList.remove('active');
+        if (button.dataset.view === type) {
+            button.classList.add('active');
+        }
+    });
+}

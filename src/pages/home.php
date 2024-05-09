@@ -16,7 +16,7 @@
     <header>
         <a href="#"><img src="../../assets/logo/agrovia-green.png" alt="logo"></a>
         <div class="search-bar">
-            <form action="../../php/search-product.php">
+            <form action="../../php/search-product.php" method="GET">
                 <span>
                     <i class="fa fa-search"></i>
                     <input type="text" name="search" id="search" placeholder="Search for products">
@@ -51,20 +51,31 @@
             </button>
         </span>
 
-        <div class="sort">
-            <button class="sort-btn" onclick="toggleSort()">
-                Sort <i class="fa fa-sort"></i>
-            </button>
+        <div class="centered-options">
+            <div class="sort">
+                <button class="sort-btn" onclick="toggleSort()">
+                    Sort <i class="fa fa-sort"></i>
+                </button>
 
-            <div class="sort-section">
-                <button onclick="sort('price')">Price</button>
-                <button onclick="sort('rating')">Rating</button>
+                <div class="sort-section">
+                    <button onclick="sort('price')">Price</button>
+                    <button onclick="sort('rating')">Rating</button>
+                </div>
+            </div>
+
+            <div class="view-section">
+                <button onclick="view('grid')">
+                    <i class="fa fa-th"></i>
+                </button>
+                <button onclick="view('list')">
+                    <i class="fa fa-list"></i>
+                </button>
             </div>
         </div>
+
     </div>
 
     <div class="container">
-
         <div class="filter">
             <div class="categories-section">
 
@@ -91,9 +102,12 @@
 
                 <div class="values">
                     <span>Price: </span>
-                    <span id="range1">0</span>
-                    <span> &dash; </span>
-                    <span id="range2">100</span>
+                    <strong>
+                        <span id="range1">0</span>
+                        <span> &dash; </span>
+                        <span id="range2">100</span>
+                    </strong>
+
                 </div>
             </div>
         </div>
@@ -105,7 +119,6 @@
             $announce = get_all_announce();
             display_announce($announce);
             ?>
-
         </div>
 </body>
 
