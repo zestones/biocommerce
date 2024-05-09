@@ -54,55 +54,12 @@
 
                 <h3>All Categories</h3>
                 <div class="categories">
-                    <span>
-                        <input type="checkbox" id="fruits" name="category" value="fruits">
-                        <label for="fruits">Fruits</label>
-                    </span>
+                    <?php
+                    require '../php/category.php';
 
-                    <span>
-                        <input type="checkbox" id="vegetables" name="category" value="vegetables">
-                        <label for="vegetables">Vegetables</label>
-                    </span>
-
-                    <span>
-                        <input type="checkbox" id="dairy" name="category" value="dairy">
-                        <label for="dairy">Dairy</label>
-                    </span>
-
-                    <span>
-                        <input type="checkbox" id="meat" name="category" value="meat">
-                        <label for="meat">Meat</label>
-                    </span>
-
-                    <span>
-                        <input type="checkbox" id="fish" name="category" value="fish">
-                        <label for="fish">Fish</label>
-                    </span>
-
-                    <span>
-                        <input type="checkbox" id="bakery" name="category" value="bakery">
-                        <label for="bakery">Bakery</label>
-                    </span>
-
-                    <span>
-                        <input type="checkbox" id="cereals" name="category" value="cereals">
-                        <label for="cereals">Cereals</label>
-                    </span>
-
-                    <span>
-                        <input type="checkbox" id="spices" name="category" value="spices">
-                        <label for="spices">Spices</label>
-                    </span>
-
-                    <span>
-                        <input type="checkbox" id="drinks" name="category" value="drinks">
-                        <label for="drinks">Drinks</label>
-                    </span>
-
-                    <span>
-                        <input type="checkbox" id="others" name="category" value="others">
-                        <label for="others">Others</label>
-                    </span>
+                    $categories = get_all_categories();
+                    display_categories($categories);
+                    ?>
                 </div>
             </div>
 
