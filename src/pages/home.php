@@ -125,9 +125,8 @@
             display_announce($announce);
             ?>
         </div>
+        <script src="../../scripts/slider.js"></script>
+        <script src="../../scripts/home.js"></script>
 </body>
-
-<script src="../../scripts/slider.js"></script>
-<script src="../../scripts/home.js"></script>
 
 </html>
