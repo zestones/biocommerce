@@ -35,7 +35,7 @@ function display_announce($announce)
         echo "<div class='infos'>";
         echo "<div class='details'>";
         echo "<h4>" . $row['title'] . "</h4>";
-        echo "<span>" . $row['price'] . "€</span>";
+        echo "<span class='price'>" . $row['price'] . "€</span>";
         echo "<span class='rating '>";
         echo generate_star($row['rating']);
         echo "</span>";

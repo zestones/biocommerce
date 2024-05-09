@@ -44,12 +44,28 @@
 
     <div class="separator-background"></div>
 
-    <div class="container">
-
-        <div class="filter">
+    <div class="container-options">
+        <span>
             <button class="filter-btn" onclick="toggleDropdown()">
                 Filter <i class="fa fa-filter"></i>
             </button>
+        </span>
+
+        <div class="sort">
+            <button class="sort-btn" onclick="toggleSort()">
+                Sort <i class="fa fa-sort"></i>
+            </button>
+
+            <div class="sort-section">
+                <button onclick="sort('price')">Price</button>
+                <button onclick="sort('rating')">Rating</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="filter">
             <div class="categories-section">
 
                 <h3>All Categories</h3>
@@ -95,5 +111,6 @@
 
 <script src="../../scripts/slider.js"></script>
 <script src="../../scripts/stars.js"></script>
+<script src="../../scripts/home.js"></script>
 
 </html>

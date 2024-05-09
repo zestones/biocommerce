@@ -18,6 +18,7 @@ function slideOne() {
     displayValOne.textContent = sliderOne.value;
     fillColor();
 }
+
 function slideTwo() {
     if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
         sliderTwo.value = parseInt(sliderOne.value) + minGap;
@@ -25,6 +26,7 @@ function slideTwo() {
     displayValTwo.textContent = sliderTwo.value;
     fillColor();
 }
+
 function fillColor() {
     percent1 = (sliderOne.value / sliderMaxValue) * 100;
     percent2 = (sliderTwo.value / sliderMaxValue) * 100;
