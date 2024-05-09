@@ -1,7 +1,7 @@
 <?php
 require '../php/pdo.php';
 
-function get_filtered_announce($categories = [], $minPrice, $maxPrice)
+function get_filtered_announce($categories = [], $keyword = '', $minPrice, $maxPrice)
 {
     global $pdo;
 
@@ -11,9 +11,15 @@ function get_filtered_announce($categories = [], $minPrice, $maxPrice)
         $categoryCondition = "AND id_category IN ($categoryPlaceholders)";
     }
 
+    $keywordCondition = '';
+    if (!empty($keyword)) {
+        $keywordCondition = "AND (title LIKE :keyword OR description LIKE :keyword)";
+    }
+
     $query = "SELECT * FROM Announce 
               WHERE 1=1
               $categoryCondition
+              $keywordCondition
               AND price >= :minPrice 
               AND price <= :maxPrice";
 
@@ -24,6 +30,11 @@ function get_filtered_announce($categories = [], $minPrice, $maxPrice)
         $stmt->bindValue($key + 1, $category, PDO::PARAM_INT);
     }
 
+    // Bind keyword parameter if it's not empty
+    if (!empty($keyword)) {
+        $stmt->bindValue(':keyword', '%' . $keyword . '%');
+    }
+
     $stmt->bindParam(':minPrice', $minPrice);
     $stmt->bindParam(':maxPrice', $maxPrice);
 
@@ -32,6 +43,7 @@ function get_filtered_announce($categories = [], $minPrice, $maxPrice)
 
     return $announce;
 }
+
 
 
 

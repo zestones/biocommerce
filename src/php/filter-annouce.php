@@ -13,11 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $categories = isset($requestData['category']) ? $requestData['category'] : array();
     $minPrice = isset($requestData['minPrice']) ? $requestData['minPrice'] : 0;
     $maxPrice = isset($requestData['maxPrice']) ? $requestData['maxPrice'] : 0;
+    $keyword = isset($requestData['keyword']) ? $requestData['keyword'] : '';
 
-    if (count($categories) == 0 and $minPrice == 0 and $maxPrice == 0) {
+    if (count($categories) == 0 and $minPrice == 0 and $maxPrice == 0 and $keyword == '') {
         $announce = get_all_announce();
     } else {
-        $announce = get_filtered_announce($categories, $minPrice, $maxPrice);
+        $announce = get_filtered_announce($categories, $keyword, $minPrice, $maxPrice);
     }
 
     if (count($announce) > 0) {

@@ -16,14 +16,14 @@
     <header>
         <a href="#"><img src="../../assets/logo/agrovia-green.png" alt="logo"></a>
         <div class="search-bar">
-            <form action="../../php/search-product.php" method="GET">
-                <span>
-                    <i class="fa fa-search"></i>
-                    <input type="text" name="search" id="search" placeholder="Search for products">
-                </span>
+            <span>
+                <i class="fa fa-search"></i>
+                <input type="text" name="search" id="search" placeholder="Search for products"
+                    onkeydown="if(event.keyCode === 13) search()">
+            </span>
+            </span>
 
-                <button type="submit">Search</button>
-            </form>
+            <button onclick="search()">Search</button>
         </div>
 
         <!-- wishlist/cart/user -->

@@ -103,27 +103,29 @@ function numberResults() {
 numberResults();
 
 
-function updateAnnouncements() {
+function search() {
     const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked'))
         .map(checkbox => checkbox.id.replace("-category", ""));
 
     const minPrice = document.getElementById('slider-1').value;
     const maxPrice = document.getElementById('slider-2').value;
 
-    console.log(selectedCategories, minPrice, maxPrice);
+    const keyword = document.getElementById('search').value;
 
     fetch('../php/filter-annouce.php', {
         method: 'POST',
         body: JSON.stringify({
             category: selectedCategories,
             minPrice: minPrice,
-            maxPrice: maxPrice
+            maxPrice: maxPrice,
+            keyword: keyword
         }),
         headers: { 'Content-Type': 'application/json' }
     })
         .then(response => response.text())
         .then(data => {
             document.querySelector('.announce-section').innerHTML = data;
+            document.getElementById('search').value = '';
             numberResults();
         })
         .catch(error => console.error('Error:', error));
@@ -131,5 +133,5 @@ function updateAnnouncements() {
 }
 
 document.querySelectorAll('input[name="category"], #slider-1, #slider-2').forEach(input => {
-    input.addEventListener('change', updateAnnouncements);
+    input.addEventListener('change', search);
 });
