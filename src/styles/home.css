@@ -101,12 +101,6 @@ header .user a i {
   width: 75%;
 }
 
-.container-options .centered-options .sort {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
 .container-options .centered-options .sort .sort-btn {
   background-color: var(--primary);
   color: var(--text);
