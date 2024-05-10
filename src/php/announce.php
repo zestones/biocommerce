@@ -110,6 +110,21 @@ function get_saved_announce($user_id)
 }
 
 
+function is_announce_in_wish_list($annouce_id)
+{
+    global $pdo;
+
+    $query = "SELECT * FROM UserSaved WHERE user_id = :user_id AND announce_id = :announce_id";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $_SESSION['user_id']);
+    $stmt->bindParam(':announce_id', $annouce_id);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result !== false;
+}
+
 function _is_announce_saved_by_user($announce, $saved_announce)
 {
     $is_saved = false;

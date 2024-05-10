@@ -48,8 +48,11 @@
     <div class="main-container">
         <?php
         require "../php/announce.php";
+        session_start();
+
         $announce = get_announce_by_id($_GET['id']);
         $category = get_announce_category($_GET['id']);
+        $is_saved = is_announce_in_wish_list($_GET['id']);
         ?>
 
         <section class="gallery">
@@ -102,9 +105,21 @@
                     <button class="decrement" onclick="increment()">+</button>
                 </div>
 
-                <button class="cart"><i class="fa fa-shopping-cart"></i></button>
-                <button class="wish"><i class="fa fa-heart"></i></button>
+                <button class="cart">Add to Cart<i class="fa fa-shopping-cart"></i></button>
+                <button class="wish">
+                    <i class="fa fa-heart" style="<?php if ($is_saved)
+                        echo "color: var(--secondary);" ?>"></i>
+                    </button>
+                </div>
+
+                <hr>
+                <div class="category">
+                    <span>
+                        <strong>Category:</strong>
+                    <?php echo "<span>" . $category['name'] . "</span>" ?>
+                </span>
             </div>
+
         </section>
     </div>
 
