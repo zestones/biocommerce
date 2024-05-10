@@ -14,6 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const showMoreButton = document.createElement('button');
     showMoreButton.classList.add('show-more-button');
 
+    // if there is not enough feedbacks to show the button, we don't show it
+    if (feedbackItems.length <= 3) {
+        return;
+    }
+
     let start = 3;
     let limit = 3;
 
