@@ -15,7 +15,7 @@
 
 <body>
     <header>
-        <a href="#"><img src="../../assets/logo/agrovia-green.png" alt="logo"></a>
+        <a href="../pages/home.php"><img src="../../assets/logo/agrovia-green.png" alt="logo"></a>
         <div class="search-bar">
             <span>
                 <i class="fa fa-search"></i>
@@ -113,6 +113,7 @@
                 </div>
 
                 <hr>
+
                 <div class="category">
                     <span>
                         <strong>Category:</strong>
@@ -121,6 +122,16 @@
             </div>
 
         </section>
+    </div>
+
+    <div class="detail-container">
+        <div class="details">
+            <h2>Details</h2>
+            <ul>
+                <li><strong>Stock:</strong> <?php echo $announce['quantity'] ?></li>
+                <li><strong>Rating:</strong> <?php echo $announce['rating'] ?></li>
+            </ul>
+        </div>
     </div>
 
     <script src="../../scripts/announce.js"></script>

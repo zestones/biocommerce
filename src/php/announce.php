@@ -109,7 +109,6 @@ function get_saved_announce($user_id)
     return $announce;
 }
 
-
 function is_announce_in_wish_list($annouce_id)
 {
     global $pdo;

@@ -15,7 +15,7 @@
 
 <body>
     <header>
-        <a href="#"><img src="../../assets/logo/agrovia-green.png" alt="logo"></a>
+        <a href="../pages/home.php"><img src="../../assets/logo/agrovia-green.png" alt="logo"></a>
         <div class="search-bar">
             <span>
                 <i class="fa fa-search"></i>
