@@ -40,3 +40,55 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add the show more button after the last displayed item
     feedbackSection.appendChild(showMoreButton);
 });
+
+
+function submit_feedback() {
+    const textArea = document.getElementById('feedback');
+
+    fetch('../php/submit-feedback.php', {
+        method: 'POST',
+        body: JSON.stringify({ feedback: textArea.value }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            const feedbackSection = document.querySelector('.feedback-section');
+            const feedbackItem = document.createElement('div');
+            feedbackItem.classList.add('feedback-item');
+            feedbackItem.textContent = data.feedback;
+            feedbackSection.insertBefore(feedbackItem, feedbackSection.firstChild);
+            textArea.value = '';
+        });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const stars = document.querySelectorAll('.rating-stars .fa-star');
+    let rating = 0;
+
+    stars.forEach((star, index) => {
+        star.addEventListener('mouseenter', () => {
+            highlightStars(index);
+        });
+
+        star.addEventListener('mouseleave', () => {
+            highlightStars(rating - 1);
+        });
+
+        star.addEventListener('click', () => {
+            rating = index + 1;
+            highlightStars(index);
+        });
+    });
+
+    function highlightStars(index) {
+        stars.forEach((star, i) => {
+            if (i <= index) {
+                star.style.color = 'orange';
+            } else {
+                star.style.color = '';
+            }
+        });
+    }
+});

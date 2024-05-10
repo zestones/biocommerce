@@ -137,8 +137,16 @@
 
         <section class="add-feedback">
             <h3>Add your feedback</h3>
-            <textarea name="feedback" id="feedback" cols="30" rows="10"></textarea>
-            <button>Submit</button>
+            <div class="rating-stars">
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star'></i>
+            </div>
+            <textarea name="feedback" id="feedback" cols="30" rows="10"
+                placeholder="Write your feedback here..."></textarea>
+            <button onclick="submit_feedback()">Submit</button>
         </section>
     </div>
 

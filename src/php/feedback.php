@@ -18,6 +18,10 @@ function get_feedback_by_announce_id($id_announce)
 
 function display_feedback($feedback)
 {
+    usort($feedback, function ($a, $b) {
+        return strtotime($b['date']) - strtotime($a['date']);
+    });
+
     foreach ($feedback as $comment) {
         $user = get_user_by_id($comment['user_id']);
 

@@ -201,6 +201,7 @@ hr.feedback-separator {
 .customer-feedback .feedback-section .feedback-item .user-infos .user-details {
   margin-left: 15px;
 }
+
 .customer-feedback
   .feedback-section
   .feedback-item
@@ -230,25 +231,36 @@ hr.feedback-separator {
 }
 
 .customer-feedback .add-feedback {
-  width: 45%;
+  width: 40%;
+  height: 450px;
   margin: 0 auto;
   padding: 25px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  position: sticky;
+  z-index: 1000;
+
+  top: 25%;
 }
 
 .customer-feedback .add-feedback h3 {
   text-align: center;
   font-size: 1.2rem;
   margin-bottom: 20px;
+  color: var(--primary);
 }
 
 .customer-feedback .add-feedback textarea {
   width: 100%;
-  height: 150px;
+  height: 55%;
   padding: 10px;
   font-size: 1rem;
-  border: 1px solid var(--text);
+  border: 1px solid #ddd;
+  resize: none;
   border-radius: 5px;
-  resize: vertical;
+  margin-bottom: 20px;
 }
 
 .customer-feedback .add-feedback textarea:focus {
@@ -261,18 +273,30 @@ hr.feedback-separator {
   padding: 10px 20px;
   font-size: 1rem;
   background-color: var(--secondary);
-  width: 55%;
   color: white;
   border: none;
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 20px;
-  margin-left: 22%;
+  width: 100%;
 }
 
-.customer-feedback .add-feedback button:hover {
-  background-color: var(--secondary-dark);
+.customer-feedback .add-feedback .rating-stars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.customer-feedback .add-feedback .rating-stars .fa-star {
+  font-size: 1.5rem;
+  color: #ccc;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.customer-feedback .add-feedback .rating-stars .fa-star:hover,
+.customer-feedback .add-feedback .rating-stars .fa-star.active {
+  color: orange;
 }
 
 .show-more-button {
