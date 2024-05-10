@@ -74,7 +74,11 @@ function display_feedback($feedback)
         echo '<div class="message">';
         echo '<p>' . $comment['comment'] . '</p>';
         echo '</div>';
-        echo '<div class="delete-feedback" onclick="delete_feedback(' . $comment['id'] . ')">&times;</div>';
+
+        if ($comment['user_id'] == $_SESSION['user_id']) {
+            echo '<div class="delete-feedback" onclick="delete_feedback(' . $comment['id'] . ')">&times;</div>';
+        }
+
         echo '<div class="date">';
         echo '<span>' . $comment['date'] . '</span>';
         echo '</div>';
