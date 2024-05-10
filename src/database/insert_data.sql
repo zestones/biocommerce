@@ -57,3 +57,13 @@ VALUES (2, 1, "The smartphone is amazing! It has a stunning display, powerful pe
        (2, 1, "The smartwatch is packed with useful features. It tracks my fitness activities and keeps me connected with notifications. I'm very satisfied with it.", 4),
        (2, 2, "The jacket is stylish and versatile. It's a great addition to my wardrobe and I receive compliments whenever I wear it.", 5),
        (2, 1, "The science fiction novel is imaginative and thought-provoking. The world-building is impressive and the story is engaging from start to finish.", 4);
+
+    -- Insert sample data into AnnounceImage table
+    INSERT INTO AnnounceImage (announce_id, image)
+    VALUES (1, '../public/1/announce/salade.png'),
+           (1, '../public/1/announce/pomme.png'),
+           (1, '../public/1/announce/choux-fleur.png'),
+           (2, '../public/1/announce/salade.png'),
+           (2, '../public/1/announce/pomme.png'),
+           (2, '../public/1/announce/choux-fleur.png');
+           
