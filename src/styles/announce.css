@@ -223,11 +223,17 @@ hr.feedback-separator {
 }
 
 .customer-feedback .feedback-section .feedback-item .date {
-  font-size: 0.8rem;
-  color: var(--text);
   position: absolute;
   right: 0;
-  top: 10px;
+  top: 30px;
+}
+.customer-feedback .feedback-section .feedback-item .delete-feedback {
+  font-size: 2rem;
+  color: var(--error);
+  position: absolute;
+  right: 0;
+  top: -5px;
+  cursor: pointer;
 }
 
 .customer-feedback .add-feedback {

@@ -64,6 +64,7 @@ function display_feedback($feedback)
         echo '<div class="message">';
         echo '<p>' . $comment['comment'] . '</p>';
         echo '</div>';
+        echo '<div class="delete-feedback" onclick="deleteFeedback(' . $comment['id'] . ')">&times;</div>';
         echo '<div class="date">';
         echo '<span>' . $comment['date'] . '</span>';
         echo '</div>';
