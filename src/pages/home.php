@@ -47,7 +47,7 @@
 
     <div class="container-options">
         <span class="create-announce">
-            <a href="../pages/create-announce.html" class="create-announce-btn" onclick="createAnnounce()">
+            <a href="../pages/create-announce.php" class="create-announce-btn" onclick="createAnnounce()">
                 Create Announce <i class="fa fa-plus"></i>
             </a>
         </span>
