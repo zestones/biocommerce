@@ -93,20 +93,22 @@
                 <p><?php echo $announce['description'] ?></p>
             </div>
 
-            <div class="actions">
+            <hr>
 
+            <div class="actions">
                 <div class="manage-quantity">
-                    <button onclick="decrement()">-</button>
-                    <input type="number" name="quantity" id="quantity" value="1" min="1">
-                    <button onclick="increment()">+</button>
+                    <button class="increment" onclick="decrement()">-</button>
+                    <span id="count">0</span>
+                    <button class="decrement" onclick="increment()">+</button>
                 </div>
 
                 <button class="cart"><i class="fa fa-shopping-cart"></i></button>
                 <button class="wish"><i class="fa fa-heart"></i></button>
             </div>
-
         </section>
     </div>
+
+    <script src="../../scripts/announce.js"></script>
 </body>
 
 </html>
