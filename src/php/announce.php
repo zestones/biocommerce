@@ -199,7 +199,14 @@ function display_announce($announce)
             echo " style='border: 1px solid var(--secondary); box-shadow: 0 0 5px var(--secondary);'";
         }
         echo ">";
-        echo "<img src='../public/patate.png' alt='product'>";
+
+        $image = get_announce_images_by_id($row["id"]);
+        if (count($image) > 0) {
+            echo "<img src='" . $image[0] . "' alt='product'>";
+        } else {
+            echo "<img src='../public/no-image-available.jpg' alt='product'>";
+        }
+
         echo "<div class='infos'>";
         echo "<div class='details'>";
         echo "<h4>" . $row['title'] . "</h4>";

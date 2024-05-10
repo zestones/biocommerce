@@ -290,7 +290,6 @@ input[type="range"]:active::-webkit-slider-thumb {
   justify-content: flex-start;
 
   margin: 10px;
-  padding: 10px;
   min-width: 250px;
   height: 350px;
 
@@ -306,6 +305,9 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .announce img {
   height: 65%;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid var(--text);
 }
 
 .announce .infos {
@@ -313,6 +315,7 @@ input[type="range"]:active::-webkit-slider-thumb {
   width: 100%;
   align-items: center;
   position: relative;
+  padding: 0 10px;
 }
 
 .announce .infos .details {
