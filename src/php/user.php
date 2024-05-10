@@ -1,7 +1,5 @@
 <?php
 require '../php/pdo.php';
-
-
 function get_user_by_id($id_user)
 {
     global $pdo;

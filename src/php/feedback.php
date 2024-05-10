@@ -2,6 +2,34 @@
 require "../php/pdo.php";
 require "../php/user.php";
 
+function insert_new_feedback($announce_id, $rating, $comment)
+{
+    global $pdo;
+
+    $query = "INSERT INTO AnnounceComment (announce_id, user_id, comment, rating) 
+              VALUES (:announce_id, :user_id, :comment, :rating)";
+
+    $stmt = $pdo->prepare($query);
+
+    $stmt->bindParam(':announce_id', $announce_id);
+    $stmt->bindParam(':user_id', $_SESSION['user_id']);
+    $stmt->bindParam(':rating', $rating);
+    $stmt->bindParam(':comment', $comment);
+
+    $stmt->execute();
+}
+
+function get_last_inserted_feedback()
+{
+    global $pdo;
+
+    $query = "SELECT * FROM AnnounceComment WHERE id = last_insert_rowid()";
+    $stmt = $pdo->query($query);
+    $feedback = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $feedback;
+}
+
 function get_feedback_by_announce_id($id_announce)
 {
     global $pdo;
