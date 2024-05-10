@@ -13,15 +13,59 @@
   color: var(--text);
 }
 
+.submit-announce-section form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .form-group {
   margin-bottom: 20px;
+  width: 100%;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--gray);
+  font-size: 16px;
+  color: var(--text);
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-group select:focus {
+  background-color: var(--white);
+}
+
+.form-group select {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Arrow icon */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px;
+}
+
+.integer-forms {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.integer-forms .integer-group {
+  width: 45%;
 }
 
 .form-group label {
   display: block;
   font-size: 16px;
   font-weight: 500;
-  color: var(--text);
+  margin-bottom: 5px;
 }
 
 .form-group input[type="text"],
@@ -33,7 +77,11 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  color: var(--text);
+  color: var(--dark);
+
+  appearance: none;
+  outline: none;
+
   transition: border-color 0.3s ease;
 }
 
@@ -41,7 +89,7 @@
 .form-group input[type="number"]:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: #007bff;
+  border-color: var(--secondary);
 }
 
 .form-group textarea {
@@ -50,7 +98,7 @@
 
 .form-group button[type="submit"] {
   padding: 12px 20px;
-  background-color: #007bff;
+  background-color: var(--secondary);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -61,4 +109,77 @@
 
 .form-group button[type="submit"]:hover {
   background-color: #0056b3;
+}
+
+.image-section {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 25px 0;
+}
+
+.image-section .drop-zone {
+  max-width: 200px;
+  height: 200px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+  color: #cccccc;
+  border: 4px dashed #009578;
+  border-radius: 10px;
+}
+
+.image-section .drop-zone--over {
+  border-style: solid;
+}
+
+.image-section .drop-zone-input {
+  display: none;
+}
+
+.image-section .drop-zone-thumb {
+  width: 100%;
+  height: 100%;
+  min-width: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #cccccc;
+  background-size: cover;
+  position: relative;
+}
+
+.image-section .drop-zone-thumb::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 0;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.75);
+  font-size: 14px;
+  text-align: center;
+}
+
+.submit-announce-section form .submit-btn {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border-radius: 50px;
+
+  margin-top: 25px;
+  background-color: var(--secondary);
+  border: 1px solid var(--secondary);
+
+  text-decoration: none;
+  color: var(--white);
+  cursor: pointer;
 }

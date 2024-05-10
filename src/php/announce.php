@@ -44,6 +44,41 @@ function get_filtered_announce($categories = [], $keyword = '', $minPrice, $maxP
     return $announce;
 }
 
+function insert_announce($title, $description, $category_id, $price, $quantity, $images)
+{
+    global $pdo;
+
+    // Prepare the SQL statement
+    $stmt = $pdo->prepare("INSERT INTO Announce (id_category, title, description, price, quantity) VALUES (?, ?, ?, ?, ?)");
+
+    // Bind parameters
+    $stmt->bindParam(1, $category_id);
+    $stmt->bindParam(2, $title);
+    $stmt->bindParam(3, $description);
+    $stmt->bindParam(4, $price);
+    $stmt->bindParam(5, $quantity);
+
+    // Execute the statement
+    $stmt->execute();
+
+    // Get the ID of the newly inserted announce
+    $announce_id = $pdo->lastInsertId();
+
+    // Insert images into AnnounceImage table
+    foreach ($images as $image) {
+        $stmt = $pdo->prepare("INSERT INTO AnnounceImage (announce_id, image) VALUES (?, ?)");
+        $stmt->bindParam(1, $announce_id);
+        $stmt->bindParam(2, $image);
+        $stmt->execute();
+    }
+
+    $stmt = $pdo->prepare("INSERT INTO UserAnnounce (user_id, announce_id) VALUES (?, ?)");
+    $stmt->bindParam(1, $announce_id);
+    $stmt->bindParam(2, $_SESSION["user_id"]);
+    $stmt->execute();
+}
+
+
 function get_all_announce()
 {
     global $pdo;

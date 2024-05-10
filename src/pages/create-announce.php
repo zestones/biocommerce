@@ -72,24 +72,45 @@
                 <textarea name="description" id="description" rows="4" required></textarea>
             </div>
 
-            <div class="form-group">
-                <label for="price">Price:</label>
-                <input type="number" name="price" id="price" step="0.01" required>
+            <div class="integer-forms">
+                <div class="form-group integer-group">
+                    <label for="price">Price:</label>
+                    <input type="number" name="price" id="price" step="0.01" required>
+                </div>
+
+                <div class="form-group integer-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" name="quantity" id="quantity" required>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="quantity">Quantity:</label>
-                <input type="number" name="quantity" id="quantity" required>
+            <div class="image-section">
+                <div class="drop-zone">
+                    <span class="drop-zone-prompt">Drop file here or click to upload</span>
+                    <input type="file" name="pictures[]" class="drop-zone-input" accept="image/*">
+                </div>
+
+                <div class="drop-zone">
+                    <span class="drop-zone-prompt">Drop file here or click to upload</span>
+                    <input type="file" name="pictures[]" class="drop-zone-input" accept="image/*">
+                </div>
+
+                <div class="drop-zone">
+                    <span class="drop-zone-prompt">Drop file here or click to upload</span>
+                    <input type="file" name="pictures[]" class="drop-zone-input" accept="image/*">
+                </div>
+
+                <div class="drop-zone">
+                    <span class="drop-zone-prompt">Drop file here or click to upload</span>
+                    <input type="file" name="pictures[]" class="drop-zone-input" accept="image/*">
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="image-upload">Image Upload:</label>
-                <input type="file" name="image-upload" id="image-upload" accept="image/*" max-size="1048576">
-            </div>
-
-            <button type="submit">Submit</button>
+            <button class="submit-btn" type="submit">Submit</button>
         </form>
     </section>
+
+    <script src="../scripts/create-announce.js"></script>
 </body>
 
 </html>

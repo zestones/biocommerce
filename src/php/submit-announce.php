@@ -1,5 +1,8 @@
 <?php
 
+require "../php/announce.php";
+session_start();
+
 function handle_image_upload_errors()
 {
     switch ($_FILES["image-upload"]["error"]) {
@@ -31,7 +34,6 @@ function handle_image_upload_errors()
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if all required fields are filled
     if (
         isset($_POST['category'], $_POST['title'], $_POST['description'], $_POST['price'], $_POST['quantity']) &&
         !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['quantity'])
@@ -43,19 +45,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
 
-        // Handle image upload
-        $targetDir = "../public/"; // Directory where images will be stored
-        $targetFile = $targetDir . basename($_FILES["image-upload"]["name"]); // Path to store the uploaded image
+        $targetDir = "../public/";
 
-        if (move_uploaded_file($_FILES["image-upload"]["tmp_name"], $targetFile)) {
+        $images_path = [];
+        foreach ($_FILES["pictures"]["error"] as $key => $error) {
+            if ($error == UPLOAD_ERR_OK) {
+                $tmp_name = $_FILES["pictures"]["tmp_name"][$key];
+                $name = basename($_FILES["pictures"]["name"][$key]);
 
-            echo "The file " . basename($_FILES["image-upload"]["name"]) . " has been uploaded.";
-            // TODO: Execute SQL query
+                $targetFile = $targetDir . $_SESSION["user_id"] . "/announce/";
+                if (!file_exists($targetFile)) {
+                    mkdir($targetFile, 0777, true);
+                }
 
-        } else {
-            // Handle upload errors
-            handle_image_upload_errors();
+                $targetFile .= $name;
+                if (move_uploaded_file($tmp_name, $targetFile)) {
+                    $images_path[] = $targetFile;
+                } else {
+                    // Handle upload errors
+                    handle_image_upload_errors();
+                }
+            }
         }
+
+        insert_announce($title, $description, $category, $price, $quantity, $images_path);
     }
 } else {
     // Handle missing fields
