@@ -124,11 +124,12 @@ function _generate_star(rating) {
 }
 
 function createFeedbackItem(feedbackData) {
-    // Create elements for the new feedback item
+    console.log(feedbackData);
+
     const feedbackItem = document.createElement('div');
     feedbackItem.classList.add('feedback-item');
+    feedbackItem.id = "feedback-" + feedbackData.id;
 
-    // Construct the HTML structure for the feedback item
     feedbackItem.innerHTML = `
         <div class="user-infos">
         <img src="https://picsum.photos/id/1005/50/50.jpg" alt="${feedbackData["user"].name}">
@@ -140,6 +141,9 @@ function createFeedbackItem(feedbackData) {
         <div class="message">
             <p>${feedbackData.comment}</p>
         </div>
+
+        <div class="delete-feedback" onclick="delete_feedback(${feedbackData.id})">&times;</div>
+
         <div class="date">
             <span>${feedbackData.date}</span>
         </div>
