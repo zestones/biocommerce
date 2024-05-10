@@ -62,16 +62,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (move_uploaded_file($tmp_name, $targetFile)) {
                     $images_path[] = $targetFile;
                 } else {
-                    // Handle upload errors
                     handle_image_upload_errors();
                 }
             }
         }
 
         insert_announce($title, $description, $category, $price, $quantity, $images_path);
+        header('Location: ../pages/home.php');
     }
 } else {
-    // Handle missing fields
     echo "Please fill all the required fields.";
 }
 
