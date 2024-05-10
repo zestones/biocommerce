@@ -274,3 +274,19 @@ hr.feedback-separator {
 .customer-feedback .add-feedback button:hover {
   background-color: var(--secondary-dark);
 }
+
+.show-more-button {
+  display: flex;
+  justify-content: center;
+  margin-left: 10%;
+  margin-top: 20px;
+  font-size: 1rem;
+  width: 80%;
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: var(--secondary);
+  transition: background-color 0.3s ease;
+}
