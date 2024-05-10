@@ -46,10 +46,11 @@
     <div class="separator-background"></div>
 
     <div class="container-options">
-        <span>
-            <button class="filter-btn" onclick="toggleDropdown()">
-                Filter <i class="fa fa-filter"></i>
-            </button>
+        <span class="create-announce">
+            <a href="../pages/create-announce.html" class="create-announce-btn" onclick="createAnnounce()">
+                Create Announce <i class="fa fa-plus"></i>
+            </a>
+        </span>
         </span>
 
         <div class="centered-options">

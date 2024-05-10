@@ -81,13 +81,19 @@
   color: #666;
 }
 
-.filter-btn {
+.create-announce {
+  align-items: center;
+  justify-content: center !important;
+}
+
+.create-announce .create-announce-btn {
+  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 8px;
   border: none;
-  width: 100px;
+  width: 75%;
   background-color: var(--secondary);
   border-radius: 25px;
   cursor: pointer;
@@ -95,7 +101,7 @@
   transition: background-color 0.3s ease;
 }
 
-.filter-btn i {
+.create-announce .create-announce-btn i {
   margin-left: 5px;
   font-size: 16px;
   color: var(--white);
@@ -144,11 +150,11 @@
   margin-bottom: 20px;
 }
 
-.filter-btn.active + .categories {
+.create-announce .create-announce-btn.active + .categories {
   display: flex;
 }
 
-.filter-btn:hover {
+.create-announce .create-announce-btn:hover {
   background-color: var(--secondary);
 }
 
