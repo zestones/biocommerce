@@ -156,3 +156,122 @@ img {
 
   font-size: 1rem;
 }
+
+.customer-feedback {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+}
+
+h2.title-feedback {
+  text-align: center;
+}
+
+hr.feedback-separator {
+  width: 100%;
+  border: 1px solid var(--text);
+}
+
+.customer-feedback .feedback-section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 55%;
+  position: relative;
+}
+
+.customer-feedback .feedback-section .feedback-item {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  justify-content: flex-start;
+}
+
+.customer-feedback .feedback-section .feedback-item .user-infos {
+  display: flex;
+  align-items: center;
+}
+
+.customer-feedback .feedback-section .feedback-item .user-infos img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.customer-feedback .feedback-section .feedback-item .user-infos .user-details {
+  margin-left: 15px;
+}
+.customer-feedback
+  .feedback-section
+  .feedback-item
+  .user-infos
+  .user-details
+  .name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.customer-feedback .feedback-section .feedback-item .message {
+  margin-top: 5px;
+}
+
+.customer-feedback .feedback-section .feedback-item hr {
+  border: 1px solid var(--text);
+  width: 100%;
+}
+
+.customer-feedback .feedback-section .feedback-item .date {
+  font-size: 0.8rem;
+  color: var(--text);
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+.customer-feedback .add-feedback {
+  width: 45%;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+.customer-feedback .add-feedback h3 {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.customer-feedback .add-feedback textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--text);
+  border-radius: 5px;
+  resize: vertical;
+}
+
+.customer-feedback .add-feedback textarea:focus {
+  border: 1px solid var(--secondary);
+  outline: none;
+  box-shadow: 0 0 10px rgba(112, 112, 112, 0.2);
+}
+
+.customer-feedback .add-feedback button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: var(--secondary);
+  width: 55%;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  /* align */
+  margin-left: 22%;
+}
+
+.customer-feedback .add-feedback button:hover {
+  background-color: var(--secondary-dark);
+}

@@ -50,7 +50,6 @@ header .search-bar button {
   cursor: pointer;
 }
 
-/* change focus style */
 header .search-bar span input:focus {
   border: 1px solid rgba(149, 177, 173, 0.3);
   outline: none;
