@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS AnnounceComment (
   user_id INTEGER,
   comment TEXT,
   rating INTEGER,
+  date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (announce_id) REFERENCES Announce(id),
   FOREIGN KEY (user_id) REFERENCES User(id)
 );

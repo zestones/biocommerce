@@ -128,50 +128,11 @@
     <hr class="feedback-separator">
     <div class="customer-feedback">
         <section class="feedback-section">
-            <div class="feedback-item">
-                <div class="user-infos">
-                    <img src="https://picsum.photos/id/1005/50/50.jpg" alt="user">
-
-                    <div class="user-details">
-                        <div class="name">John Doe</div>
-                        <div class="rating"><?php echo generate_star(5) ?></div>
-                    </div>
-                </div>
-
-                <div class="message">
-                    <p>Great product, I recommend it! Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-                        asperiores repellat fugiat illo molestias mollitia? Harum facere animi, aliquam dicta suscipit
-                        ad, nobis itaque, exercitationem veritatis esse placeat quisquam ullam.lorem</p>
-                </div>
-
-                <div class="date">
-                    <span>12/12/2020</span>
-                </div>
-                <hr>
-            </div>
-
-            <div class="feedback-item">
-                <div class="user-infos">
-                    <img src="https://picsum.photos/id/1005/50/50.jpg" alt="user">
-
-                    <div class="user-details">
-                        <div class="name">John Doe</div>
-                        <div class="rating"><?php echo generate_star(2) ?></div>
-                    </div>
-                </div>
-
-                <div class="message">
-                    <p>Great product, I recommend it! Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-                        asperiores repellat fugiat illo molestias mollitia? Harum facere animi, aliquam dicta suscipit
-                        ad, nobis itaque, exercitationem veritatis esse placeat quisquam ullam.lorem</p>
-                </div>
-
-                <div class="date">
-                    <span>12/12/2020</span>
-                </div>
-                <hr>
-            </div>
-
+            <?php
+            require "../php/feedback.php";
+            $feedback = get_feedback_by_announce_id($_GET['id']);
+            display_feedback($feedback);
+            ?>
         </section>
 
         <section class="add-feedback">

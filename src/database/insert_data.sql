@@ -38,3 +38,22 @@ VALUES (1, 1),
 INSERT INTO UserSaved (user_id, announce_id, quantity_selected, is_in_cart, is_in_favourite)
 VALUES (1, 2, 1, 1, 0),
        (2, 1, 2, 0, 1);
+
+
+-- Insert sample data into AnnounceComment table
+INSERT INTO AnnounceComment (announce_id, user_id, comment, rating) 
+VALUES (2, 1, "The smartphone is amazing! It has a stunning display, powerful performance, and a great camera. I highly recommend it to anyone looking for a top-notch device.", 5),
+       (2, 2, "The t-shirt is super comfortable and the quality is excellent. It's my new favorite shirt!", 4),
+       (2, 1, "The novel is a captivating read. The story is well-written and keeps you hooked until the very end. I couldn't put it down!", 4),
+       (2, 2, "The laptop is incredibly fast and reliable. It handles multitasking with ease and the graphics are impressive.", 5),
+       (2, 1, "The jeans are stylish and fit perfectly. The color is exactly as shown in the picture. I'm very happy with my purchase.", 4),
+       (2, 2, "The biography is truly inspiring. It provides valuable insights into the life of a remarkable individual. Highly recommended!", 5),
+       (2, 1, "The tablet is sleek and lightweight, making it perfect for on-the-go use. The screen is sharp and the battery life is impressive.", 4),
+       (2, 2, "The dress is elegant and beautifully designed. It's perfect for special occasions and I received many compliments when I wore it.", 5),
+       (2, 1, "The self-help book is a practical guide to personal development. It offers valuable advice and strategies for achieving personal growth.", 4),
+       (2, 2, "The headphones have excellent sound quality and the wireless feature is convenient. They are comfortable to wear for extended periods of time.", 5),
+       (2, 1, "The sweater is warm and cozy, perfect for cold weather. The material is soft and the fit is great. I love wearing it!", 4),
+       (2, 2, "The mystery novel is a thrilling read. It kept me guessing until the very end. I highly recommend it to fans of the genre.", 5),
+       (2, 1, "The smartwatch is packed with useful features. It tracks my fitness activities and keeps me connected with notifications. I'm very satisfied with it.", 4),
+       (2, 2, "The jacket is stylish and versatile. It's a great addition to my wardrobe and I receive compliments whenever I wear it.", 5),
+       (2, 1, "The science fiction novel is imaginative and thought-provoking. The world-building is impressive and the story is engaging from start to finish.", 4);
