@@ -19,6 +19,16 @@ function insert_new_feedback($announce_id, $rating, $comment)
     $stmt->execute();
 }
 
+function delete_feedback_by_id($id_feedback)
+{
+    global $pdo;
+
+    $query = "DELETE FROM AnnounceComment WHERE id = :id_feedback";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':id_feedback', $id_feedback);
+    $stmt->execute();
+}
+
 function get_last_inserted_feedback()
 {
     global $pdo;
@@ -53,7 +63,7 @@ function display_feedback($feedback)
     foreach ($feedback as $comment) {
         $user = get_user_by_id($comment['user_id']);
 
-        echo '<div class="feedback-item">';
+        echo '<div class="feedback-item" id="feedback-' . $comment['id'] . '">';
         echo '<div class="user-infos">';
         echo '<img src="https://picsum.photos/id/1005/50/50.jpg" alt="' . $user['name'] . '">';
         echo '<div class="user-details">';
@@ -64,7 +74,7 @@ function display_feedback($feedback)
         echo '<div class="message">';
         echo '<p>' . $comment['comment'] . '</p>';
         echo '</div>';
-        echo '<div class="delete-feedback" onclick="deleteFeedback(' . $comment['id'] . ')">&times;</div>';
+        echo '<div class="delete-feedback" onclick="delete_feedback(' . $comment['id'] . ')">&times;</div>';
         echo '<div class="date">';
         echo '<span>' . $comment['date'] . '</span>';
         echo '</div>';

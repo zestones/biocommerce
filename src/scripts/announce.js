@@ -54,6 +54,23 @@ function get_feedback_rating() {
     return rating;
 }
 
+function delete_feedback(id) {
+    fetch('../php/delete-feedback.php', {
+        method: 'POST',
+        body: JSON.stringify({ feedback_id: id }),
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(response => {
+            if (!response.ok) { throw new Error('Network response was not ok'); }
+            return response.json(); // This returns a promise that resolves with the parsed JSON
+        })
+        .then(data => {
+            const feedbackItem = document.getElementById(`feedback-${id}`);
+            feedbackItem.remove();
+        })
+        .catch(error => console.error('Error:', error));
+}
+
 function submit_feedback() {
     const textArea = document.getElementById('feedback');
     const rating = get_feedback_rating();
