@@ -18,9 +18,9 @@ img {
 
 .gallery {
   display: flex;
-  width: 600px;
-  min-width: 600px;
+  width: 50%;
   position: relative;
+  justify-content: center;
 }
 
 @media screen and (min-width: 600px) {
@@ -32,15 +32,29 @@ img {
 .gallery-img {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  width: 100%;
+  height: 400px;
+}
+
+.gallery-item {
+  width: 25%;
+  padding: 6px;
+  box-sizing: border-box;
 }
 
 .gallery-thumb {
   padding-top: 6px;
-  margin: 6px;
   display: block;
+  width: 100%;
+}
+
+.gallery-thumb img {
+  width: 100%; /* Thumbnails occupy the full width of their container */
+  height: 125px; /* Maintain aspect ratio */
 }
 
 .gallery-selector {
@@ -59,7 +73,7 @@ img {
 
 .quick-view {
   margin-left: 5%;
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
 }

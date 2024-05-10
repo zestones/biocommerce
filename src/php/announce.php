@@ -144,6 +144,21 @@ function get_saved_announce($user_id)
     return $announce;
 }
 
+function get_announce_images_by_id($id)
+{
+    global $pdo;
+
+    $stmt = $pdo->prepare("SELECT image FROM AnnounceImage WHERE announce_id = ?");
+    $stmt->bindParam(1, $id);
+    $stmt->execute();
+
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $images = array_column($result, 'image');
+
+    return $images;
+}
+
+
 function is_announce_in_wish_list($annouce_id)
 {
     global $pdo;
@@ -201,5 +216,28 @@ function display_announce($announce)
         echo "</a>";
     }
 }
+
+
+
+function display_gallery($announce_id)
+{
+    $images = get_announce_images_by_id($announce_id);
+
+    for ($i = 0; $i < 4; $i++) {
+        $image_path = $images[$i];
+
+        echo '<div class="gallery-item">';
+        echo '<input type="radio" id="img-' . ($i + 1) . '" ' . ($i === 0 ? 'checked' : '') . ' name="gallery" class="gallery-selector" />';
+
+        if ($image_path == '') {
+            $image_path = "../public/no-image-available.jpg";
+        }
+
+        echo '<img class="gallery-img" src="' . $image_path . '" alt="" />';
+        echo '<label for="img-' . ($i + 1) . '" class="gallery-thumb"><img src="' . $image_path . '" alt="" /></label>';
+        echo '</div>';
+    }
+}
+
 
 ?>
