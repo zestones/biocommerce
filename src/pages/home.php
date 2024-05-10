@@ -110,9 +110,9 @@
                 <div class="values">
                     <span>Price: </span>
                     <strong>
-                        <span id="range1">0</span>
+                        <span id="range1">0€</span>
                         <span> &dash; </span>
-                        <span id="range2">100</span>
+                        <span id="range2">100€</span>
                     </strong>
 
                 </div>

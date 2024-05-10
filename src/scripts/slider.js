@@ -15,7 +15,7 @@ function slideOne() {
     if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
         sliderOne.value = parseInt(sliderTwo.value) - minGap;
     }
-    displayValOne.textContent = sliderOne.value;
+    displayValOne.textContent = sliderOne.value + '€';
     fillColor();
 }
 
@@ -23,7 +23,7 @@ function slideTwo() {
     if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
         sliderTwo.value = parseInt(sliderOne.value) + minGap;
     }
-    displayValTwo.textContent = sliderTwo.value;
+    displayValTwo.textContent = sliderTwo.value + '€';
     fillColor();
 }
 
