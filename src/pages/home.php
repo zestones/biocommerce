@@ -90,6 +90,7 @@
                 <div class="categories">
                     <?php
                     require '../php/category.php';
+                    session_start();
 
                     $categories = get_all_categories();
                     display_categories($categories);
@@ -121,15 +122,15 @@
 
         <div class="announce-section">
             <?php
-            session_start();
             require '../php/announce.php';
-
             $announce = get_all_announce();
+
             display_announce($announce);
             ?>
         </div>
-        <script src="../../scripts/slider.js"></script>
-        <script src="../../scripts/home.js"></script>
+        <script src="../scripts/announce-operation.js"></script>
+        <script src="../scripts/slider.js"></script>
+        <script src="../scripts/home.js"></script>
 </body>
 
 </html>

@@ -8,7 +8,7 @@
   --dark: rgba(29, 29, 29, 1);
   --gray: rgba(102, 102, 102, 1);
   --error: rgba(255, 0, 0, 1);
-  --hover-gray: rgba(237, 242, 238, 1);
+  --light-hover-green: rgba(237, 242, 238, 1);
   --light-stroke: rgba(230, 230, 230, 1);
 }
 
@@ -22,7 +22,7 @@
   --dark: rgba(29, 29, 29, 1);
   --gray: rgba(102, 102, 102, 1);
   --error: rgba(255, 0, 0, 1);
-  --hover-gray: rgba(237, 242, 238, 1);
+  --light-hover-green: rgba(237, 242, 238, 1);
   --light-stroke: rgba(230, 230, 230, 1);
 }
 

@@ -345,12 +345,13 @@ input[type="range"]:active::-webkit-slider-thumb {
 .announce .infos button {
   padding: 5px 10px;
   border: none;
-  background-color: var(--secondary);
+  background-color: rgba(61, 61, 61, 1);
   color: var(--white);
   border-radius: 5px;
   cursor: pointer;
   margin-left: auto;
   margin-top: 7px;
+  z-index: 1111;
 }
 
 .announce:hover {

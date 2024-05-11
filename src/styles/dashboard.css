@@ -32,12 +32,12 @@
 }
 
 .main-container .navigation a.active {
-  background-color: var(--hover-gray);
+  background-color: var(--light-hover-green);
   border-left: 5px solid var(--secondary);
 }
 
 .main-container .navigation a:hover {
-  background-color: var(--hover-gray);
+  background-color: var(--light-hover-green);
 }
 
 .main-container .navigation a i {

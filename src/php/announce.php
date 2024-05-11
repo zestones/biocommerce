@@ -131,11 +131,11 @@ function get_announce_category($id_announce)
     return $category;
 }
 
-function get_saved_announce($user_id)
+function get_saved_announce_by_user_id($user_id)
 {
     global $pdo;
 
-    $query = "SELECT * FROM Announce WHERE id IN (SELECT announce_id FROM UserSaved WHERE user_id = :user_id)";
+    $query = "SELECT * FROM UserSaved WHERE user_id = :user_id";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':user_id', $user_id);
     $stmt->execute();
@@ -175,6 +175,17 @@ function delete_announce_from_wishlist($announce_id)
     $stmt->execute();
 }
 
+function add_announce_to_wishlist($announce_id)
+{
+    global $pdo;
+
+    $query = "INSERT INTO UserSaved (user_id, announce_id, quantity_selected, is_in_cart, is_in_favourite) VALUES (:user_id, :announce_id, 0, 0, 1)";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $_SESSION['user_id']);
+    $stmt->bindParam(':announce_id', $announce_id);
+    $stmt->execute();
+}
+
 function get_announce_images_by_id($id)
 {
     global $pdo;
@@ -204,34 +215,34 @@ function is_announce_in_wish_list($annouce_id)
     return $result !== false;
 }
 
-function _is_announce_saved_by_user($announce, $saved_announce)
+function _get_announce_saved_by_user($announce, $saved_announce)
 {
-    $is_saved = false;
     foreach ($saved_announce as $saved_row) {
-        if ($announce["id"] === $saved_row["id"]) {
-            $is_saved = true;
-            break;
+        if ($announce["id"] === $saved_row["announce_id"]) {
+            return $saved_row;
         }
     }
 
-    return $is_saved;
+    return false;
 }
 
 function display_announce($announce)
 {
-    $saved_announce = get_saved_announce($_SESSION['user_id']);
+    $saved_announce = get_saved_announce_by_user_id($_SESSION['user_id']);
     foreach ($announce as $row) {
-        $is_saved = _is_announce_saved_by_user($row, $saved_announce);
+        $saved = _get_announce_saved_by_user($row, $saved_announce);
         echo "<a  
                   class='announce' id='" . $row['id'] . "-announce' 
                   href='../pages/announce-view.php?id=" . $row['id'] . "'";
-        if ($is_saved) {
+        if ($saved) {
             echo " style='border: 1px solid var(--secondary); box-shadow: 0 0 5px var(--secondary);'";
         }
         echo ">";
 
+        $icon_style = "";
         if ($row['image'] != '') {
             echo "<img src='" . $row['image'] . "' alt='product'>";
+            $icon_style = "style='color: var(--secondary);'";
         } else {
             echo "<img src='../public/no-image-available.jpg' alt='product'>";
         }
@@ -245,8 +256,25 @@ function display_announce($announce)
         echo "</span>";
         echo "</div>";
         echo "<div class='actions'>";
-        echo "<button class='cart'><i class='fa fa-shopping-cart'></i></button>";
-        echo "<button class='wish'><i class='fa fa-heart'></i></button>";
+        echo "<button class='cart'
+                      onclick='event.preventDefault(); add_cart_item(" . $row['id'] . ")'>
+                <i 
+                    class='fa fa-shopping-cart'" . ($saved['is_in_cart'] == 1 ? $icon_style : '') . "
+                    id='" . $row['id'] . "-cart-icon'    
+                >
+                    
+                </i>
+              </button>";
+
+        echo "<button class='wish' 
+                      onclick='event.preventDefault(); add_wishlist_item(" . $row['id'] . ")'
+                >
+                <i 
+                    class='fa fa-heart'" . ($saved['is_in_favourite'] == 1 ? $icon_style : '') . "
+                    id='" . $row['id'] . "-wish-icon'
+                >
+                </i>
+              </button>";
         echo "</div>";
         echo "</div>";
         echo "</a>";
@@ -272,6 +300,5 @@ function display_gallery($announce_id)
         echo '</div>';
     }
 }
-
 
 ?>
