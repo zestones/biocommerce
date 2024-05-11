@@ -134,7 +134,6 @@
         </section>
     </div>
 
-    <script src="../scripts/announce-operation.js"></script>
     <script src="../scripts/announce.js"></script>
 </body>
 

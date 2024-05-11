@@ -69,7 +69,7 @@
                 <span>Wishlist</span>
             </a>
 
-            <a href="../pages/cart.php">
+            <a href="../pages/shopping-cart.php">
                 <i class="fa fa-shopping-cart"></i>
                 <span>Shopping Cart</span>
             </a>

@@ -1,0 +1,113 @@
+@import url("./global.css");
+
+.tab-content {
+  background-color: transparent;
+  width: 70%;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.tab-content table {
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--white);
+  margin-bottom: 22px;
+}
+
+table tr th {
+  border-radius: 5px;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+.manage-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--white);
+  border-radius: 35px;
+  width: 125px;
+  border: 1px solid var(--light-stroke);
+}
+
+.manage-quantity button {
+  padding: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: var(--light-stroke);
+}
+
+.manage-quantity span {
+  width: 25px;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  color: black;
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  height: fit-content;
+  padding: 20px;
+  border-radius: 5px;
+  color: var(--dark);
+  width: 45%;
+}
+
+.total h3 {
+  font-size: 1.5rem;
+  margin-top: 5px;
+}
+
+.total hr {
+  border: 1px solid var(--light-stroke);
+  width: 100%;
+}
+
+.total span {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  align-items: center;
+}
+
+.total span > span {
+  font-weight: 700;
+}
+
+.total span.total-price > span {
+  font-size: 1.2rem;
+}
+
+.total .buy,
+.total .checkout {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+
+  margin-top: 35px;
+}
+
+.total .checkout {
+  margin-top: 15px;
+  background-color: var(--light-stroke);
+  color: #4d4d4d;
+  font-weight: 700;
+}

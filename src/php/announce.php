@@ -144,6 +144,26 @@ function get_saved_announce_by_user_id($user_id)
     return $announce;
 }
 
+function get_shopping_cart_by_user_id($user_id)
+{
+    global $pdo;
+
+    $query = "SELECT Announce.* 
+              FROM Announce 
+              WHERE Announce.id IN (
+                  SELECT announce_id FROM UserSaved 
+                  WHERE user_id = :user_id 
+                  AND is_in_cart = 1
+              )";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->execute();
+
+    $shopping_cart = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $shopping_cart;
+}
+
 function get_wishlist_by_user_id($user_id)
 {
     global $pdo;
