@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = isset($requestData['id']) ? $requestData['id'] : '';
 
     if ($id != '') {
-        delete_announce_from_wishlist($id);
+        delete_saved_announce($id);
         $response['message'] = "Item deleted successfully";
     } else {
         $response['error'] = "Invalid data";

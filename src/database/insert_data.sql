@@ -38,7 +38,7 @@ VALUES (1, 1),
 INSERT INTO UserSaved (user_id, announce_id, quantity_selected, is_in_cart, is_in_favourite)
 VALUES (1, 2, 1, 1, 0),
        (1, 2, 1, 0, 1),
-       (1, 3, 1, 0, 1),
+       (1, 3, 1, 1, 1),
        (1, 4, 1, 0, 1),
        (2, 1, 2, 0, 1);
 

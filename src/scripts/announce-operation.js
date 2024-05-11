@@ -23,9 +23,33 @@ function add_wishlist_item(announce_id) {
     })
         .then(response => response.json())
         .then(data => {
-            if (data) {
+            if (data["saved"] == true) {
                 const icon = document.getElementById(announce_id + '-wish-icon');
                 icon.style.color = 'var(--secondary)';
+            } else if (data["removed"] == true) {
+                const icon = document.getElementById(announce_id + '-wish-icon');
+                icon.style.color = 'var(--white)';
+            }
+            else console.error('An error occurred');
+        })
+        .catch((error) => console.error(error));
+}
+
+function add_cart_item(announce_id) {
+    fetch('../php/add-cart-item.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ announce_id: announce_id, quantity: 1 }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data["saved"] == true) {
+                const icon = document.getElementById(announce_id + '-cart-icon');
+                icon.style.color = 'var(--secondary)';
+            } else if (data["removed"] == true) {
+                const icon = document.getElementById(announce_id + '-cart-icon');
+                icon.style.color = 'var(--white)';
             }
             else console.error('An error occurred');
         })

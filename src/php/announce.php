@@ -196,7 +196,7 @@ function get_wishlist_by_user_id($user_id)
     return $wishlist;
 }
 
-function delete_announce_from_wishlist($announce_id)
+function delete_saved_announce($announce_id)
 {
     global $pdo;
 
@@ -207,14 +207,98 @@ function delete_announce_from_wishlist($announce_id)
     $stmt->execute();
 }
 
+function remove_announce_from_wishlist($id)
+{
+    global $pdo;
+
+    $query = "UPDATE UserSaved SET is_in_favourite = 0 WHERE user_id = :user_id AND announce_id = :announce_id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $_SESSION['user_id']);
+    $stmt->bindParam(':announce_id', $id);
+    $stmt->execute();
+}
+
+function remove_announce_from_shopping_cart($id)
+{
+    global $pdo;
+
+    $query = "UPDATE UserSaved SET is_in_cart = 0 WHERE user_id = :user_id AND announce_id = :announce_id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $_SESSION['user_id']);
+    $stmt->bindParam(':announce_id', $id);
+    $stmt->execute();
+}
+
+
+function is_announce_saved_by_user($announce_id)
+{
+    global $pdo;
+
+    $query = "SELECT * FROM UserSaved WHERE user_id = :user_id AND announce_id = :announce_id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $_SESSION['user_id']);
+    $stmt->bindParam(':announce_id', $announce_id);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result !== false;
+}
+
+function get_saved_announce_by_id($announce_id)
+{
+    global $pdo;
+
+    $query = "SELECT * FROM UserSaved WHERE user_id = :user_id AND announce_id = :announce_id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $_SESSION['user_id']);
+    $stmt->bindParam(':announce_id', $announce_id);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+function add_announce_to_shopping_cart($announce_id, $quantity)
+{
+    global $pdo;
+
+    if (is_announce_saved_by_user($announce_id)) {
+        $query = 'UPDATE UserSaved SET quantity_selected = :quantity, is_in_cart = 1
+                  WHERE user_id = :user_id AND announce_id = :announce_id
+                 ';
+
+    } else {
+        $query = "INSERT INTO UserSaved (user_id, announce_id, quantity_selected, is_in_cart, is_in_favourite)
+                  VALUES (:user_id, :announce_id, :quantity, 1, 0)";
+    }
+
+    $stmt = $pdo->prepare($query);
+
+    $stmt->bindParam(':user_id', $_SESSION['user_id']);
+    $stmt->bindParam(':announce_id', $announce_id);
+    $stmt->bindParam(':quantity', $quantity);
+
+    $stmt->execute();
+}
+
 function add_announce_to_wishlist($announce_id)
 {
     global $pdo;
 
-    $query = "INSERT INTO UserSaved (user_id, announce_id, quantity_selected, is_in_cart, is_in_favourite) VALUES (:user_id, :announce_id, 0, 0, 1)";
+    if (is_announce_saved_by_user($announce_id)) {
+        $query = 'UPDATE UserSaved SET is_in_favourite = 1 
+                  WHERE user_id = :user_id AND announce_id = :announce_id';
+    } else {
+        $query = "INSERT INTO UserSaved (user_id, announce_id, quantity_selected, is_in_cart, is_in_favourite) 
+                  VALUES (:user_id, :announce_id, 0, 0, 1)
+                 ";
+    }
+
     $stmt = $pdo->prepare($query);
+
     $stmt->bindParam(':user_id', $_SESSION['user_id']);
     $stmt->bindParam(':announce_id', $announce_id);
+
     $stmt->execute();
 }
 
@@ -236,7 +320,11 @@ function is_announce_in_wish_list($annouce_id)
 {
     global $pdo;
 
-    $query = "SELECT * FROM UserSaved WHERE user_id = :user_id AND announce_id = :announce_id";
+    $query = "SELECT * FROM UserSaved 
+              WHERE user_id = :user_id 
+              AND announce_id = :announce_id
+              AND is_in_favourite = 1
+             ";
 
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':user_id', $_SESSION['user_id']);
@@ -268,10 +356,9 @@ function display_announce($announce)
                   href='../pages/announce-view.php?id=" . $row['id'] . "'";
         echo ">";
 
-        $icon_style = "";
+        $icon_style = "style='color: var(--secondary);'";
         if ($row['image'] != '') {
             echo "<img src='" . $row['image'] . "' alt='product'>";
-            $icon_style = "style='color: var(--secondary);'";
         } else {
             echo "<img src='../public/no-image-available.jpg' alt='product'>";
         }

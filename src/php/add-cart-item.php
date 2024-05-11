@@ -12,17 +12,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Retrieve data from the decoded JSON
     $announce_id = isset($requestData['announce_id']) ? $requestData['announce_id'] : '';
+    $quantity = isset($requestData['quantity']) ? $requestData['quantity'] : 0;
 
     if ($announce_id != '') {
         $saved_announce = get_saved_announce_by_id($announce_id);
-        if ($saved_announce["is_in_favourite"]) {
-            remove_announce_from_wishlist($announce_id);
+        if ($saved_announce["is_in_cart"]) {
+            remove_announce_from_shopping_cart($announce_id);
             $response['removed'] = true;
         } else {
-            add_announce_to_wishlist($announce_id);
+            add_announce_to_shopping_cart($announce_id, $quantity);
             $response['saved'] = true;
         }
-        $response['data'] = get_saved_announce_by_id($announce_id);
     } else {
         $response['error'] = "Invalid data";
     }

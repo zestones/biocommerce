@@ -126,7 +126,7 @@
                         </td>
                         <td>
                             <strong class="subtotal" id="subtotal-<?php echo $item['id']; ?>">
-                                <?php echo $item['price'] * $item['quantity']; ?>€
+                                <?php echo $item['price'] * $item['quantity_selected']; ?>€
                             </strong>
                         </td>
                         <td>
@@ -137,7 +137,7 @@
                         </td>
                     </tr>
                     <?php
-                    $total_price += $item['price'] * $item['quantity'];
+                    $total_price += $item['price'] * $item['quantity_selected'];
                 endforeach;
                 ?>
             </table>
