@@ -3,6 +3,8 @@ CREATE TABLE IF NOT EXISTS User (
   firstname TEXT,
   lastname TEXT,
   email TEXT,
+  username TEXT,
+  icon TEXT,
   phone_number TEXT,
   password TEXT,
   is_admin INTEGER

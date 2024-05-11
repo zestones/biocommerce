@@ -37,7 +37,7 @@
                 <i class="fa fa-shopping-cart"></i>
             </a>
 
-            <a href="../../pages/user/user.html">
+            <a href="../pages/dashboard.php">
                 <i class="fa fa-user"></i>
             </a>
         </div>

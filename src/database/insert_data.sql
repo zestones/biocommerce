@@ -1,7 +1,7 @@
 -- Insert sample data into User table
-INSERT INTO User (firstname, lastname, email, phone_number, password, is_admin)
-VALUES ('admin', 'admin', 'admin@gmail.com', '123456789', 'admin', 1),
-       ('John', 'Doe', 'jane@example.com', '987654321', 'qwerty123', 0);
+INSERT INTO User (firstname, lastname, email, username, icon, phone_number, password, is_admin)
+VALUES ('admin', 'admin', 'admin@gmail.com', 'zestones', '../public/default-user-icon.png', '123456789', 'admin', 1),
+       ('John', 'Doe', 'jane@example.com', 'zigmondy', '../public/default-user-icon.png', '987654321', 'qwerty123', 0);
 
 -- Insert sample data into Category table
 INSERT INTO Category (name)
