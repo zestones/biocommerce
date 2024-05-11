@@ -1,9 +1,9 @@
-function increment() {
+function increment_quantity() {
     const count = document.getElementById('count');
     count.innerText = parseInt(count.innerText) + 1;
 }
 
-function decrement() {
+function decrement_quantity() {
     const count = document.getElementById('count');
     count.innerText = Math.max(parseInt(count.innerText) - 1, 0);
 }
@@ -82,11 +82,6 @@ function submit_feedback() {
 
     // We retrieve the announce id from the URL
     const id = (window.location.href).split('=')[1];
-
-    console.log(textArea.value.length)
-    console.log(rating)
-    console.log(id)
-
     fetch('../php/submit-feedback.php', {
         method: 'POST',
         body: JSON.stringify({
@@ -101,7 +96,6 @@ function submit_feedback() {
             return response.json(); // This returns a promise that resolves with the parsed JSON
         })
         .then(data => {
-            console.log('Success:', data);
             const feedbackSection = document.querySelector('.feedback-section');
             const newFeedbackItem = createFeedbackItem(data);
 
@@ -124,8 +118,6 @@ function _generate_star(rating) {
 }
 
 function createFeedbackItem(feedbackData) {
-    console.log(feedbackData);
-
     const feedbackItem = document.createElement('div');
     feedbackItem.classList.add('feedback-item');
     feedbackItem.id = "feedback-" + feedbackData.id;

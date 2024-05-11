@@ -84,9 +84,9 @@
 
             <div class="actions">
                 <div class="manage-quantity">
-                    <button class="increment" onclick="decrement()">-</button>
+                    <button class="increment" onclick="decrement_quantity()">-</button>
                     <span id="count">0</span>
-                    <button class="decrement" onclick="increment()">+</button>
+                    <button class="decrement" onclick="increment_quantity()">+</button>
                 </div>
 
                 <button class="cart">Add to Cart<i class="fa fa-shopping-cart"></i></button>
@@ -135,6 +135,7 @@
     </div>
 
     <script src="../scripts/announce.js"></script>
+    <script src="../scripts/announce-operation.js"></script>
 </body>
 
 </html>

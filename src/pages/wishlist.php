@@ -51,8 +51,10 @@
 
     <div class="separator-background"></div>
     <?php
+    require "../php/user.php";
     require "../php/announce.php";
     session_start();
+    $user = get_user_by_id($_SESSION['user_id']);
     $wishlist_announce = get_wishlist_by_user_id($_SESSION['user_id']);
     ?>
 

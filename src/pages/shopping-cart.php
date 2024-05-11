@@ -52,8 +52,10 @@
 
     <div class="separator-background"></div>
     <?php
+    require "../php/user.php";
     require "../php/announce.php";
     session_start();
+    $user = get_user_by_id($_SESSION['user_id']);
     $shopping_cart_announce = get_shopping_cart_by_user_id($_SESSION['user_id']);
     $total_price = 0;
     ?>
