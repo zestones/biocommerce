@@ -15,6 +15,11 @@
 </head>
 
 <body>
+    <?php
+    require "../php/security.php";
+    redirect_not_registered_user();
+    ?>
+
     <header>
         <a href="../pages/home.php"><img src="../../assets/logo/agrovia-green.png" alt="logo"></a>
         <div class="search-bar">
