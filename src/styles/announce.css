@@ -159,7 +159,8 @@ img {
 
 .quick-view .actions .wish {
   background-color: rgb(203, 203, 203);
-  color: var(--text);
+  color: var(--white);
+
   border-radius: 35px;
 
   width: 40px;

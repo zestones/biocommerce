@@ -174,3 +174,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+function add_cart_item_by_id(id) {
+    fetch('../php/add-cart-item.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ announce_id: id, quantity: 1 }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data["saved"] == true) {
+                const cart = document.getElementById('button-cart-id');
+                cart.style.backgroundColor = 'rgba(45, 45, 45, 0.20)';
+                cart.style.border = '2px solid var(--light-stroke)';
+            } else if (data["removed"] == true) {
+                const cart = document.getElementById('button-cart-id');
+                cart.style.backgroundColor = 'var(--secondary)';
+                cart.style.border = 'none';
+            }
+            else console.error('An error occurred');
+        })
+        .catch((error) => console.error(error));
+}

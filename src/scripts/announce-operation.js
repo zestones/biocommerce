@@ -43,7 +43,6 @@ function add_cart_item(announce_id) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             if (data["saved"] == true) {
                 const icon = document.getElementById(announce_id + '-cart-icon');
                 icon.style.color = 'var(--secondary)';

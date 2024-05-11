@@ -58,6 +58,7 @@
         $announce = get_announce_by_id($_GET['id']);
         $category = get_announce_category($_GET['id']);
         $is_in_wishlist = is_announce_in_wish_list($_GET['id']);
+        $is_in_cart = is_announce_in_cart($_GET['id']);
         ?>
 
         <section class="gallery">
@@ -89,7 +90,12 @@
                     <button class="decrement" onclick="increment_quantity()">+</button>
                 </div>
 
-                <button class="cart">Add to Cart<i class="fa fa-shopping-cart"></i></button>
+                <button class="cart" id="button-cart-id" style="<?php if ($is_in_cart)
+                    echo "background-color: rgba(45, 45, 45, 0.20); border: 2px solid var(--light-stroke); " ?>"
+                        onclick="add_cart_item_by_id(<?php echo $_GET['id'] ?>)">
+                    Add to Cart
+                    <i class="fa fa-shopping-cart"></i>
+                </button>
                 <button class="wish" onclick="add_wishlist_item(<?php echo $_GET['id'] ?>)">
                     <i class="fa fa-heart" id="<?php echo $_GET['id'] ?>-wish-icon" style="<?php if ($is_in_wishlist)
                            echo "color: var(--secondary);" ?>"></i>
