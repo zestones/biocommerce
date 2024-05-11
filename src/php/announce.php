@@ -49,14 +49,15 @@ function insert_announce($title, $description, $category_id, $price, $quantity, 
     global $pdo;
 
     // Prepare the SQL statement
-    $stmt = $pdo->prepare("INSERT INTO Announce (id_category, title, description, price, quantity) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO Announce (id_category, image, title, description, price, quantity) VALUES (?, ?, ?, ?, ?, ?)");
 
     // Bind parameters
     $stmt->bindParam(1, $category_id);
-    $stmt->bindParam(2, $title);
-    $stmt->bindParam(3, $description);
-    $stmt->bindParam(4, $price);
-    $stmt->bindParam(5, $quantity);
+    $stmt->bindParam(2, $images[0]);
+    $stmt->bindParam(3, $title);
+    $stmt->bindParam(4, $description);
+    $stmt->bindParam(5, $price);
+    $stmt->bindParam(6, $quantity);
 
     // Execute the statement
     $stmt->execute();
@@ -77,7 +78,6 @@ function insert_announce($title, $description, $category_id, $price, $quantity, 
     $stmt->bindParam(2, $_SESSION["user_id"]);
     $stmt->execute();
 }
-
 
 function get_all_announce()
 {
@@ -104,7 +104,6 @@ function generate_star($rating)
     }
     return $stars;
 }
-
 function get_announce_by_id($id)
 {
     global $pdo;
@@ -144,6 +143,28 @@ function get_saved_announce($user_id)
     return $announce;
 }
 
+function get_wishlist_by_user_id($user_id)
+{
+    global $pdo;
+
+    $query = "SELECT Announce.*, AnnounceImage.image AS announce_image 
+              FROM Announce 
+              INNER JOIN AnnounceImage ON Announce.id = AnnounceImage.announce_id 
+              WHERE Announce.id IN (
+                  SELECT announce_id FROM UserSaved 
+                  WHERE user_id = :user_id 
+                  AND is_in_favourite = 1
+              )";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->execute();
+
+    $wishlist = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $wishlist;
+}
+
+
 function get_announce_images_by_id($id)
 {
     global $pdo;
@@ -157,7 +178,6 @@ function get_announce_images_by_id($id)
 
     return $images;
 }
-
 
 function is_announce_in_wish_list($annouce_id)
 {
@@ -200,9 +220,8 @@ function display_announce($announce)
         }
         echo ">";
 
-        $image = get_announce_images_by_id($row["id"]);
-        if (count($image) > 0) {
-            echo "<img src='" . $image[0] . "' alt='product'>";
+        if ($row['image'] != '') {
+            echo "<img src='" . $row['image'] . "' alt='product'>";
         } else {
             echo "<img src='../public/no-image-available.jpg' alt='product'>";
         }
@@ -223,8 +242,6 @@ function display_announce($announce)
         echo "</a>";
     }
 }
-
-
 
 function display_gallery($announce_id)
 {

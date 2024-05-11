@@ -42,6 +42,13 @@
   margin-right: 10px;
 }
 
+.tab-content {
+  padding: 20px;
+  width: 70%;
+  background-color: var(--white);
+  border-radius: 5px;
+}
+
 .profile-section {
   padding: 20px;
   width: 70%;

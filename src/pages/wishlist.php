@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="../../styles/dashboard.css" onload="load_theme()">
     <link rel="stylesheet" href="../../styles/main-header.css">
+    <link rel="stylesheet" href="../../styles/wishlist.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -45,20 +46,20 @@
 
     <div class="separator-background"></div>
     <?php
-    require "../php/user.php";
+    require "../php/announce.php";
     session_start();
-    $user = get_user_by_id($_SESSION['user_id']);
+    $wishlist_announce = get_wishlist_by_user_id($_SESSION['user_id']);
     ?>
 
     <div class="main-container">
         <section class="navigation">
             <h3>Navigation</h3>
-            <a href="../pages/dashboard.php" class="active">
+            <a href="../pages/dashboard.php">
                 <i class="fa fa-tachometer" aria-hidden="true"></i>
                 <span>Dashboard</span>
             </a>
 
-            <a href="../pages/wishlist.php">
+            <a href="../pages/wishlist.php" class="active">
                 <i class="fa fa-heart"></i>
                 <span>Wishlist</span>
             </a>
@@ -85,44 +86,36 @@
             </a>
         </section>
 
-        <section class="tab-content profile-section">
-            <h3 class="section-title">Profile</h3>
-            <div class="profile-container">
-                <div class="profile-image">
-                    <img src="<?php echo $user["icon"]; ?>" alt="profile-image">
-                    <div class="info">
-                        <span class="info-value"><?php echo $user["username"]; ?></span>
-                        <a href="../pages/settings.php" class="edit-profile-link">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="profile-details">
-                    <div class="info">
-                        <span class="info-value">
-                            <?php echo $user["firstname"]; ?>
-                            &nbsp;
-                            <?php echo $user["lastname"]; ?>
-                        </span>
-                    </div>
-
-                    <div class="info">
-                        <span class="info-label">Email:</span>
-                        <span class="info-value">
-                            <a href="mailto: <?php echo $user['email']; ?>">
-                                <?php echo $user['email']; ?>
-                            </a>
-                        </span>
-                    </div>
-
-                    <div class="info">
-                        <span class="info-label">Phone Number:</span>
-                        <span class="info-value"><?php echo $user["phone_number"]; ?></span>
-                    </div>
-                </div>
-            </div>
+        <section class="tab-content wishlist-section">
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <?php foreach ($wishlist_announce as $item): ?>
+                    <tr>
+                        <td>
+                            <!-- Display product image -->
+                            <img src="<?php echo $item['image']; ?>" alt="product">
+                        </td>
+                        <td><?php echo $item['price']; ?></td>
+                        <td><?php echo $item['quantity']; ?></td>
+                        <td>
+                            <!-- Add to cart button -->
+                            <button>Add to cart</button>
+                        </td>
+                        <td>
+                            <!-- Delete button -->
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
         </section>
+
 
     </div>
 
