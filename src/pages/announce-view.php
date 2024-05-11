@@ -52,7 +52,7 @@
 
         $announce = get_announce_by_id($_GET['id']);
         $category = get_announce_category($_GET['id']);
-        $is_saved = is_announce_in_wish_list($_GET['id']);
+        $is_in_wishlist = is_announce_in_wish_list($_GET['id']);
         ?>
 
         <section class="gallery">
@@ -85,9 +85,9 @@
                 </div>
 
                 <button class="cart">Add to Cart<i class="fa fa-shopping-cart"></i></button>
-                <button class="wish">
-                    <i class="fa fa-heart" style="<?php if ($is_saved)
-                        echo "color: var(--secondary);" ?>"></i>
+                <button class="wish" onclick="add_wishlist_item(<?php echo $_GET['id'] ?>)">
+                    <i class="fa fa-heart" id="<?php echo $_GET['id'] ?>-wish-icon" style="<?php if ($is_in_wishlist)
+                           echo "color: var(--secondary);" ?>"></i>
                     </button>
                 </div>
 
@@ -129,7 +129,8 @@
         </section>
     </div>
 
-    <script src="../../scripts/announce.js"></script>
+    <script src="../scripts/announce-operation.js"></script>
+    <script src="../scripts/announce.js"></script>
 </body>
 
 </html>

@@ -11,10 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $requestData = json_decode($postData, true);
 
     // Retrieve data from the decoded JSON
-    $id = isset($requestData['id']) ? $requestData['id'] : '';
+    $announce_id = isset($requestData['announce_id']) ? $requestData['announce_id'] : '';
 
-    if ($id != '') {
-        add_announce_to_wishlist($id);
+    if ($announce_id != '') {
+        add_announce_to_wishlist($announce_id);
         $response['message'] = "Item added successfully";
     } else {
         $response['error'] = "Invalid data";

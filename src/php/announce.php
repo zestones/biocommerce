@@ -234,9 +234,6 @@ function display_announce($announce)
         echo "<a  
                   class='announce' id='" . $row['id'] . "-announce' 
                   href='../pages/announce-view.php?id=" . $row['id'] . "'";
-        if ($saved) {
-            echo " style='border: 1px solid var(--secondary); box-shadow: 0 0 5px var(--secondary);'";
-        }
         echo ">";
 
         $icon_style = "";
