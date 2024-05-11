@@ -96,7 +96,7 @@
                     <th></th>
                 </tr>
                 <?php foreach ($wishlist_announce as $item): ?>
-                    <tr>
+                    <tr id="wishlist-item-<?php echo $item['id']; ?>">
                         <td class="product">
                             <!-- Display product image -->
                             <img src="<?php echo $item['image']; ?>" alt="product">
@@ -137,6 +137,7 @@
 
     </div>
 
+    <script src="../scripts/announce-operation.js"></script>
 </body>
 
 </html>

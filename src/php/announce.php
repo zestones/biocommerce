@@ -104,6 +104,7 @@ function generate_star($rating)
     }
     return $stars;
 }
+
 function get_announce_by_id($id)
 {
     global $pdo;
@@ -163,6 +164,16 @@ function get_wishlist_by_user_id($user_id)
     return $wishlist;
 }
 
+function delete_announce_from_wishlist($announce_id)
+{
+    global $pdo;
+
+    $query = "DELETE FROM UserSaved WHERE user_id = :user_id AND announce_id = :announce_id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $_SESSION['user_id']);
+    $stmt->bindParam(':announce_id', $announce_id);
+    $stmt->execute();
+}
 
 function get_announce_images_by_id($id)
 {
