@@ -71,6 +71,13 @@ function view(type) {
             container.style.minWidth = '250px';
             container.style.height = '350px';
         });
+        const images = document.querySelectorAll(".announce img");
+        images.forEach(image => {
+            image.style.height = '65%';
+            image.style.width = '100%';
+            image.style.borderRadius = '10px 10px 0 0';
+            image.style.border = '1px solid var(--text)';
+        });
     } else if (type === 'list') {
         announceContainers.forEach(container => {
             container.style.flexDirection = 'row';
@@ -78,9 +85,12 @@ function view(type) {
             container.style.width = '100%';
             container.style.height = '150px';
         });
-        const detailsh4 = document.querySelectorAll('.details h4');
-        detailsh4.forEach(h4 => {
-            h4.style.marginTop = '0';
+
+        const images = document.querySelectorAll(".announce img");
+        images.forEach(image => {
+            image.style.width = '150px';
+            image.style.height = '100%';
+            image.style.borderRadius = '10px 0 0 10px';
         });
     }
 
