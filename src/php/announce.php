@@ -148,13 +148,11 @@ function get_shopping_cart_by_user_id($user_id)
 {
     global $pdo;
 
-    $query = "SELECT Announce.* 
-              FROM Announce 
-              WHERE Announce.id IN (
-                  SELECT announce_id FROM UserSaved 
-                  WHERE user_id = :user_id 
-                  AND is_in_cart = 1
-              )";
+    $query = "SELECT Announce.*, UserSaved.quantity_selected
+              FROM Announce
+              JOIN UserSaved ON Announce.id = UserSaved.announce_id
+              WHERE UserSaved.user_id = :user_id AND UserSaved.is_in_cart = 1
+             ";
 
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':user_id', $user_id);
@@ -162,6 +160,20 @@ function get_shopping_cart_by_user_id($user_id)
 
     $shopping_cart = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $shopping_cart;
+}
+
+function update_cart_quantity_by_announce_id($id, $quantity)
+{
+    global $pdo;
+
+    $query = "UPDATE UserSaved SET quantity_selected = :quantity WHERE user_id = :user_id AND announce_id = :announce_id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':quantity', $quantity);
+    $stmt->bindParam(':user_id', $_SESSION['user_id']);
+    $stmt->bindParam(':announce_id', $id);
+    $stmt->execute();
+
+    return $stmt->rowCount() > 0;
 }
 
 function get_wishlist_by_user_id($user_id)

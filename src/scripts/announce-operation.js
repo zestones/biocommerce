@@ -64,3 +64,30 @@ function update_total_price() {
         totalElement[i].innerText = total.toFixed(2) + '€';
     }
 }
+
+
+function update_cart() {
+    const cart = [];
+    const quantities = document.querySelectorAll('[id^="count-"]');
+
+    for (let i = 0; i < quantities.length; i++) {
+        const quantity = parseInt(quantities[i].innerText);
+        if (quantity > 0) {
+            const announce_id = quantities[i].id.split('-')[1];
+            cart.push({ announce_id: announce_id, quantity: quantity });
+        }
+    }
+
+    fetch('../php/update-cart.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cart: cart }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (!data) {
+                console.error('No rows affected');
+            }
+        })
+        .catch((error) => console.error(error));
+}

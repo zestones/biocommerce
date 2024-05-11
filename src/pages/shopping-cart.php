@@ -114,12 +114,12 @@
                         <td id="price-<?php echo $item['id']; ?>">
                             <?php echo $item['price']; ?>€
                         </td>
-                        <td class=" stock-status">
-                            <!-- Display stock status -->
+                        <td class="stock-status">
                             <span>
                                 <div class="manage-quantity">
                                     <button class="increment" onclick="decrement(<?php echo $item['id']; ?>)">-</button>
-                                    <span id="count-<?php echo $item['id']; ?>"><?php echo $item['quantity']; ?></span>
+                                    <span
+                                        id="count-<?php echo $item['id']; ?>"><?php echo $item['quantity_selected']; ?></span>
                                     <button class="decrement" onclick="increment(<?php echo $item['id']; ?>)">+</button>
                                 </div>
                             </span>
@@ -155,7 +155,7 @@
                     Total: <span class="total-price"><?php echo $total_price; ?>€</span>
                 </span>
                 <button class="buy" onclick="">Buy</button>
-                <button class="checkout">Update Cart</button>
+                <button class="update" id="update-cart" onclick="update_cart();">Update Cart</button>
             </section>
         </section>
 
