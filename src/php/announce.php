@@ -147,9 +147,8 @@ function get_wishlist_by_user_id($user_id)
 {
     global $pdo;
 
-    $query = "SELECT Announce.*, AnnounceImage.image AS announce_image 
+    $query = "SELECT Announce.* 
               FROM Announce 
-              INNER JOIN AnnounceImage ON Announce.id = AnnounceImage.announce_id 
               WHERE Announce.id IN (
                   SELECT announce_id FROM UserSaved 
                   WHERE user_id = :user_id 

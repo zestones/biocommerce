@@ -129,7 +129,7 @@ img {
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  background-color: var(--gray);
+  background-color: var(--light-stroke);
 }
 
 .quick-view .actions .manage-quantity span {

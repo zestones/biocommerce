@@ -1,2 +1,89 @@
 @import url("./global.css");
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid var(--light-stroke);
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+td {
+  color: var(--dark);
+  font-weight: 500;
+}
+
+td.product {
+  display: flex;
+  align-items: center;
+}
+
+td.stock-status .in-stock {
+  color: rgba(44, 116, 47, 1);
+  padding: 5px 10px;
+  background-color: rgba(32, 181, 38, 0.2);
+  border-radius: 5px;
+}
+
+td.stock-status .out-of-stock {
+  color: rgba(234, 75, 72, 1);
+  padding: 5px 10px;
+  background-color: rgba(234, 75, 72, 0.2);
+  border-radius: 5px;
+}
+
+td.product span {
+  margin-left: 10px;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #666;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+img {
+  max-width: 100px;
+  height: auto;
+  display: block;
+}
+
+.cart-btn {
+  padding: 8px 15px;
+  background-color: var(--secondary);
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-btn.out-of-stock {
+  background-color: rgba(242, 242, 242, 1);
+  color: rgba(179, 179, 179, 1);
+  cursor: not-allowed;
+  border: 1px solid rgba(179, 179, 179, 1);
+}
+
+.delete-btn {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: var(--error);
+  cursor: pointer;
+}
+
+.delete-btn i {
+  font-size: 20px;
+}
