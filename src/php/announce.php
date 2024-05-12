@@ -52,8 +52,9 @@ function insert_announce($title, $description, $category_id, $price, $quantity, 
     $stmt = $pdo->prepare("INSERT INTO Announce (id_category, image, title, description, price, quantity) VALUES (?, ?, ?, ?, ?, ?)");
 
     // Bind parameters
+    $image = $images[0] == '' ? "../public/no-image-available.jpg" : $images[0];
     $stmt->bindParam(1, $category_id);
-    $stmt->bindParam(2, $images[0]);
+    $stmt->bindParam(2, $image);
     $stmt->bindParam(3, $title);
     $stmt->bindParam(4, $description);
     $stmt->bindParam(5, $price);
@@ -76,6 +77,12 @@ function insert_announce($title, $description, $category_id, $price, $quantity, 
     $stmt = $pdo->prepare("INSERT INTO UserAnnounce (user_id, announce_id) VALUES (?, ?)");
     $stmt->bindParam(1, $announce_id);
     $stmt->bindParam(2, $_SESSION["user_id"]);
+    $stmt->execute();
+
+    // Insert the announce into the UserAnnounce table
+    $stmt = $pdo->prepare("INSERT INTO UserAnnounce (user_id, announce_id) VALUES (?, ?)");
+    $stmt->bindParam(1, $_SESSION["user_id"]);
+    $stmt->bindParam(2, $announce_id);
     $stmt->execute();
 }
 

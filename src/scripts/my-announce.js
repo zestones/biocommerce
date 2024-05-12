@@ -48,7 +48,7 @@ function save_edited_announce(id) {
             // Update the announce data in the table
             var row = document.getElementById('wishlist-item-' + id);
             row.querySelector('.title').textContent = data.title;
-            row.querySelector('.price').textContent = data.price;
+            row.querySelector('.price').textContent = data.price + '€';
             row.querySelector('.quantity').textContent = data.quantity;
         })
         .catch(error => {
