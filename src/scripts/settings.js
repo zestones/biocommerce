@@ -20,6 +20,14 @@ document.getElementById('password-form').addEventListener('submit', function (ev
         body: formData
     })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data);
+            if (data.success) {
+                showAlert(data.message, 'Success', 'success');
+            } else {
+                showAlert(data.message, 'Error', 'error');
+            }
+
+        })
         .catch(error => console.error('Error:', error));
 });

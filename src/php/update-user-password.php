@@ -17,22 +17,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($new_password === $confirm_password) {
                 $success = update_user_password_by_id($_SESSION["user_id"], $new_password);
                 if (!$success) {
-                    echo json_encode(["success" => false, "error" => "An error occurred while updating the password."]);
+                    echo json_encode(["success" => false, "message" => "An error occurred while updating the password."]);
                     exit;
                 }
             } else {
-                echo json_encode(["success" => false, "error" => "The new password and the confirm password do not match."]);
+                echo json_encode(["success" => false, "message" => "The new password and the confirm password do not match."]);
                 exit;
             }
         } else {
-            echo json_encode(["success" => false, "error" => "The old password is incorrect."]);
+            echo json_encode(["success" => false, "message" => "The old password is incorrect."]);
             exit;
         }
     } else {
-        echo json_encode(["success" => false, "error" => "Please fill all the required fields."]);
+        echo json_encode(["success" => false, "message" => "Please fill all the required fields."]);
         exit;
     }
 }
 
-echo json_encode(["success" => true]);
+echo json_encode(["success" => true, "message" => "Password updated successfully!"]);
 ?>
