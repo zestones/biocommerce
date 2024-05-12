@@ -78,11 +78,11 @@ function add_cart_item(announce_id) {
         });
 }
 
-function increment(announce_id) {
+function increment(announce_id, max_quantity) {
     const count = document.getElementById('count-' + announce_id);
-    const quantity = parseInt(count.innerText);
-    count.innerText = quantity + 1;
-    update_subtotal(quantity + 1, announce_id);
+    const quantity = Math.min(parseInt(count.innerText) + 1, max_quantity);
+    count.innerText = quantity;
+    update_subtotal(quantity, announce_id);
 }
 
 function decrement(announce_id) {

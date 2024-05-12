@@ -90,7 +90,8 @@
                 <div class="manage-quantity">
                     <button class="increment" onclick="decrement_quantity()">-</button>
                     <span id="count">0</span>
-                    <button class="decrement" onclick="increment_quantity()">+</button>
+                    <button class="decrement"
+                        onclick="increment_quantity(<?php echo $announce['quantity'] ?>)">+</button>
                 </div>
 
                 <button class="cart" id="button-cart-id" style="<?php if ($is_in_cart)

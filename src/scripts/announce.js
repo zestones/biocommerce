@@ -1,6 +1,6 @@
-function increment_quantity() {
+function increment_quantity(max_quantity) {
     const count = document.getElementById('count');
-    count.innerText = parseInt(count.innerText) + 1;
+    count.innerText = Math.min(parseInt(count.innerText) + 1, max_quantity);
 }
 
 function decrement_quantity() {

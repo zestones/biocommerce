@@ -125,7 +125,7 @@
                                     <button class="increment" onclick="decrement(<?php echo $item['id']; ?>)">-</button>
                                     <span
                                         id="count-<?php echo $item['id']; ?>"><?php echo $item['quantity_selected']; ?></span>
-                                    <button class="decrement" onclick="increment(<?php echo $item['id']; ?>)">+</button>
+                                    <button class="decrement" onclick="increment(<?php echo $item['id']; ?>, <?php echo $item['quantity']; ?>)">+</button>
                                 </div>
                             </span>
                         </td>
