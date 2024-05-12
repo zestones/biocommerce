@@ -7,7 +7,7 @@
     <title>Agrovia - Home</title>
 
     <script src="../../scripts/theme.js"></script>
-
+    <link rel="stylesheet" href="../styles/alert.css">
     <link rel="stylesheet" href="../../styles/dashboard.css" onload="load_theme()">
     <link rel="stylesheet" href="../../styles/main-header.css">
     <link rel="stylesheet" href="../../styles/wishlist.css">
@@ -143,7 +143,10 @@
 
     </div>
 
+    <script src="../scripts/alert.js"></script>
     <script src="../scripts/announce-operation.js"></script>
 </body>
+
+<div id="custom-alert" class="custom-alert"></div>
 
 </html>

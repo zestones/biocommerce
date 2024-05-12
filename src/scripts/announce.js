@@ -185,16 +185,24 @@ function add_cart_item_by_id(id) {
     })
         .then(response => response.json())
         .then(data => {
-            if (data["saved"] == true) {
+            if (data.saved == true) {
                 const cart = document.getElementById('button-cart-id');
                 cart.style.backgroundColor = 'rgba(45, 45, 45, 0.20)';
                 cart.style.border = '2px solid var(--light-stroke)';
-            } else if (data["removed"] == true) {
+                showAlert(data.message, 'Success', 'success');
+            } else if (data.removed == true) {
                 const cart = document.getElementById('button-cart-id');
                 cart.style.backgroundColor = 'var(--secondary)';
                 cart.style.border = 'none';
+                showAlert(data.message, 'Success', 'success');
             }
-            else console.error('An error occurred');
+            else {
+                console.error('An error occurred')
+                showAlert(data.message, 'Error', 'error');
+            }
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+            console.error(error);
+            showAlert(error, 'Error', 'error');
+        });
 }

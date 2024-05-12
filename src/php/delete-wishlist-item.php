@@ -15,13 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($id != '') {
         delete_saved_announce($id);
-        $response['message'] = "Item deleted successfully";
+        echo json_encode(["success" => true, "message" => "Announce removed from the wishlist."]);
     } else {
-        $response['error'] = "Invalid data";
+        echo json_encode(["success" => false, "message" => "Please provide an announce id."]);
     }
+} else {
+    echo json_encode(["success" => false, "message" => "Invalid request method."]);
 }
 
-// Send the response back to the frontend
-header('Content-Type: application/json');
-echo json_encode($response);
 ?>

@@ -6,13 +6,20 @@ function delete_wishlist_item(id) {
     })
         .then(response => response.json())
         .then(data => {
-            if (data) {
+            if (data.success) {
                 const wishlistItem = document.getElementById('wishlist-item-' + id);
                 wishlistItem.remove();
+                showAlert(data.message, 'Success', 'success');
             }
-            else console.error('An error occurred');
+            else {
+                console.error('An error occurred');
+                showAlert(data.message, 'Error', 'error');
+            }
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+            console.error(error);
+            showAlert(error, 'Error', 'error');
+        });
 }
 
 function add_wishlist_item(announce_id) {
@@ -23,16 +30,24 @@ function add_wishlist_item(announce_id) {
     })
         .then(response => response.json())
         .then(data => {
-            if (data["saved"] == true) {
+            if (data.saved == true) {
                 const icon = document.getElementById(announce_id + '-wish-icon');
                 icon.style.color = 'var(--secondary)';
-            } else if (data["removed"] == true) {
+                showAlert(data.message, 'Success', 'success');
+            } else if (data.removed == true) {
                 const icon = document.getElementById(announce_id + '-wish-icon');
                 icon.style.color = 'var(--white)';
+                showAlert(data.message, 'Success', 'success');
             }
-            else console.error('An error occurred');
+            else {
+                console.error('An error occurred');
+                showAlert(data.message, 'Error', 'error');
+            }
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+            console.error(error);
+            showAlert(error, 'Error', 'error');
+        });
 }
 
 function add_cart_item(announce_id) {
@@ -43,16 +58,24 @@ function add_cart_item(announce_id) {
     })
         .then(response => response.json())
         .then(data => {
-            if (data["saved"] == true) {
+            if (data.saved == true) {
                 const icon = document.getElementById(announce_id + '-cart-icon');
                 icon.style.color = 'var(--secondary)';
-            } else if (data["removed"] == true) {
+                showAlert(data.message, 'Success', 'success');
+            } else if (data.removed == true) {
                 const icon = document.getElementById(announce_id + '-cart-icon');
                 icon.style.color = 'var(--white)';
+                showAlert(data.message, 'Success', 'success');
             }
-            else console.error('An error occurred');
+            else {
+                console.error('An error occurred');
+                showAlert(data.message, 'Error', 'error');
+            }
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+            console.error(error);
+            showAlert(error, 'Error', 'error');
+        });
 }
 
 function increment(announce_id) {
@@ -101,6 +124,11 @@ function update_cart() {
         }
     }
 
+    if (cart.length == 0) {
+        showAlert('Cart is empty', 'Warning', 'warning');
+        return;
+    }
+
     fetch('../php/update-cart.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -110,7 +138,13 @@ function update_cart() {
         .then(data => {
             if (!data) {
                 console.error('No rows affected');
+                showAlert(data.message, 'Error', 'error');
+            } else {
+                showAlert(data.message, 'Success', 'success');
             }
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+            console.error(error);
+            showAlert(error, 'Error', 'error');
+        });
 }

@@ -17,18 +17,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $saved_announce = get_saved_announce_by_id($announce_id);
         if ($saved_announce["is_in_favourite"]) {
             remove_announce_from_wishlist($announce_id);
-            $response['removed'] = true;
+            echo json_encode(["success" => true, "message" => "Announce removed from the wishlist.", "removed" => true]);
         } else {
             add_announce_to_wishlist($announce_id);
-            $response['saved'] = true;
+            echo json_encode(["success" => false, "message" => "Announce added to the wishlist.", "saved" => true]);
         }
-        $response['data'] = get_saved_announce_by_id($announce_id);
     } else {
-        $response['error'] = "Invalid data";
+        echo json_encode(["success" => false, "message" => "Please provide an announce id."]);
     }
+} else {
+    echo json_encode(["success" => false, "message" => "Invalid request method."]);
 }
 
-// Send the response back to the frontend
-header('Content-Type: application/json');
-echo json_encode($response);
 ?>

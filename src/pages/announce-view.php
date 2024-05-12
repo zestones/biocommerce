@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="../../styles/announce.css" onload="load_theme()">
     <link rel="stylesheet" href="../../styles/main-header.css">
+    <link rel="stylesheet" href="../styles/alert.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -142,6 +143,9 @@
 
     <script src="../scripts/announce.js"></script>
     <script src="../scripts/announce-operation.js"></script>
+    <script src="../scripts/alert.js"></script>
 </body>
+
+<div id="custom-alert" class="custom-alert"></div>
 
 </html>

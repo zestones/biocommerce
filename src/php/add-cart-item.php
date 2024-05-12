@@ -18,17 +18,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $saved_announce = get_saved_announce_by_id($announce_id);
         if ($saved_announce["is_in_cart"]) {
             remove_announce_from_shopping_cart($announce_id);
-            $response['removed'] = true;
+            echo json_encode(["success" => true, "message" => "Announce removed from the shopping cart.", "removed" => true]);
         } else {
             add_announce_to_shopping_cart($announce_id, $quantity);
-            $response['saved'] = true;
+            echo json_encode(["success" => false, "message" => "Announce added to the shopping cart.", "saved" => true]);
         }
     } else {
-        $response['error'] = "Invalid data";
+        echo json_encode(["success" => false, "message" => "Please provide an announce id."]);
     }
+} else {
+    echo json_encode(["success" => false, "message" => "Invalid request method."]);
 }
 
-// Send the response back to the frontend
-header('Content-Type: application/json');
-echo json_encode($response);
 ?>

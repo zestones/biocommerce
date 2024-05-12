@@ -16,13 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $row_count = update_cart_quantity_by_announce_id($announce_id, $quantity);
         }
-
-        echo json_encode(["success" => $row_count]);
+        echo json_encode(["success" => $row_count, "message" => "Cart updated successfully!"]);
     } else {
-        echo json_encode(["success" => false, "error" => "Invalid JSON data"]);
+        echo json_encode(["success" => false, "message" => "Invalid JSON data"]);
     }
 } else {
-    echo json_encode(["success" => false, "error" => "Invalid request method"]);
+    echo json_encode(["success" => false, "message" => "Invalid request method"]);
 }
 
 ?>
