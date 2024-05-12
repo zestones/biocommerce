@@ -10,3 +10,21 @@ function update_image() {
 
     reader.readAsDataURL(file);
 }
+
+document.getElementById('password-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+    fetch(this.action, {
+        method: this.method,
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            // Handle response
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+});

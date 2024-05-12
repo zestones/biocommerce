@@ -141,7 +141,7 @@
             <div class="change-password">
                 <h3>Change Password</h3>
                 <hr>
-                <form action="../php/change-password.php" method="POST">
+                <form id="password-form" action="../php/update-user-password.php" method="POST">
                     <div class="input-infos">
                         <label for="old-password">Old Password</label>
                         <input type="password" name="old-password" id="old-password" required>

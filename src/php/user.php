@@ -38,6 +38,23 @@ function update_user_infos_by_id($user_id, $firstname, $lastname, $username, $ph
     return $stmt->rowCount() > 0;
 }
 
+function update_user_password_by_id($user_id, $password)
+{
+    global $pdo;
+    $query = 'UPDATE User 
+              SET password = :password
+              WHERE id = :user_id
+             ';
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->bindParam(':password', $password);
+
+    $stmt->execute();
+
+    return $stmt->rowCount() > 0;
+}
+
 
 function get_user_avatar($id_user)
 {
