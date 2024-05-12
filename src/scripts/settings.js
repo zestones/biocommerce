@@ -19,12 +19,7 @@ document.getElementById('password-form').addEventListener('submit', function (ev
         method: this.method,
         body: formData
     })
-        .then(response => response.text())
-        .then(data => {
-            // Handle response
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
 });
