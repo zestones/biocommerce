@@ -126,7 +126,7 @@
                         <td>
                             <!-- Add to cart button add clas if out of stock-->
                             <button class="cart-btn <?php echo $item['out_of_stock'] == 1 ? 'out-of-stock' : ''; ?>"
-                                onclick="add_to_cart(<?php echo $item['id']; ?>)">
+                                onclick="move_announce_to_cart(<?php echo $item['id']; ?>)">
                                 Add to cart
                             </button>
                         </td>

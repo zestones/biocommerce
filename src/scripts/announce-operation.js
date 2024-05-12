@@ -148,3 +148,28 @@ function update_cart() {
             showAlert(error, 'Error', 'error');
         });
 }
+
+function move_announce_to_cart(announce_id) {
+    fetch('../php/move-announce-to-cart.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ announce_id: announce_id }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.success) {
+                const wishlistItem = document.getElementById('wishlist-item-' + announce_id);
+                wishlistItem.remove();
+                showAlert(data.message, 'Success', 'success');
+            }
+            else {
+                console.error('An error occurred');
+                showAlert(data.message, 'Error', 'error');
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+            showAlert(error, 'Error', 'error');
+        });
+}

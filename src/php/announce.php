@@ -258,6 +258,22 @@ function get_saved_announce_by_id($announce_id)
     return $result;
 }
 
+function move_announce_to_cart($announce_id)
+{
+    $quantity = 1;
+    if (is_announce_saved_by_user($announce_id)) {
+        $saved_announce = get_saved_announce_by_id($announce_id);
+        if ($saved_announce["is_in_favourite"]) {
+            remove_announce_from_wishlist($announce_id);
+        }
+        if ($saved_announce["is_in_cart"]) {
+            $quantity += $saved_announce["quantity_selected"];
+        }
+    }
+
+    add_announce_to_shopping_cart($announce_id, $quantity);
+}
+
 function add_announce_to_shopping_cart($announce_id, $quantity)
 {
     global $pdo;
