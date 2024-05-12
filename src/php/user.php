@@ -15,6 +15,18 @@ function get_user_by_id($id_user)
     return $user;
 }
 
+function get_all_users()
+{
+    global $pdo;
+
+    $query = "SELECT * FROM User";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $users;
+}
+
 function get_user_by_email($email)
 {
     global $pdo;
