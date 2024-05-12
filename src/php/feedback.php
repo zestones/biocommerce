@@ -65,7 +65,7 @@ function display_feedback($feedback)
 
         echo '<div class="feedback-item" id="feedback-' . $comment['id'] . '">';
         echo '<div class="user-infos">';
-        echo '<img src="https://picsum.photos/id/1005/50/50.jpg" alt="' . $user['name'] . '">';
+        echo '<img src="' . $user['icon'] . '" alt="' . $user['name'] . '">';
         echo '<div class="user-details">';
         echo '<div class="name">' . $user['firstname'] . '</div>';
         echo '<div class="rating">' . generate_star($comment['rating']) . '</div>';

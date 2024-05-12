@@ -124,7 +124,7 @@ function createFeedbackItem(feedbackData) {
 
     feedbackItem.innerHTML = `
         <div class="user-infos">
-        <img src="https://picsum.photos/id/1005/50/50.jpg" alt="${feedbackData["user"].name}">
+        <img src="${feedbackData["user"].icon}" alt="${feedbackData["user"].name}">
             <div class="user-details">
                 <div class="name">${feedbackData["user"].firstname}</div>
                 <div class="rating">${_generate_star(feedbackData.rating)}</div>
