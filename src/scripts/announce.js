@@ -176,10 +176,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function add_cart_item_by_id(id) {
+
+    const quantity = document.getElementById('count');
     fetch('../php/add-cart-item.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ announce_id: id, quantity: 1 }),
+        body: JSON.stringify({ announce_id: id, quantity: quantity.innerText }),
     })
         .then(response => response.json())
         .then(data => {
