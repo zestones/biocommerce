@@ -15,6 +15,19 @@ function get_user_by_id($id_user)
     return $user;
 }
 
+function get_user_by_email($email)
+{
+    global $pdo;
+
+    $query = "SELECT * FROM User WHERE email = :email";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $user;
+}
+
 function update_user_infos_by_id($user_id, $firstname, $lastname, $username, $phonenumber, $avatar)
 {
     global $pdo;
@@ -67,4 +80,23 @@ function get_user_avatar($id_user)
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     return $user['icon'];
+}
+
+function insert_new_user($email, $password, $phone_number)
+{
+    global $pdo;
+
+    $query = "INSERT INTO User (firstname, lastname, username, icon, is_admin, email, phone_number, password) 
+              VALUES ('', '', :username, '../public/default-user-icon.png', 0, :email, :phone_number, :password)
+             ";
+
+    $stmt = $pdo->prepare($query);
+
+    $stmt->bindParam(":username", explode('@', $email)[0]);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':phone_number', $phone_number);
+    $stmt->bindParam(':password', $password);
+    $stmt->execute();
+
+    return $stmt->rowCount() > 0;
 }
