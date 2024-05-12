@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS AnnounceComment (
   comment TEXT,
   rating INTEGER,
   date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (announce_id) REFERENCES Announce(id),
+  FOREIGN KEY (announce_id) REFERENCES Announce(id) ON DELETE CASCADE,
   FOREIGN KEY (user_id) REFERENCES User(id)
 );
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS AnnounceImage (
   id INTEGER PRIMARY KEY,
   announce_id INTEGER,
   image TEXT,
-  FOREIGN KEY (announce_id) REFERENCES Announce(id)
+  FOREIGN KEY (announce_id) REFERENCES Announce(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS UserAnnounce (
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS UserAnnounce (
   user_id INTEGER,
   announce_id INTEGER,
   FOREIGN KEY (user_id) REFERENCES User(id),
-  FOREIGN KEY (announce_id) REFERENCES Announce(id)
+  FOREIGN KEY (announce_id) REFERENCES Announce(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS UserSaved (
@@ -62,5 +62,5 @@ CREATE TABLE IF NOT EXISTS UserSaved (
   is_in_cart BOOLEAN,
   is_in_favourite BOOLEAN,
   FOREIGN KEY (user_id) REFERENCES User(id),
-  FOREIGN KEY (announce_id) REFERENCES Announce(id)
+  FOREIGN KEY (announce_id) REFERENCES Announce(id) ON DELETE CASCADE
 );

@@ -58,3 +58,25 @@ function save_edited_announce(id) {
     close_edit_announce_modal();
 }
 
+function delete_announce(id) {
+
+    fetch("../php/delete-announce.php", {
+        method: 'POST',
+        body: JSON.stringify({ id: id })
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            showAlert(data.message, 'Success', 'success');
+            var row = document.getElementById('wishlist-item-' + id);
+            row.remove();
+        })
+        .catch(error => {
+            console.error('There was an error with the fetch request:', error);
+            showAlert(error, 'Error', 'error');
+        });
+}

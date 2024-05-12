@@ -106,6 +106,43 @@ function update_user_announce_by_id($id, $title, $description, $price, $quantity
     return $stmt->rowCount() > 0;
 }
 
+function delete_announce_by_id($announce_id)
+{
+    global $pdo;
+
+    // We delete the announce from the Announce table
+    $query = "DELETE FROM Announce WHERE id = :id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':id', $announce_id);
+    $stmt->execute();
+
+    // from the UserAnnounce table
+    $query = "DELETE FROM UserAnnounce WHERE announce_id = :id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":id", $announce_id);
+    $stmt->execute();
+
+    // from the UserSaved table
+    $query = "DELETE FROM UserSaved WHERE announce_id = :id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":id", $announce_id);
+    $stmt->execute();
+
+    // from the AnnounceImage table
+    $query = "DELETE FROM AnnounceImage WHERE announce_id = :id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":id", $announce_id);
+    $stmt->execute();
+
+    // User comments
+    $query = "DELETE FROM AnnounceComment WHERE announce_id = :id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":id", $announce_id);
+    $stmt->execute();
+
+    return $stmt->rowCount() > 0;
+}
+
 function get_all_announce()
 {
     global $pdo;
