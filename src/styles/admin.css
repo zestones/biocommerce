@@ -11,6 +11,12 @@
   margin-top: 7px;
 }
 
+.username img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
 .switch {
   position: relative;
   display: inline-block;

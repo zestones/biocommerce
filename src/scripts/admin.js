@@ -12,6 +12,8 @@ function update_admin_status(user_id, is_admin) {
                 showAlert(data.message, 'Success', 'success');
             }
             else {
+                const input = document.getElementById(`admin-switch-${user_id}`);
+                input.checked = !is_admin;
                 console.error('An error occurred');
                 showAlert(data.message, 'Error', 'error');
             }
