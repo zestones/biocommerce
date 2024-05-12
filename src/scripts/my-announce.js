@@ -42,7 +42,6 @@ function save_edited_announce(id) {
             return response.json();
         })
         .then(data => {
-            console.log(data);
             close_edit_announce_modal();
             showAlert(data.message, 'Success', 'success');
             // Update the announce data in the table

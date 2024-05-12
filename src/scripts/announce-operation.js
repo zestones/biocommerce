@@ -157,7 +157,6 @@ function move_announce_to_cart(announce_id) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             if (data.success) {
                 const wishlistItem = document.getElementById('wishlist-item-' + announce_id);
                 wishlistItem.remove();
