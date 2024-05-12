@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../styles/dashboard.css" onload="load_theme()">
     <link rel="stylesheet" href="../styles/main-header.css">
     <link rel="stylesheet" href="../styles/my-announces.css">
+    <link rel="stylesheet" href="../styles/confirm-modal.css">
     <link rel="stylesheet" href="../styles/wishlist.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -182,6 +183,7 @@
 
     <script src="../scripts/my-announce.js"></script>
     <script src="../scripts/alert.js"></script>
+    <script src="../scripts/confirm.js"></script>
 </body>
 
 <div id="custom-alert" class="custom-alert"></div>

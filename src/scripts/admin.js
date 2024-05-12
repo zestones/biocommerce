@@ -27,7 +27,6 @@ function update_admin_status(user_id, is_admin) {
 
 function delete_user_account(user_id) {
     open_confirmation_modal("Delete User Account", "Are you sure you want to delete this user's account? This action cannot be undone.", function () {
-        console.log('Deleting user account:', user_id);
         fetch("../php/delete-user-account.php", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

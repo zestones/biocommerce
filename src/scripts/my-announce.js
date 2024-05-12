@@ -59,24 +59,25 @@ function save_edited_announce(id) {
 }
 
 function delete_announce(id) {
-
-    fetch("../php/delete-announce.php", {
-        method: 'POST',
-        body: JSON.stringify({ id: id })
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
+    open_confirmation_modal("Delete Announce", "Are you sure you want to delete this announce? This action cannot be undone.", function () {
+        fetch("../php/delete-announce.php", {
+            method: 'POST',
+            body: JSON.stringify({ id: id })
         })
-        .then(data => {
-            showAlert(data.message, 'Success', 'success');
-            var row = document.getElementById('wishlist-item-' + id);
-            row.remove();
-        })
-        .catch(error => {
-            console.error('There was an error with the fetch request:', error);
-            showAlert(error, 'Error', 'error');
-        });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                showAlert(data.message, 'Success', 'success');
+                var row = document.getElementById('wishlist-item-' + id);
+                row.remove();
+            })
+            .catch(error => {
+                console.error('There was an error with the fetch request:', error);
+                showAlert(error, 'Error', 'error');
+            });
+    });
 }
