@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../styles/main-header.css">
     <link rel="stylesheet" href="../styles/wishlist.css">
     <link rel="stylesheet" href="../styles/alert.css">
+    <link rel="stylesheet" href="../styles/confirm-modal.css">
     <link rel="stylesheet" href="../styles/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -140,9 +141,13 @@
                         </td>
 
                         <td>
-                            <button class="delete-btn" onclick="delete_user_account(<?php echo $user['id']; ?>)">
+                            <button class="delete-btn" style="<?php echo $user['id'] === $_SESSION["user_id"] ? 'cursor: not-allowed; color: gray;' : ''; ?>" 
+                            <?php if ($user['id'] !== $_SESSION["user_id"]) { ?>
+                                onclick="delete_user_account(<?php echo $user['id']; ?>)"
+                            <?php } ?>>
                                 <i class="fa fa-times-circle" aria-hidden="true"></i>
                             </button>
+                        </td>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -153,9 +158,9 @@
     <script src="../scripts/admin.js"></script>
     <script src="../scripts/announce-operation.js"></script>
     <script src="../scripts/alert.js"></script>
+    <script src="../scripts/confirm.js"></script>
 </body>
 
 <div id="custom-alert" class="custom-alert"></div>
-
 
 </html>

@@ -129,3 +129,48 @@ function insert_new_user($email, $password, $phone_number)
 
     return $stmt->rowCount() > 0;
 }
+
+function delete_user_account($id_user)
+{
+    global $pdo;
+
+    try {
+        $pdo->beginTransaction();
+
+        // Delete user from User table
+        $query = "DELETE FROM User WHERE id = :id_user";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':id_user', $id_user);
+        $stmt->execute();
+
+        // Delete user's announcements from Announce table
+        $query = "DELETE FROM Announce WHERE id IN (SELECT announce_id FROM UserAnnounce WHERE user_id = :id_user)";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':id_user', $id_user);
+        $stmt->execute();
+
+        // Delete user's comments from AnnounceComment table
+        $query = "DELETE FROM AnnounceComment WHERE user_id = :id_user";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':id_user', $id_user);
+        $stmt->execute();
+
+        // Delete user's saved announcements from UserSaved table
+        $query = "DELETE FROM UserSaved WHERE user_id = :id_user";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':id_user', $id_user);
+        $stmt->execute();
+
+        // Delete user's announcements from UserAnnounce table
+        $query = "DELETE FROM UserAnnounce WHERE user_id = :id_user";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':id_user', $id_user);
+        $stmt->execute();
+
+        $pdo->commit();
+        return true;
+    } catch (Exception $e) {
+        $pdo->rollback();
+        return false;
+    }
+}
