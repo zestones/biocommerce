@@ -97,7 +97,7 @@
 
             <a href="../php/log-out.php">
                 <i class="fa fa-sign-out"></i>
-                Log-out
+                <span>Log-out</span>
             </a>
         </section>
 
@@ -132,7 +132,9 @@
 
                         <td>
                             <label class="switch">
-                                <input type="checkbox" <?php echo $user["is_admin"] ? "checked" : ""; ?>>
+                                <input id="admin-switch-<?php echo $user['id']; ?>" 
+                                type="checkbox" <?php echo $user["is_admin"] ? "checked" : ""; ?>
+                                    onchange="update_admin_status(<?php echo $user['id']; ?>, this.checked)">
                                 <span class="slider round"></span>
                             </label>
                         </td>
@@ -144,10 +146,8 @@
                         </td>
                     </tr>
                 <?php endforeach; ?>
-
-    </div>
-    </section>
-
+            </table>
+        </section>
     </div>
 
     <script src="../scripts/admin.js"></script>

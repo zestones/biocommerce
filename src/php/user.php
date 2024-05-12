@@ -80,6 +80,23 @@ function update_user_password_by_id($user_id, $password)
     return $stmt->rowCount() > 0;
 }
 
+function update_user_admin_status($user_id, $status)
+{
+    global $pdo;
+    $query = 'UPDATE User 
+              SET is_admin = :status
+              WHERE id = :user_id
+             ';
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->bindParam(':status', $status);
+
+    $stmt->execute();
+
+    return $stmt->rowCount() > 0;
+}
+
 
 function get_user_avatar($id_user)
 {
