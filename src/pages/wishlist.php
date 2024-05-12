@@ -28,7 +28,6 @@
                 <input type="text" name="search" id="search" placeholder="Search for products"
                     onkeydown="if(event.keyCode === 13) search()">
             </span>
-            </span>
 
             <button onclick="search()">Search</button>
         </div>
@@ -114,9 +113,8 @@
                             <img src="<?php echo $item['image']; ?>" alt="product">
                             <span><?php echo $item['title']; ?></span>
                         </td>
-                        <td><?php echo $item['price']; ?></td>
+                        <td><?php echo $item['price']; ?>€</td>
                         <td class="stock-status">
-                            <!-- Display stock status -->
                             <span
                                 class="stock-status <?php echo $item['out_of_stock'] == 0 ? 'in-stock' : 'out-of-stock'; ?>">
                                 <?php
