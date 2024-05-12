@@ -17,9 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['email'] = $row['email'];
-
-        echo 'user id \'' . $_SESSION['user_id'] . '\'<br>';
-        echo 'email \'' . $_SESSION['email'] . '\'<br>';
+        $_SESSION['is_admin'] = $row['is_admin'];
 
         header('Location: ../pages/home.php');
     } else {

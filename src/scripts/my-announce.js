@@ -45,10 +45,18 @@ function save_edited_announce(id) {
             close_edit_announce_modal();
             showAlert(data.message, 'Success', 'success');
             // Update the announce data in the table
-            var row = document.getElementById('wishlist-item-' + id);
-            row.querySelector('.title').textContent = data.title;
-            row.querySelector('.price').textContent = data.price + '€';
-            row.querySelector('.quantity').textContent = data.quantity;
+            var item = document.getElementById('wishlist-item-' + id);
+            if (item == null) {
+                item = document.getElementById('my-announce-quick-view');
+            }
+
+            item.querySelector('.title').textContent = data.title;
+            item.querySelector('.price').textContent = data.price + '€';
+
+            const quantityElement = item.querySelector('.quantity');
+            if (quantityElement) {
+                quantityElement.textContent = data.quantity;
+            }
         })
         .catch(error => {
             console.error('There was an error with the fetch request:', error);
@@ -73,7 +81,14 @@ function delete_announce(id) {
             .then(data => {
                 showAlert(data.message, 'Success', 'success');
                 var row = document.getElementById('wishlist-item-' + id);
-                row.remove();
+                if (row) {
+                    row = document.getElementById('my-announce-quick-view');
+                    row.remove();
+                    return;
+                }
+
+                // redirect to home page
+                window.location.href = '../pages/home.php';
             })
             .catch(error => {
                 console.error('There was an error with the fetch request:', error);

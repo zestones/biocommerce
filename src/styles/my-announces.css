@@ -31,6 +31,7 @@ table .edit-btn {
   width: 65%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   position: relative;
+  animation: slide-in 0.3s ease;
 }
 
 .close {
@@ -95,4 +96,15 @@ button.save-btn {
 
 button.save-btn:hover {
   background-color: #45a049;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

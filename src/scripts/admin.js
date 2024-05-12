@@ -1,7 +1,4 @@
 function update_admin_status(user_id, is_admin) {
-
-    console.log({ user_id: user_id, is_admin: is_admin })
-
     fetch("../php/update-user-admin-status.php", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

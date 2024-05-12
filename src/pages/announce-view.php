@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="../../styles/announce.css" onload="load_theme()">
     <link rel="stylesheet" href="../../styles/main-header.css">
+    <link rel="stylesheet" href="../styles/confirm-modal.css">
     <link rel="stylesheet" href="../styles/alert.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -60,6 +61,7 @@
         $category = get_announce_category($_GET['id']);
         $is_in_wishlist = is_announce_in_wish_list($_GET['id']);
         $is_in_cart = is_announce_in_cart($_GET['id']);
+        $is_user_owner = is_announce_owned_by_user($_GET['id'], $_SESSION['user_id']);
         ?>
 
         <section class="gallery">
@@ -68,10 +70,10 @@
             ?>
         </section>
 
-        <section class="quick-view">
+        <section class="quick-view" id="my-announce-quick-view">
 
             <div class="main-infos">
-                <h1><?php echo $announce['title'] ?></h1>
+                <h1 class="title"><?php echo $announce['title'] ?></h1>
 
                 <div class="rating"><?php echo generate_star($announce['rating']) ?></div>
                 <div class="price"><?php echo $announce['price'] ?>€</div>
@@ -99,7 +101,8 @@
                 </button>
                 <button class="wish" onclick="add_wishlist_item(<?php echo $_GET['id'] ?>)">
                     <i class="fa fa-heart" id="<?php echo $_GET['id'] ?>-wish-icon" style="<?php if ($is_in_wishlist)
-                           echo "color: var(--secondary);" ?>"></i>
+                           echo "color: var(--secondary);" ?>">
+                        </i>
                     </button>
                 </div>
 
@@ -110,6 +113,56 @@
                         <strong>Category:</strong>
                     <?php echo "<span>" . $category['name'] . "</span>" ?>
                 </span>
+            </div>
+
+            <div class="admin-action">
+                <?php
+                if (isset($_SESSION['user_id']) && $is_user_owner) {
+                    echo '<button class="edit" onclick="open_edit_announce_modal(
+                        ' . $announce['id'] . ',
+                        \'' . $announce['title'] . '\',
+                        \'' . $announce['description'] . '\',
+                        ' . $announce['price'] . ',
+                        ' . $announce['quantity'] . ')">
+                        Edit
+                        <i class="fa fa-pencil"></i>
+                    </button>';
+                }
+                if ($is_user_owner || $_SESSION['is_admin']) {
+                    echo '<button class="delete" onclick="delete_announce(' . $announce['id'] . ')">
+                        Delete
+                        <i class="fa fa-trash"></i>
+                    </button>';
+                }
+                ?>
+            </div>
+
+            <div id="edit-announce-modal" class="edit-modal">
+                <div class="modal-content">
+                    <span class="close" onclick="close_edit_announce_modal()">&times;</span>
+                    <h2>Edit Announce</h2>
+
+                    <form id="edit-announce-form" action="../php/update-announce.php" method="POST">
+                        <div class="form-group">
+                            <label for="edit-title">Title:</label>
+                            <input type="text" id="edit-title" name="edit-title">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-description">Description:</label>
+                            <textarea id="edit-description" name="edit-description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-price">Price:</label>
+                            <input type="number" id="edit-price" name="edit-price" min="0" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-quantity">Quantity:</label>
+                            <input type="number" id="edit-quantity" name="edit-quantity" min="0">
+                        </div>
+                        <button id="save-btn" class="save-btn" type="button"
+                            onclick="save_edited_announce(this.id)">Save</button>
+                    </form>
+                </div>
             </div>
 
         </section>
@@ -143,7 +196,9 @@
 
     <script src="../scripts/announce.js"></script>
     <script src="../scripts/announce-operation.js"></script>
+    <script src="../scripts/my-announce.js"></script>
     <script src="../scripts/alert.js"></script>
+    <script src="../scripts/confirm.js"></script>
 </body>
 
 <div id="custom-alert" class="custom-alert"></div>

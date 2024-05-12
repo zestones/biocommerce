@@ -141,8 +141,8 @@
                         </td>
 
                         <td>
-                            <button class="delete-btn" style="<?php echo $user['id'] === $_SESSION["user_id"] ? 'cursor: not-allowed; color: gray;' : ''; ?>" 
-                            <?php if ($user['id'] !== $_SESSION["user_id"]) { ?>
+                            <button class="delete-btn" style="<?php echo $user['id'] == $_SESSION["user_id"] ? 'cursor: not-allowed; color: gray;' : ''; ?>" 
+                            <?php if ($user['id'] != $_SESSION["user_id"]) { ?>
                                 onclick="delete_user_account(<?php echo $user['id']; ?>)"
                             <?php } ?>>
                                 <i class="fa fa-times-circle" aria-hidden="true"></i>

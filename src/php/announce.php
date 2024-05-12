@@ -208,6 +208,21 @@ function get_saved_announce_by_user_id($user_id)
     return $announce;
 }
 
+function is_announce_owned_by_user($announce_id, $user_id)
+{
+    global $pdo;
+
+    $query = "SELECT COUNT(*) FROM UserAnnounce WHERE announce_id = :announce_id AND user_id = :user_id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':announce_id', $announce_id);
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->execute();
+    $count = $stmt->fetchColumn();
+
+    return $count > 0;
+}
+
+
 function get_user_announces_by_id($user_id)
 {
     global $pdo;
