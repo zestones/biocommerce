@@ -112,6 +112,21 @@ img {
   align-items: center;
 }
 
+.quick-view .category {
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-view .category span {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.quick-view .category span:last-child {
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
 .quick-view .actions .manage-quantity {
   display: flex;
   align-items: center;

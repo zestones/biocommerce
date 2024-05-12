@@ -113,6 +113,10 @@
                         <strong>Category:</strong>
                     <?php echo "<span>" . $category['name'] . "</span>" ?>
                 </span>
+                <span>
+                    <strong>Quantity:</strong>
+                    <?php echo "<span class='quantity'>" . $announce['quantity'] . "</span>" ?>
+                </span>
             </div>
 
             <div class="admin-action">
