@@ -19,7 +19,6 @@
     redirect_not_registered_user();
     ?>
 
-
     <header>
         <a href="../pages/home.php"><img src="../../assets/logo/agrovia-green.png" alt="logo"></a>
         <div class="search-bar">
@@ -62,6 +61,11 @@
             <a href="../pages/dashboard.php" class="active">
                 <i class="fa fa-tachometer" aria-hidden="true"></i>
                 <span>Dashboard</span>
+            </a>
+
+            <a href="../pages/my-announces.php">
+                <i class="fa fa-bullhorn"></i>
+                <span>My Announces</span>
             </a>
 
             <a href="../pages/wishlist.php">

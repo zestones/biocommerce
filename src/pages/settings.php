@@ -66,6 +66,11 @@
                 <span>Dashboard</span>
             </a>
 
+            <a href="../pages/my-announces.php">
+                <i class="fa fa-bullhorn"></i>
+                <span>My Announces</span>
+            </a>
+
             <a href="../pages/wishlist.php">
                 <i class="fa fa-heart"></i>
                 <span>Wishlist</span>

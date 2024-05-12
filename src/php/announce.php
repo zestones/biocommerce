@@ -79,6 +79,26 @@ function insert_announce($title, $description, $category_id, $price, $quantity, 
     $stmt->execute();
 }
 
+function update_user_announce_by_id($id, $title, $description, $price, $quantity)
+{
+    global $pdo;
+
+    $query = "UPDATE Announce 
+              SET title = :title, description = :description, price = :price, quantity = :quantity
+              WHERE id = :id";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':title', $title);
+    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':price', $price);
+    $stmt->bindParam(':quantity', $quantity);
+    $stmt->bindParam(':id', $id);
+
+    $stmt->execute();
+
+    return $stmt->rowCount() > 0;
+}
+
 function get_all_announce()
 {
     global $pdo;
@@ -136,6 +156,19 @@ function get_saved_announce_by_user_id($user_id)
     global $pdo;
 
     $query = "SELECT * FROM UserSaved WHERE user_id = :user_id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->execute();
+
+    $announce = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $announce;
+}
+
+function get_user_announces_by_id($user_id)
+{
+    global $pdo;
+
+    $query = "SELECT * FROM Announce WHERE id IN (SELECT announce_id FROM UserAnnounce WHERE user_id = :user_id)";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':user_id', $user_id);
     $stmt->execute();
@@ -228,7 +261,6 @@ function remove_announce_from_shopping_cart($id)
     $stmt->bindParam(':announce_id', $id);
     $stmt->execute();
 }
-
 
 function is_announce_saved_by_user($announce_id)
 {
