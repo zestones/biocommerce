@@ -146,7 +146,8 @@
                             </span>
                         </div>
 
-                        <div class="admin-status">
+                        <div class="admin-status"
+                            style="<?php echo $user["is_admin"] ? "display: block" : "display: none" ?>">
                             <?php
                             if ($user["is_admin"]) {
                                 echo '<span class="admin-label">Administrator</span>';
