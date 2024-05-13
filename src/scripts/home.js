@@ -76,7 +76,6 @@ function view(type) {
             image.style.height = '65%';
             image.style.width = '100%';
             image.style.borderRadius = '10px 10px 0 0';
-            image.style.border = '1px solid var(--text)';
         });
     } else if (type === 'list') {
         announceContainers.forEach(container => {

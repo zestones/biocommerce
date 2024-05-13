@@ -9,6 +9,9 @@
   background-color: var(--white);
   border-radius: 8px;
   width: 100%;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--light-stroke);
 }
 
 .transaction-section .transaction .transaction-item {

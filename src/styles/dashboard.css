@@ -17,6 +17,8 @@
   border-radius: 5px;
 
   height: max-content;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--light-stroke);
 }
 
 .main-container .navigation h3 {
@@ -73,6 +75,9 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--light-stroke);
 }
 
 .profile-image img {
@@ -109,6 +114,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--light-stroke);
 }
 
 .profile-details .content {
@@ -172,6 +180,9 @@
   padding: 20px;
   background-color: var(--white);
   border-radius: 8px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--light-stroke);
 }
 
 .transaction-header {
