@@ -1,0 +1,33 @@
+@import url("./global.css");
+
+.tab-content {
+  width: 70%;
+}
+
+.transaction-section {
+  padding: 20px 30px;
+  background-color: var(--white);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.transaction-section .transaction .transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.transaction-section .transaction .transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-section .transaction .transaction-item.header {
+  font-weight: bold;
+}
+
+.transaction-section .transaction .transaction-item .column {
+  flex: 1;
+  text-align: left;
+}

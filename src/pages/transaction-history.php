@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrovia - Home</title>
+    <title>Agrovia</title>
 
     <script src="../../scripts/theme.js"></script>
 
     <link rel="stylesheet" href="../../styles/dashboard.css" onload="load_theme()">
+    <link rel="stylesheet" href="../../styles/transaction.css">
     <link rel="stylesheet" href="../../styles/main-header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -55,18 +56,18 @@
 
     session_start();
     $user = get_user_by_id($_SESSION['user_id']);
-    $latest_transaction = get_latest_transaction($_SESSION['user_id'], 10);
+    $latest_transaction = get_all_transaction($_SESSION['user_id']);
     ?>
 
     <div class="main-container">
         <section class="navigation">
             <h3>Navigation</h3>
-            <a href="../pages/dashboard.php" class="active">
+            <a href="../pages/dashboard.php">
                 <i class="fa fa-tachometer" aria-hidden="true"></i>
                 <span>Dashboard</span>
             </a>
 
-            <a href="../pages/transaction-history.php">
+            <a href="../pages/transaction-history.php" class="active">
                 <i class="fa fa-history"></i>
                 <span>Transaction History</span>
             </a>
@@ -103,66 +104,8 @@
             </a>
         </section>
 
-        <section class="tab-content profile-section">
-            <div class="profile-container">
-                <div class="profile-image">
-                    <img src="<?php echo $user["icon"]; ?>" alt="profile-image">
-                    <div class="info">
-                        <div class="name">
-                            <span class="profile-name"><?php echo $user["firstname"]; ?></span>
-                            <span class="profile-name"><?php echo $user["lastname"]; ?></span>
-                        </div>
-
-                        <span class="info-value"><?php echo $user["username"]; ?></span>
-                        <a href="../pages/settings.php" class="edit-profile-link">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="profile-details">
-                    <div class="info">
-                        <span class="info-names">
-                            <?php echo $user["firstname"]; ?>
-                            <?php echo $user["lastname"]; ?>
-                        </span>
-                    </div>
-                    <div class="content">
-                        <div class="info">
-                            <span class="info-label">Email:</span>
-                            <span class="info-value">
-                                <a href="mailto: <?php echo $user['email']; ?>">
-                                    <?php echo $user['email']; ?>
-                                </a>
-                            </span>
-                        </div>
-
-                        <div class="info">
-                            <span class="info-label">Phone Number:</span>
-                            <span class="info-value">
-                                <a href="tel:+<?php echo $user["phone_number"]; ?>">
-                                    <?php echo $user["phone_number"]; ?>
-                                </a>
-                            </span>
-                        </div>
-
-                        <div class="admin-status">
-                            <?php
-                            if ($user["is_admin"]) {
-                                echo '<span class="admin-label">Administrator</span>';
-                            }
-                            ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="transaction-overview">
-                <div class="transaction-header">
-                    <h3>Recent Transactions</h3>
-                    <a href="../pages/transaction-history.php">View All</a>
-                </div>
-
+        <section class="tab-content">
+            <div class="transaction-section">
                 <div class="transaction">
                     <div class="transaction-item header">
                         <span class="column">Order ID</span>

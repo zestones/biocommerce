@@ -39,3 +39,15 @@ function get_latest_transaction($user_id, $limit)
 
     return $stmt->fetchAll();
 }
+
+function get_all_transaction($user_id)
+{
+    global $pdo;
+    $query = "SELECT * FROM UserTransaction WHERE user_id = ?";
+    $stmt = $pdo->prepare($query);
+
+    $stmt->bindParam(1, $user_id);
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+}

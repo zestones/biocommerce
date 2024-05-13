@@ -218,18 +218,3 @@
   flex: 1;
   text-align: left;
 }
-
-.transaction-name {
-  font-size: 16px;
-  color: #333;
-}
-
-.transaction-quantity {
-  font-size: 14px;
-  color: #666;
-}
-
-.transaction-price {
-  font-size: 18px;
-  color: #28a745;
-}

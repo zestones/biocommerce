@@ -66,6 +66,11 @@
                 <span>Dashboard</span>
             </a>
 
+            <a href="../pages/transaction-history.php">
+                <i class="fa fa-history"></i>
+                <span>Transaction History</span>
+            </a>
+
             <a href="../pages/my-announces.php">
                 <i class="fa fa-bullhorn"></i>
                 <span>My Announces</span>
