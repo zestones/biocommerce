@@ -10,6 +10,7 @@
   --error: rgba(255, 0, 0, 1);
   --light-hover-green: rgba(237, 242, 238, 1);
   --light-stroke: rgba(230, 230, 230, 1);
+  --secondary-hover: #45a049;
 }
 
 .light-theme {

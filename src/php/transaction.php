@@ -20,3 +20,22 @@ function insert_transaction($user_id, $announce_name, $quantity, $announce_price
 
     return $stmt->rowCount() > 0;
 }
+
+function get_latest_transaction($user_id, $limit)
+{
+    global $pdo;
+
+    $query = "SELECT * FROM UserTransaction 
+              WHERE user_id = ? 
+              ORDER BY id DESC LIMIT ?
+             ";
+
+    $stmt = $pdo->prepare($query);
+
+    $stmt->bindParam(1, $user_id);
+    $stmt->bindParam(2, $limit);
+
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+}

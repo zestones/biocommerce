@@ -51,8 +51,11 @@
     <div class="separator-background"></div>
     <?php
     require "../php/user.php";
+    require "../php/transaction.php";
+
     session_start();
     $user = get_user_by_id($_SESSION['user_id']);
+    $latest_transaction = get_latest_transaction($_SESSION['user_id'], 10);
     ?>
 
     <div class="main-container">
@@ -148,6 +151,33 @@
                     </div>
                 </div>
             </div>
+
+            <div class="transaction-overview">
+                <div class="transaction-header">
+                    <h3>Recent Transactions</h3>
+                    <a href="../pages/transaction-history.php">View All</a>
+                </div>
+
+                <div class="transaction">
+                    <div class="transaction-item header">
+                        <span class="column">Order ID</span>
+                        <span class="column">Product</span>
+                        <span class="column">Price (Quantity)</span>
+                        <span class="column">Date</span>
+                    </div>
+
+                    <?php foreach ($latest_transaction as $transaction): ?>
+                        <div class="transaction-item">
+                            <span class="column">#<?= $transaction["id"] ?></span>
+                            <span class="column"><?= $transaction["product_name"] ?></span>
+                            <span class="column"><?= $transaction["price"] ?>€
+                                (<?= $transaction["quantity"] ?> Products)</span>
+                            <span class="column"><?= date("Y-m-d", strtotime($transaction["date"])) ?></span>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
         </section>
 
     </div>
