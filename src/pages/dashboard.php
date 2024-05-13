@@ -34,11 +34,11 @@
 
         <!-- wishlist/cart/user -->
         <div class="user">
-            <a href="../../pages/user/wishlist.html">
+            <a href="../../pages/wishlist.php">
                 <i class="fa fa-heart"></i>
             </a>
 
-            <a href="../../pages/user/cart.html">
+            <a href="../../pages/shopping-cart.php">
                 <i class="fa fa-shopping-cart"></i>
             </a>
 

@@ -37,11 +37,11 @@
 
         <!-- wishlist/cart/user -->
         <div class="user">
-            <a href="../pages/user/wishlist.html">
+            <a href="../pages/wishlist.php">
                 <i class="fa fa-heart"></i>
             </a>
 
-            <a href="../pages/user/cart.html">
+            <a href="../pages/shopping-cart.php">
                 <i class="fa fa-shopping-cart"></i>
             </a>
 
@@ -115,40 +115,40 @@
                     <th></th>
                 </tr>
                 <?php foreach ($user_announces as $item): ?>
-                    <tr id="wishlist-item-<?php echo $item['id']; ?>">
-                        <td class="product">
-                            <img src="<?php echo $item['image']; ?>" alt="product">
-                            <span class="title"><?php echo $item['title']; ?></span>
-                        </td>
-                        <td class="price" id="price-<?php echo $item['id']; ?>">
-                            <?php echo $item['price']; ?>€
-                        </td>
-                        <td class="stock-status">
-                            <span>
-                                <span class="quantity"
-                                    id="count-<?php echo $item['id']; ?>"><?php echo $item['quantity']; ?></span>
-                            </span>
-                        </td>
-                        <td>
-                            <button class="edit-btn" onclick="open_edit_announce_modal(
+                        <tr id="wishlist-item-<?php echo $item['id']; ?>">
+                            <td class="product">
+                                <img src="<?php echo $item['image']; ?>" alt="product">
+                                <span class="title"><?php echo $item['title']; ?></span>
+                            </td>
+                            <td class="price" id="price-<?php echo $item['id']; ?>">
+                                <?php echo $item['price']; ?>€
+                            </td>
+                            <td class="stock-status">
+                                <span>
+                                    <span class="quantity"
+                                        id="count-<?php echo $item['id']; ?>"><?php echo $item['quantity']; ?></span>
+                                </span>
+                            </td>
+                            <td>
+                                <button class="edit-btn" onclick="open_edit_announce_modal(
                                             <?php echo $item['id']; ?>,
                                             '<?php echo $item['title']; ?>',
                                             '<?php echo $item['description']; ?>',
                                             <?php echo $item['price']; ?>,
                                             <?php echo $item['quantity']; ?>
                             )">
-                                Edit <i class="fa fa-pencil" aria-hidden="true"></i>
-                            </button>
+                                    Edit <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </button>
 
-                        </td>
-                        <td>
-                            <button class="delete-btn" onclick="delete_announce(<?php echo $item['id']; ?>)">
-                                <i class="fa fa-times-circle" aria-hidden="true"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <?php
-                    $total_price += $item['price'] * $item['quantity_selected'];
+                            </td>
+                            <td>
+                                <button class="delete-btn" onclick="delete_announce(<?php echo $item['id']; ?>)">
+                                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <?php
+                        $total_price += $item['price'] * $item['quantity_selected'];
                 endforeach;
                 ?>
             </table>

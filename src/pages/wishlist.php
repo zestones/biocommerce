@@ -34,11 +34,11 @@
 
         <!-- wishlist/cart/user -->
         <div class="user">
-            <a href="../../pages/user/wishlist.html">
+            <a href="../../pages/wishlist.php">
                 <i class="fa fa-heart"></i>
             </a>
 
-            <a href="../../pages/user/cart.html">
+            <a href="../../pages/shopping-cart.php">
                 <i class="fa fa-shopping-cart"></i>
             </a>
 
@@ -112,38 +112,38 @@
                     <th></th>
                 </tr>
                 <?php foreach ($wishlist_announce as $item): ?>
-                    <tr id="wishlist-item-<?php echo $item['id']; ?>">
-                        <td class="product">
-                            <img src="<?php echo $item['image']; ?>" alt="product">
-                            <span><?php echo $item['title']; ?></span>
-                        </td>
-                        <td><?php echo $item['price']; ?>€</td>
-                        <td class="stock-status">
-                            <span
-                                class="stock-status <?php echo $item['out_of_stock'] == 0 ? 'in-stock' : 'out-of-stock'; ?>">
-                                <?php
-                                if ($item['out_of_stock'] == 0) {
-                                    echo 'In stock';
-                                } else {
-                                    echo 'Out of stock';
-                                }
-                                ?>
-                            </span>
-                        </td>
-                        <td>
-                            <!-- Add to cart button add clas if out of stock-->
-                            <button class="cart-btn <?php echo $item['out_of_stock'] == 1 ? 'out-of-stock' : ''; ?>"
-                                onclick="move_announce_to_cart(<?php echo $item['id']; ?>)">
-                                Add to cart
-                            </button>
-                        </td>
-                        <td>
-                            <!-- Delete button -->
-                            <button class="delete-btn" onclick="delete_wishlist_item(<?php echo $item['id']; ?>)">
-                                <i class="fa fa-times-circle" aria-hidden="true"></i>
-                            </button>
-                        </td>
-                    </tr>
+                        <tr id="wishlist-item-<?php echo $item['id']; ?>">
+                            <td class="product">
+                                <img src="<?php echo $item['image']; ?>" alt="product">
+                                <span><?php echo $item['title']; ?></span>
+                            </td>
+                            <td><?php echo $item['price']; ?>€</td>
+                            <td class="stock-status">
+                                <span
+                                    class="stock-status <?php echo $item['out_of_stock'] == 0 ? 'in-stock' : 'out-of-stock'; ?>">
+                                    <?php
+                                    if ($item['out_of_stock'] == 0) {
+                                        echo 'In stock';
+                                    } else {
+                                        echo 'Out of stock';
+                                    }
+                                    ?>
+                                </span>
+                            </td>
+                            <td>
+                                <!-- Add to cart button add clas if out of stock-->
+                                <button class="cart-btn <?php echo $item['out_of_stock'] == 1 ? 'out-of-stock' : ''; ?>"
+                                    onclick="move_announce_to_cart(<?php echo $item['id']; ?>)">
+                                    Add to cart
+                                </button>
+                            </td>
+                            <td>
+                                <!-- Delete button -->
+                                <button class="delete-btn" onclick="delete_wishlist_item(<?php echo $item['id']; ?>)">
+                                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                        </tr>
                 <?php endforeach; ?>
             </table>
         </section>

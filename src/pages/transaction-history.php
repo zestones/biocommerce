@@ -35,11 +35,11 @@
 
         <!-- wishlist/cart/user -->
         <div class="user">
-            <a href="../../pages/user/wishlist.html">
+            <a href="../../pages/wishlist.php">
                 <i class="fa fa-heart"></i>
             </a>
 
-            <a href="../../pages/user/cart.html">
+            <a href="../../pages/shopping-cart.php">
                 <i class="fa fa-shopping-cart"></i>
             </a>
 
@@ -115,13 +115,13 @@
                     </div>
 
                     <?php foreach ($latest_transaction as $transaction): ?>
-                        <div class="transaction-item">
-                            <span class="column">#<?= $transaction["id"] ?></span>
-                            <span class="column"><?= $transaction["product_name"] ?></span>
-                            <span class="column"><?= $transaction["price"] ?>€
-                                (<?= $transaction["quantity"] ?> Products)</span>
-                            <span class="column"><?= date("Y-m-d", strtotime($transaction["date"])) ?></span>
-                        </div>
+                            <div class="transaction-item">
+                                <span class="column">#<?= $transaction["id"] ?></span>
+                                <span class="column"><?= $transaction["product_name"] ?></span>
+                                <span class="column"><?= $transaction["price"] ?>€
+                                    (<?= $transaction["quantity"] ?> Products)</span>
+                                <span class="column"><?= date("Y-m-d", strtotime($transaction["date"])) ?></span>
+                            </div>
                     <?php endforeach; ?>
                 </div>
             </div>
