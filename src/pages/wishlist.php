@@ -109,7 +109,6 @@
                 <?php foreach ($wishlist_announce as $item): ?>
                     <tr id="wishlist-item-<?php echo $item['id']; ?>">
                         <td class="product">
-                            <!-- Display product image -->
                             <img src="<?php echo $item['image']; ?>" alt="product">
                             <span><?php echo $item['title']; ?></span>
                         </td>
@@ -124,6 +123,7 @@
                                     echo 'Out of stock';
                                 }
                                 ?>
+                                <?php echo $item['out_of_stock'] ?>
                             </span>
                         </td>
                         <td>

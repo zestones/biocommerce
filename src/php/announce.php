@@ -106,6 +106,45 @@ function update_user_announce_by_id($id, $title, $description, $price, $quantity
     return $stmt->rowCount() > 0;
 }
 
+function decrease_announce_quantity($announce_id, $announce_quantity)
+{
+    global $pdo;
+
+    // Update quantity and determine new value of out_of_stock
+    $query = 'UPDATE Announce 
+              SET quantity = quantity - ?,
+                  out_of_stock = (SELECT CASE WHEN (quantity - ?) <= 0 THEN 1 ELSE 0 END)
+              WHERE id = ?
+            ';
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(1, $announce_quantity);
+    $stmt->bindParam(2, $announce_quantity);
+    $stmt->bindParam(3, $announce_id);
+
+    $stmt->execute();
+
+    return $stmt->rowCount() > 0;
+}
+
+
+function delete_announce_from_cart($announce_id, $user_id)
+{
+    global $pdo;
+
+    $query = "UPDATE UserSaved
+                SET is_in_cart = 0, quantity_selected = 0
+                WHERE user_id = :user_id AND announce_id = :announce_id
+              ";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->bindParam(':announce_id', $announce_id);
+    $stmt->execute();
+
+    return $stmt->rowCount() > 0;
+}
+
 function delete_announce_by_id($announce_id)
 {
     global $pdo;

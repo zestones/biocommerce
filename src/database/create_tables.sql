@@ -64,3 +64,14 @@ CREATE TABLE IF NOT EXISTS UserSaved (
   FOREIGN KEY (user_id) REFERENCES User(id),
   FOREIGN KEY (announce_id) REFERENCES Announce(id) ON DELETE CASCADE
 );
+
+
+CREATE TABLE IF NOT EXISTS UserTransaction (
+  id INTEGER PRIMARY KEY,
+  user_id INTEGER,
+  product_name TEXT,
+  quantity INTEGER,
+  price FLOAT,
+  date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES User(id)
+);

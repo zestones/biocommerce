@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../styles/dashboard.css" onload="load_theme()">
     <link rel="stylesheet" href="../styles/main-header.css">
     <link rel="stylesheet" href="../styles/shopping-cart.css">
+    <link rel="stylesheet" href="../styles/confirm-modal.css">
     <link rel="stylesheet" href="../styles/wishlist.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -114,7 +115,7 @@
                         <td class="product">
                             <!-- Display product image -->
                             <img src="<?php echo $item['image']; ?>" alt="product">
-                            <span><?php echo $item['title']; ?></span>
+                            <span id="title-<?php echo $item['id']; ?>"><?php echo $item['title']; ?></span>
                         </td>
                         <td id="price-<?php echo $item['id']; ?>">
                             <?php echo $item['price']; ?>€
@@ -125,7 +126,8 @@
                                     <button class="increment" onclick="decrement(<?php echo $item['id']; ?>)">-</button>
                                     <span
                                         id="count-<?php echo $item['id']; ?>"><?php echo $item['quantity_selected']; ?></span>
-                                    <button class="decrement" onclick="increment(<?php echo $item['id']; ?>, <?php echo $item['quantity']; ?>)">+</button>
+                                    <button class="decrement"
+                                        onclick="increment(<?php echo $item['id']; ?>, <?php echo $item['quantity']; ?>)">+</button>
                                 </div>
                             </span>
                         </td>
@@ -157,9 +159,9 @@
                 </span>
                 <hr>
                 <span>
-                    Total: <span class="total-price"><?php echo $total_price; ?>€</span>
+                    Total: <span class="total-price" id="total-price-id"><?php echo $total_price; ?>€</span>
                 </span>
-                <button class="buy" onclick="">Buy</button>
+                <button class="buy" onclick="checkout()">Buy</button>
                 <button class="update" id="update-cart" onclick="update_cart();">Update Cart</button>
             </section>
         </section>
@@ -168,6 +170,7 @@
 
     <script src="../scripts/announce-operation.js"></script>
     <script src="../scripts/alert.js"></script>
+    <script src="../scripts/confirm.js"></script>
 </body>
 
 <div id="custom-alert" class="custom-alert"></div>

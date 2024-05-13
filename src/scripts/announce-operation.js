@@ -111,7 +111,6 @@ function update_total_price() {
     }
 }
 
-
 function update_cart() {
     const cart = [];
     const quantities = document.querySelectorAll('[id^="count-"]');
@@ -171,4 +170,52 @@ function move_announce_to_cart(announce_id) {
             console.error(error);
             showAlert(error, 'Error', 'error');
         });
+}
+
+function checkout() {
+    open_confirmation_modal('Checkout', 'Are you sure you want to checkout?', function () {
+
+        let cart = [];
+        const quantities = document.querySelectorAll('[id^="count-"]');
+        for (let i = 0; i < quantities.length; i++) {
+            const quantity = parseInt(quantities[i].innerText);
+            const title = document.getElementById('title-' + quantities[i].id.split('-')[1]).innerText;
+            const price = parseFloat(document.getElementById('price-' + quantities[i].id.split('-')[1]).innerText);
+            if (quantity > 0) {
+                const announce_id = quantities[i].id.split('-')[1];
+                cart.push({ announce_id: announce_id, quantity: quantity, name: title, price: price });
+            }
+        }
+
+        var total = document.getElementById('total-price-id').innerText;
+        total = total.substring(0, total.length - 1);
+
+        if (cart.length == 0) {
+            showAlert('Cart is empty, please add items to your cart', 'Warning', 'warning');
+            return;
+        }
+
+        fetch('../php/checkout.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ cart: cart, total: total }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showAlert(data.message, 'Success', 'success');
+                    setTimeout(() => {
+                        window.location.href = '../pages/dashboard.php';
+                    }, 600);
+                }
+                else {
+                    console.error('An error occurred');
+                    showAlert(data.message, 'Error', 'error');
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+                showAlert(error, 'Error', 'error');
+            });
+    });
 }

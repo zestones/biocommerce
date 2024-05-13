@@ -37,8 +37,3 @@ function close_confirmation_modal() {
         modal.parentNode.removeChild(modal);
     }
 }
-
-
-// Example usage:
-// openConfirmationModal("Delete User Account", "Are you sure you want to delete this user's account? This action cannot be undone.", deleteUserAccount);
-// Where deleteUserAccount is your actual delete function
