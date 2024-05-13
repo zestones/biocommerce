@@ -90,8 +90,13 @@ function update_user_announce_by_id($id, $title, $description, $price, $quantity
 {
     global $pdo;
 
+    $out_of_stock = $quantity == 0 ? 1 : 0;
     $query = "UPDATE Announce 
-              SET title = :title, description = :description, price = :price, quantity = :quantity
+              SET title = :title,
+                  description = :description,
+                  price = :price,
+                  quantity = :quantity,
+                  out_of_stock = :out_of_stock
               WHERE id = :id";
 
     $stmt = $pdo->prepare($query);
@@ -100,6 +105,7 @@ function update_user_announce_by_id($id, $title, $description, $price, $quantity
     $stmt->bindParam(':price', $price);
     $stmt->bindParam(':quantity', $quantity);
     $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':out_of_stock', $out_of_stock);
 
     $stmt->execute();
 
