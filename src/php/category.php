@@ -17,11 +17,10 @@ function get_all_categories()
 function display_categories($categories)
 {
     foreach ($categories as $category) {
-
-        echo "<span>";
-        echo "<input type='checkbox' id='" . $category['id'] . "-category' name='category' value='" . $category['name'] . "'>";
-        echo "<label for='" . $category['name'] . "'>" . $category['name'] . "</label>";
-        echo "</span>";
+        echo "<span>
+        <input type='checkbox' id='" . $category['id'] . "-category' name='category' value='" . $category['name'] . "'>
+        <label for='" . $category['id'] . "-category'>" . $category['name'] . "</label>
+        </span>";
     }
 }
 

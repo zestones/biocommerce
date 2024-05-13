@@ -107,6 +107,10 @@
   color: var(--white);
 }
 
+.create-announce .create-announce-btn:hover {
+  background-color: var(--secondary-hover);
+}
+
 .filter {
   display: flex;
   flex-direction: column;
@@ -152,10 +156,6 @@
 
 .create-announce .create-announce-btn.active + .categories {
   display: flex;
-}
-
-.create-announce .create-announce-btn:hover {
-  background-color: var(--secondary);
 }
 
 .categories input[type="checkbox"] {

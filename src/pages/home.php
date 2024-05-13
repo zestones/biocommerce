@@ -57,7 +57,6 @@
                 Create Announce <i class="fa fa-plus"></i>
             </a>
         </span>
-        </span>
 
         <div class="centered-options">
             <div class="sort">

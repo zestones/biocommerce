@@ -55,7 +55,7 @@
 
     session_start();
     $user = get_user_by_id($_SESSION['user_id']);
-    $latest_transaction = get_latest_transaction($_SESSION['user_id'], 10);
+    $latest_transaction = get_latest_transaction($_SESSION['user_id'], 6);
     ?>
 
     <div class="main-container">

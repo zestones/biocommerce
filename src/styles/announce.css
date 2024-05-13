@@ -349,6 +349,10 @@ hr.feedback-separator {
   width: 100%;
 }
 
+.customer-feedback .add-feedback button:hover {
+  background-color: var(--secondary-hover);
+}
+
 .customer-feedback .add-feedback .rating-stars {
   display: flex;
   justify-content: center;
@@ -383,12 +387,16 @@ hr.feedback-separator {
   transition: background-color 0.3s ease;
 }
 
+.show-more-button:hover {
+  background-color: var(--secondary-hover);
+}
+
 .edit-modal {
   display: none;
   align-items: center;
   justify-content: center;
   position: fixed;
-  z-index: 1000;
+  z-index: 9000;
   left: 0;
   top: 0;
   width: 100%;
@@ -445,6 +453,7 @@ hr.feedback-separator {
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-family: "Overpass", sans-serif;
 }
 
 .edit-modal
@@ -463,6 +472,7 @@ hr.feedback-separator {
 }
 
 .edit-modal .modal-content #edit-announce-form .form-group textarea {
+  font-family: "Overpass", sans-serif;
   resize: vertical;
   min-height: 150px;
 }

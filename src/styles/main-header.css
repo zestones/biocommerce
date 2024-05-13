@@ -50,6 +50,10 @@ header .search-bar button {
   cursor: pointer;
 }
 
+header .search-bar button:hover {
+  background-color: var(--secondary-hover);
+}
+
 header .search-bar span input:focus {
   border: 1px solid rgba(149, 177, 173, 0.3);
   outline: none;

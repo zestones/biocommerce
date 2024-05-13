@@ -67,6 +67,10 @@
   margin-top: 15px;
 }
 
+.setting button:hover {
+  background-color: var(--secondary-hover);
+}
+
 .user-image {
   display: flex;
   flex-direction: column;
@@ -99,8 +103,10 @@
   color: var(--secondary);
 }
 
-.setting button:hover {
-  background-color: var(--dark);
+.user-image button:hover {
+  background-color: var(--light-stroke);
+  color: var(--dark);
+  border: 2px solid var(--light-stroke);
 }
 
 .change-password {
@@ -150,4 +156,8 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   width: 250px;
+}
+
+.change-password form button:hover {
+  background-color: var(--secondary-hover);
 }

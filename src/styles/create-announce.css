@@ -31,7 +31,7 @@
   padding: 12px;
   border: none;
   border-radius: 5px;
-  background-color: var(--gray);
+  background-color: var(--white);
   font-size: 16px;
   color: var(--text);
   appearance: none;
@@ -94,21 +94,7 @@
 
 .form-group textarea {
   resize: vertical;
-}
-
-.form-group button[type="submit"] {
-  padding: 12px 20px;
-  background-color: var(--secondary);
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.form-group button[type="submit"]:hover {
-  background-color: #0056b3;
+  font-family: "Overpass", sans-serif;
 }
 
 .image-section {
@@ -174,6 +160,8 @@
   align-items: center;
   height: 40px;
   border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
 
   margin-top: 25px;
   background-color: var(--secondary);
@@ -182,4 +170,8 @@
   text-decoration: none;
   color: var(--white);
   cursor: pointer;
+}
+
+.submit-announce-section form .submit-btn:hover {
+  background-color: var(--secondary-hover);
 }
