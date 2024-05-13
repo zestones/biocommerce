@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agrovia - Home</title>
 
-    <script src="../../scripts/theme.js"></script>
+    <script src="../scripts/theme.js"></script>
     <link rel="stylesheet" href="../styles/alert.css">
-    <link rel="stylesheet" href="../../styles/dashboard.css" onload="load_theme()">
-    <link rel="stylesheet" href="../../styles/main-header.css">
-    <link rel="stylesheet" href="../../styles/wishlist.css">
+    <link rel="stylesheet" href="../styles/dashboard.css" onload="load_theme()">
+    <link rel="stylesheet" href="../styles/main-header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/wishlist.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -21,7 +22,7 @@
     ?>
 
     <header>
-        <a href="../pages/home.php"><img src="../../assets/logo/agrovia-green.png" alt="logo"></a>
+        <a href="../pages/home.php"><img src="../assets/logo/agrovia-green.png" alt="logo"></a>
         <div class="search-bar">
             <span>
                 <i class="fa fa-search"></i>
@@ -34,11 +35,11 @@
 
         <!-- wishlist/cart/user -->
         <div class="user">
-            <a href="../../pages/wishlist.php">
+            <a href="../pages/wishlist.php">
                 <i class="fa fa-heart"></i>
             </a>
 
-            <a href="../../pages/shopping-cart.php">
+            <a href="../pages/shopping-cart.php">
                 <i class="fa fa-shopping-cart"></i>
             </a>
 
@@ -153,7 +154,34 @@
                 <?php endforeach; ?>
             </table>
         </section>
+    </div>
 
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="../pages/home.php"><img src="../assets/logo/agrovia-green.png" alt="Agrovia logo"></a>
+                <p>Agrovia is committed to providing high-quality agricultural products and services.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="../pages/home.php">Home</a>
+                <a href="../pages/create-announce.php">Create Announce</a>
+                <a href="../pages/settings.php">Settings</a>
+                <a href="../pages/login.php">Login</a>
+                <a href="../php/log-out.php">Log-out</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Account</h3>
+                <a href="../pages/dashboard.php">My Account</a>
+                <a href="../pages/my-announces.php">My Announces</a>
+                <a href="../pages/wishlist.php">My Wishlist</a>
+                <a href="../pages/shopping-cart.php">My Shopping Cart</a>
+                <a href="../pages/transaction-history.php">My Transaction History</a>
+
+            </div>
+        </div>
     </div>
 
     <script src="../scripts/alert.js"></script>
