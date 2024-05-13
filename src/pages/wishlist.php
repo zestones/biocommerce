@@ -123,7 +123,6 @@
                                     echo 'Out of stock';
                                 }
                                 ?>
-                                <?php echo $item['out_of_stock'] ?>
                             </span>
                         </td>
                         <td>

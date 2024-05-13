@@ -397,7 +397,9 @@ function move_announce_to_cart($announce_id)
             remove_announce_from_wishlist($announce_id);
         }
         if ($saved_announce["is_in_cart"]) {
+            $max_quantity = get_announce_by_id($announce_id)["quantity"];
             $quantity += $saved_announce["quantity_selected"];
+            $quantity = min($quantity, $max_quantity);
         }
     }
 
