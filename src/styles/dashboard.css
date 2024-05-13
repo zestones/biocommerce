@@ -4,6 +4,7 @@
   margin-top: 120px;
   display: flex;
   justify-content: space-between;
+  color: var(--dark);
 }
 
 .main-container .navigation {
@@ -19,8 +20,9 @@
 }
 
 .main-container .navigation h3 {
+  padding: 20px;
+  margin: 0;
   color: var(--dark);
-  padding: 0px 20px 0 20px;
 }
 
 .main-container .navigation a {
@@ -44,17 +46,8 @@
   margin-right: 10px;
 }
 
-.tab-content {
-  padding: 20px;
-  width: 70%;
-  background-color: var(--white);
-  border-radius: 5px;
-}
-
 .profile-section {
-  padding: 20px;
   width: 70%;
-  background-color: var(--white);
   border-radius: 5px;
 }
 
@@ -66,16 +59,21 @@
 
 .profile-container {
   display: flex;
-  align-items: center;
   margin: 0 auto;
   padding: 0 25px;
 }
 
 .profile-image {
+  width: 55%;
+  padding: 20px;
+  border-radius: 5px;
+
+  background-color: var(--white);
+
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
 }
 
 .profile-image img {
@@ -83,16 +81,52 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--light-stroke);
+}
+
+.info > .name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+.info .name .profile-name {
+  color: #1a1a1a;
 }
 
 .profile-image > .info {
   margin-top: 10px;
+  text-align: center;
 }
 
 .profile-details {
   flex: 1;
+  padding: 33px;
+  background-color: var(--white);
+  border-radius: 5px;
+  margin-left: 20px;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.profile-details .content {
+  margin-top: 20px;
+  position: relative;
+  height: 100%;
+}
+
+.profile-details .content .admin-status {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: rgba(32, 181, 38, 0.2);
+  color: rgba(44, 116, 47, 1);
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .info {
@@ -100,13 +134,28 @@
 }
 
 .info-label {
-  font-weight: bold;
   color: #666;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
-.info-value {
-  color: #333;
+.profile-details .content .info-value {
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.profile-details .content .info-value a {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.profile-details .content .info-value a:hover {
+  color: var(--secondary);
+}
+
+.profile-details .info .info-names {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
 }
 
 .edit-profile-link {

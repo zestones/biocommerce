@@ -96,11 +96,15 @@
         </section>
 
         <section class="tab-content profile-section">
-            <h3 class="section-title">Profile</h3>
             <div class="profile-container">
                 <div class="profile-image">
                     <img src="<?php echo $user["icon"]; ?>" alt="profile-image">
                     <div class="info">
+                        <div class="name">
+                            <span class="profile-name"><?php echo $user["firstname"]; ?></span>
+                            <span class="profile-name"><?php echo $user["lastname"]; ?></span>
+                        </div>
+
                         <span class="info-value"><?php echo $user["username"]; ?></span>
                         <a href="../pages/settings.php" class="edit-profile-link">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -110,25 +114,37 @@
 
                 <div class="profile-details">
                     <div class="info">
-                        <span class="info-value">
+                        <span class="info-names">
                             <?php echo $user["firstname"]; ?>
-                            &nbsp;
                             <?php echo $user["lastname"]; ?>
                         </span>
                     </div>
+                    <div class="content">
+                        <div class="info">
+                            <span class="info-label">Email:</span>
+                            <span class="info-value">
+                                <a href="mailto: <?php echo $user['email']; ?>">
+                                    <?php echo $user['email']; ?>
+                                </a>
+                            </span>
+                        </div>
 
-                    <div class="info">
-                        <span class="info-label">Email:</span>
-                        <span class="info-value">
-                            <a href="mailto: <?php echo $user['email']; ?>">
-                                <?php echo $user['email']; ?>
-                            </a>
-                        </span>
-                    </div>
+                        <div class="info">
+                            <span class="info-label">Phone Number:</span>
+                            <span class="info-value">
+                                <a href="tel:+<?php echo $user["phone_number"]; ?>">
+                                    <?php echo $user["phone_number"]; ?>
+                                </a>
+                            </span>
+                        </div>
 
-                    <div class="info">
-                        <span class="info-label">Phone Number:</span>
-                        <span class="info-value"><?php echo $user["phone_number"]; ?></span>
+                        <div class="admin-status">
+                            <?php
+                            if ($user["is_admin"]) {
+                                echo '<span class="admin-label">Administrator</span>';
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>
