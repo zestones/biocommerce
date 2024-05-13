@@ -303,6 +303,8 @@ input[type="range"]:active::-webkit-slider-thumb {
 
   text-decoration: none;
   color: var(--text);
+
+  position: relative;
 }
 
 .announce img {
@@ -310,6 +312,28 @@ input[type="range"]:active::-webkit-slider-thumb {
   width: 100%;
   border-radius: 10px 10px 0 0;
   border: 1px solid var(--text);
+}
+
+.announce .out-of-stock {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  color: rgba(234, 75, 72, 1);
+  padding: 5px 10px;
+  background-color: rgba(234, 75, 72, 0.2);
+  border-radius: 5px;
+}
+
+.announce .in-stock {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  color: rgba(44, 116, 47, 1);
+  padding: 5px 10px;
+  background-color: rgba(32, 181, 38, 0.2);
+  border-radius: 5px;
 }
 
 .announce .infos {

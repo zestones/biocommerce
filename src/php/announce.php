@@ -536,6 +536,12 @@ function display_announce($announce)
             echo "<img src='../public/no-image-available.jpg' alt='product'>";
         }
 
+        if ($row['out_of_stock'] == 1) {
+            echo "<div class='out-of-stock'>Out of stock</div>";
+        } else {
+            echo "<div class='in-stock'>In stock</div>";
+        }
+
         echo "<div class='infos'>";
         echo "<div class='details'>";
         echo "<h4>" . $row['title'] . "</h4>";
