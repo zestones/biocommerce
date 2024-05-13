@@ -161,6 +161,8 @@ function delete_announce_by_id($announce_id)
     $stmt->bindParam(':id', $announce_id);
     $stmt->execute();
 
+    $success = $stmt->rowCount() > 0;
+
     // from the UserAnnounce table
     $query = "DELETE FROM UserAnnounce WHERE announce_id = :id";
     $stmt = $pdo->prepare($query);
@@ -185,7 +187,7 @@ function delete_announce_by_id($announce_id)
     $stmt->bindParam(":id", $announce_id);
     $stmt->execute();
 
-    return $stmt->rowCount() > 0;
+    return $success;
 }
 
 function get_all_announce()

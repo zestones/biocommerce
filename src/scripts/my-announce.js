@@ -79,16 +79,21 @@ function delete_announce(id) {
                 return response.json();
             })
             .then(data => {
-                showAlert(data.message, 'Success', 'success');
-                var row = document.getElementById('wishlist-item-' + id);
-                if (row) {
-                    row = document.getElementById('my-announce-quick-view');
-                    row.remove();
-                    return;
+                if (data.success) {
+                    showAlert(data.message, 'Success', 'success');
+                    var row = document.getElementById('wishlist-item-' + id);
+                    if (row) {
+                        row.remove();
+                        return;
+                    }
+
+                    // redirect to home page
+                    window.location.href = '../pages/home.php';
+                } else {
+                    console.error(data.message);
+                    showAlert(data.message, 'Error', 'error');
                 }
 
-                // redirect to home page
-                window.location.href = '../pages/home.php';
             })
             .catch(error => {
                 console.error('There was an error with the fetch request:', error);

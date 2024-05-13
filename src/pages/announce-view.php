@@ -123,22 +123,22 @@
 
                 <button class="cart" id="button-cart-id" style="<?php if ($is_in_cart)
                     echo "background-color: rgba(45, 45, 45, 0.20); border: 2px solid var(--light-stroke); " ?>"
-                            onclick="add_cart_item_by_id(<?php echo $_GET['id'] ?>)">
+                        onclick="add_cart_item_by_id(<?php echo $_GET['id'] ?>)">
                     Add to Cart
                     <i class="fa fa-shopping-cart"></i>
                 </button>
                 <button class="wish" onclick="add_wishlist_item(<?php echo $_GET['id'] ?>)">
                     <i class="fa fa-heart" id="<?php echo $_GET['id'] ?>-wish-icon" style="<?php if ($is_in_wishlist)
                            echo "color: var(--secondary);" ?>">
-                            </i>
-                        </button>
-                    </div>
+                        </i>
+                    </button>
+                </div>
 
-                    <hr>
+                <hr>
 
-                    <div class="category">
-                        <span>
-                            <strong>Category:</strong>
+                <div class="category">
+                    <span>
+                        <strong>Category:</strong>
                     <?php echo "<span>" . $category['name'] . "</span>" ?>
                 </span>
                 <span>
