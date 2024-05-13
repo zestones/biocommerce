@@ -187,36 +187,58 @@ img {
   font-size: 1rem;
 }
 
-.quick-view .admin-action {
+.quick-view .top-infos {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 40px;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
+  position: relative;
 }
 
-.quick-view .admin-action button {
-  padding: 10px 20px;
-  border-radius: 5px;
+.quick-view .top-infos .more-button {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--white);
+  padding: 10px;
+  border-radius: 35px;
   border: none;
   cursor: pointer;
 }
 
-.quick-view .admin-action button.edit {
-  background-color: var(--secondary);
-  color: var(--white);
+.quick-view .top-infos .more-button i {
+  margin: 0;
 }
 
-.quick-view .admin-action button.delete {
-  background-color: var(--error);
-  color: var(--white);
-  margin-left: 12px;
+.admin-action {
+  position: absolute;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  top: 85%;
+  right: 0;
+  z-index: 1000;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+  display: none;
 }
 
-.quick-view .admin-action button.edit:hover {
-  background-color: #45a049;
+.admin-action button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-width: 150px;
+  padding: 10px;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.quick-view .admin-action button.delete:hover {
-  background-color: #f44336;
+.admin-action button:hover {
+  background-color: var(--light-stroke);
 }
 
 .customer-feedback {

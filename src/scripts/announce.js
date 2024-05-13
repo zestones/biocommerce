@@ -206,3 +206,9 @@ function add_cart_item_by_id(id) {
             showAlert(error, 'Error', 'error');
         });
 }
+
+
+function toggleAdminActions() {
+    var adminActionContainer = document.getElementById("admin-action-container");
+    adminActionContainer.style.display = adminActionContainer.style.display === "none" ? "flex" : "none";
+}

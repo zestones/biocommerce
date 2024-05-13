@@ -73,7 +73,34 @@
         <section class="quick-view" id="my-announce-quick-view">
 
             <div class="main-infos">
-                <h1 class="title"><?php echo $announce['title'] ?></h1>
+                <div class="top-infos">
+                    <h1 class="title"><?php echo $announce['title'] ?></h1>
+                    <div class="more-button" onclick="toggleAdminActions()">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                    <div class="admin-action" id="admin-action-container" style="display: none;">
+                        <?php
+                        if (isset($_SESSION['user_id']) && $is_user_owner) {
+                            echo '<button class="edit" onclick="open_edit_announce_modal(
+                            ' . $announce['id'] . ',
+                            \'' . $announce['title'] . '\',
+                            \'' . $announce['description'] . '\',
+                            ' . $announce['price'] . ',
+                            ' . $announce['quantity'] . ')">
+                            Edit
+                            <i class="fa fa-pencil"></i>
+                            </button>';
+                        }
+                        if ($is_user_owner || $_SESSION['is_admin']) {
+                            echo '<button class="delete" onclick="delete_announce(' . $announce['id'] . ')">
+                            Delete
+                            <i class="fa fa-trash"></i>
+                            </button>';
+                        }
+                        ?>
+                    </div>
+                </div>
+
 
                 <div class="rating"><?php echo generate_star($announce['rating']) ?></div>
                 <div class="price"><?php echo $announce['price'] ?>€</div>
@@ -120,27 +147,7 @@
                 </span>
             </div>
 
-            <div class="admin-action">
-                <?php
-                if (isset($_SESSION['user_id']) && $is_user_owner) {
-                    echo '<button class="edit" onclick="open_edit_announce_modal(
-                        ' . $announce['id'] . ',
-                        \'' . $announce['title'] . '\',
-                        \'' . $announce['description'] . '\',
-                        ' . $announce['price'] . ',
-                        ' . $announce['quantity'] . ')">
-                        Edit
-                        <i class="fa fa-pencil"></i>
-                    </button>';
-                }
-                if ($is_user_owner || $_SESSION['is_admin']) {
-                    echo '<button class="delete" onclick="delete_announce(' . $announce['id'] . ')">
-                        Delete
-                        <i class="fa fa-trash"></i>
-                    </button>';
-                }
-                ?>
-            </div>
+
 
             <div id="edit-announce-modal" class="edit-modal">
                 <div class="modal-content">
