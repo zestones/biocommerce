@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agrovia</title>
 
-    <script src="../../scripts/theme.js"></script>
+    <script src="../scripts/theme.js"></script>
 
-    <link rel="stylesheet" href="../../styles/dashboard.css" onload="load_theme()">
-    <link rel="stylesheet" href="../../styles/transaction.css">
-    <link rel="stylesheet" href="../../styles/footer.css">
-    <link rel="stylesheet" href="../../styles/main-header.css">
+    <link rel="stylesheet" href="../styles/dashboard.css" onload="load_theme()">
+    <link rel="stylesheet" href="../styles/transaction.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/main-header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -36,11 +36,11 @@
 
         <!-- wishlist/cart/user -->
         <div class="user">
-            <a href="../../pages/wishlist.php">
+            <a href="../pages/wishlist.php">
                 <i class="fa fa-heart"></i>
             </a>
 
-            <a href="../../pages/shopping-cart.php">
+            <a href="../pages/shopping-cart.php">
                 <i class="fa fa-shopping-cart"></i>
             </a>
 

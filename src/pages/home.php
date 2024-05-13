@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agrovia - Home</title>
 
-    <script src="../../scripts/theme.js"></script>
+    <script src="../scripts/theme.js"></script>
 
     <link rel="stylesheet" href="../styles/alert.css">
     <link rel="stylesheet" href="../styles/footer.css">
@@ -37,11 +37,11 @@
 
         <!-- wishlist/cart/user -->
         <div class="user">
-            <a href="../../pages/wishlist.php">
+            <a href="../pages/wishlist.php">
                 <i class="fa fa-heart"></i>
             </a>
 
-            <a href="../../pages/shopping-cart.php">
+            <a href="../pages/shopping-cart.php">
                 <i class="fa fa-shopping-cart"></i>
             </a>
 

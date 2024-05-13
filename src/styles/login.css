@@ -11,7 +11,7 @@ body {
   right: -100px;
   width: 600px;
   height: 134%;
-  background: url(../../assets/shapes/circle.svg);
+  background: url(../assets/shapes/circle.svg);
   background-repeat: no-repeat;
   z-index: -1;
 }
@@ -22,7 +22,7 @@ body {
   left: -200px;
   width: 600px;
   height: 134%;
-  background: url(../../assets/shapes/shape-1.svg);
+  background: url(../assets/shapes/shape-1.svg);
   background-repeat: no-repeat;
   z-index: -1;
 }
