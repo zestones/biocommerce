@@ -1,9 +1,13 @@
-const green_logo = window.location.origin + '/assets/logo/agrovia-green.png';
-const white_logo = window.location.origin + '/assets/logo/agrovia-white.png';
+const green_logo = '../assets/logo/agrovia-green.png';
+const white_logo = '../assets/logo/agrovia-white.png';
 
 
 document.addEventListener('DOMContentLoaded', function () {
     const checkbox = document.getElementById("checkbox")
+    if (checkbox === null) {
+        return;
+    }
+
     checkbox.addEventListener('change', () => {
         document.body.classList.toggle('dark-theme');
         document.body.classList.toggle('light-theme');
