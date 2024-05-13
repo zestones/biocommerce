@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($id != '') {
         delete_saved_announce($id);
-        echo json_encode(["success" => true, "message" => "Announce removed from the wishlist."]);
+        echo json_encode(["success" => true, "message" => "Announce removed from saved list."]);
     } else {
         echo json_encode(["success" => false, "message" => "Please provide an announce id."]);
     }
