@@ -60,20 +60,22 @@ function get_feedback_rating() {
 }
 
 function delete_feedback(id) {
-    fetch('../php/delete-feedback.php', {
-        method: 'POST',
-        body: JSON.stringify({ feedback_id: id }),
-        headers: { 'Content-Type': 'application/json' }
-    })
-        .then(response => {
-            if (!response.ok) { throw new Error('Network response was not ok'); }
-            return response.json(); // This returns a promise that resolves with the parsed JSON
+    open_confirmation_modal('Delete Feedback', 'Are you sure you want to delete this feedback?', function () {
+        fetch('../php/delete-feedback.php', {
+            method: 'POST',
+            body: JSON.stringify({ feedback_id: id }),
+            headers: { 'Content-Type': 'application/json' }
         })
-        .then(data => {
-            const feedbackItem = document.getElementById(`feedback-${id}`);
-            feedbackItem.remove();
-        })
-        .catch(error => console.error('Error:', error));
+            .then(response => {
+                if (!response.ok) { throw new Error('Network response was not ok'); }
+                return response.json();
+            })
+            .then(data => {
+                const feedbackItem = document.getElementById(`feedback-${id}`);
+                feedbackItem.remove();
+            })
+            .catch(error => console.error('Error:', error));
+    });
 }
 
 function submit_feedback() {

@@ -76,9 +76,14 @@
             <div class="main-infos">
                 <div class="top-infos">
                     <h1 class="title"><?php echo $announce['title'] ?></h1>
-                    <div class="more-button" onclick="toggleAdminActions()">
-                        <i class="fa fa-ellipsis-v"></i>
-                    </div>
+
+                    <?php
+                    if ($is_user_owner || $_SESSION['is_admin']) {
+                        echo '<div class="more-button" onclick="toggleAdminActions()">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </div>';
+                    }
+                    ?>
                     <div class="admin-action" id="admin-action-container" style="display: none;">
                         <?php
                         if (isset($_SESSION['user_id']) && $is_user_owner) {

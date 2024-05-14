@@ -75,7 +75,7 @@ function display_feedback($feedback)
         echo '<p>' . $comment['comment'] . '</p>';
         echo '</div>';
 
-        if ($comment['user_id'] == $_SESSION['user_id']) {
+        if ($comment['user_id'] == $_SESSION['user_id'] || $_SESSION['is_admin']) {
             echo '<div class="delete-feedback" onclick="delete_feedback(' . $comment['id'] . ')">&times;</div>';
         }
 
