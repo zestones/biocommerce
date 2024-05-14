@@ -111,8 +111,8 @@
                 <h3>Price Range</h3>
                 <div class="slide-container">
                     <div class="slider-track"></div>
-                    <input type="range" min="0" max="1000" value="30" id="slider-1" oninput="slideOne()">
-                    <input type="range" min="0" max="1000" value="700" id="slider-2" oninput="slideTwo()">
+                    <input type="range" min="0" max="30" value="0" id="slider-1" oninput="slideOne()">
+                    <input type="range" min="0" max="30" value="30" id="slider-2" oninput="slideTwo()">
                 </div>
 
                 <div class="values">
@@ -120,7 +120,7 @@
                     <strong>
                         <span id="range1">0€</span>
                         <span> &dash; </span>
-                        <span id="range2">100€</span>
+                        <span id="range2">30€</span>
                     </strong>
 
                 </div>
