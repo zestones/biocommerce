@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the path to your SQLite database file
-DATABASE_FILE="./src/database/agrovia_database.db"
+DATABASE_FILE="./src/database/biocommerce_database.db"
 
 # Check if the database file exists
 if [ -f "$DATABASE_FILE" ]; then

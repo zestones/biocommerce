@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrovia - Home</title>
+    <title>BioCommerce - Home</title>
 
     <script src="../scripts/theme.js"></script>
     <link rel="stylesheet" href="../styles/alert.css">
@@ -22,7 +22,7 @@
     ?>
 
     <header>
-        <a href="../pages/home.php"><img id="logo" src="../assets/logo/agrovia-green.png" alt="logo"></a>
+        <a href="../pages/home.php"><img id="logo" src="../assets/logo/biocommerce-green.png" alt="logo"></a>
         <div class="search-bar">
             <span>
                 <i class="fa fa-search"></i>
@@ -113,44 +113,44 @@
                     <th></th>
                 </tr>
                 <?php foreach ($wishlist_announce as $item): ?>
-                    <tr id="wishlist-item-<?php echo $item['id']; ?>">
-                        <td class="product">
-                            <img src="<?php echo $item['image']; ?>" alt="product">
-                            <span><?php echo $item['title']; ?></span>
-                        </td>
-                        <td><?php echo $item['price']; ?>€</td>
-                        <td class="stock-status">
-                            <span
-                                class="stock-status <?php echo $item['out_of_stock'] == 0 ? 'in-stock' : 'out-of-stock'; ?>">
-                                <?php
-                                if ($item['out_of_stock'] == 0) {
-                                    echo 'In stock';
-                                } else {
-                                    echo 'Out of stock';
-                                }
-                                ?>
-                            </span>
-                        </td>
-                        <td>
-                            <!-- Add to cart button add class if out of stock-->
-                            <?php if ($item['out_of_stock'] == 0): ?>
-                                <button class="cart-btn" onclick="move_announce_to_cart(<?php echo $item['id']; ?>)">
-                                    Add to cart
+                        <tr id="wishlist-item-<?php echo $item['id']; ?>">
+                            <td class="product">
+                                <img src="<?php echo $item['image']; ?>" alt="product">
+                                <span><?php echo $item['title']; ?></span>
+                            </td>
+                            <td><?php echo $item['price']; ?>€</td>
+                            <td class="stock-status">
+                                <span
+                                    class="stock-status <?php echo $item['out_of_stock'] == 0 ? 'in-stock' : 'out-of-stock'; ?>">
+                                    <?php
+                                    if ($item['out_of_stock'] == 0) {
+                                        echo 'In stock';
+                                    } else {
+                                        echo 'Out of stock';
+                                    }
+                                    ?>
+                                </span>
+                            </td>
+                            <td>
+                                <!-- Add to cart button add class if out of stock-->
+                                <?php if ($item['out_of_stock'] == 0): ?>
+                                        <button class="cart-btn" onclick="move_announce_to_cart(<?php echo $item['id']; ?>)">
+                                            Add to cart
+                                        </button>
+                                <?php else: ?>
+                                        <button class="cart-btn out-of-stock">
+                                            Out of stock
+                                        </button>
+                                <?php endif; ?>
+                            </td>
+                            </td>
+                            <td>
+                                <!-- Delete button -->
+                                <button class="delete-btn" onclick="delete_wishlist_item(<?php echo $item['id']; ?>)">
+                                    <i class="fa fa-times-circle" aria-hidden="true"></i>
                                 </button>
-                            <?php else: ?>
-                                <button class="cart-btn out-of-stock">
-                                    Out of stock
-                                </button>
-                            <?php endif; ?>
-                        </td>
-                        </td>
-                        <td>
-                            <!-- Delete button -->
-                            <button class="delete-btn" onclick="delete_wishlist_item(<?php echo $item['id']; ?>)">
-                                <i class="fa fa-times-circle" aria-hidden="true"></i>
-                            </button>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
                 <?php endforeach; ?>
             </table>
         </section>
@@ -159,8 +159,8 @@
     <div class="footer">
         <div class="footer-content">
             <div class="footer-logo">
-                <a href="../pages/home.php"><img src="../assets/logo/agrovia-green.png" alt="Agrovia logo"></a>
-                <p>Agrovia is committed to providing high-quality agricultural products and services.</p>
+                <a href="../pages/home.php"><img src="../assets/logo/biocommerce-green.png" alt="BioCommerce logo"></a>
+                <p>BioCommerce is committed to providing high-quality agricultural products and services.</p>
             </div>
 
             <div class="footer-section">

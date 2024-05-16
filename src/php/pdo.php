@@ -1,6 +1,6 @@
 <?php
 // Database configuration
-$db_file = '../database/agrovia_database.db';
+$db_file = '../database/biocommerce_database.db';
 
 try {
     $pdo = new PDO("sqlite:$db_file");

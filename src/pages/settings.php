@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrovia - Home</title>
+    <title>BioCommerce - Home</title>
 
     <script src="../scripts/theme.js"></script>
 
@@ -23,7 +23,7 @@
     ?>
 
     <header>
-        <a href="../pages/home.php"><img id="logo" src="../assets/logo/agrovia-green.png" alt="logo"></a>
+        <a href="../pages/home.php"><img id="logo" src="../assets/logo/biocommerce-green.png" alt="logo"></a>
         <div class="search-bar">
             <span>
                 <i class="fa fa-search"></i>
@@ -181,8 +181,8 @@
     <div class="footer">
         <div class="footer-content">
             <div class="footer-logo">
-                <a href="../pages/home.php"><img src="../assets/logo/agrovia-green.png" alt="Agrovia logo"></a>
-                <p>Agrovia is committed to providing high-quality agricultural products and services.</p>
+                <a href="../pages/home.php"><img src="../assets/logo/biocommerce-green.png" alt="BioCommerce logo"></a>
+                <p>BioCommerce is committed to providing high-quality agricultural products and services.</p>
             </div>
 
             <div class="footer-section">

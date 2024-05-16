@@ -1,4 +1,25 @@
-# Agrovia
+<div align="center">
+    <img src="./src/assets/logo/biocommerce-white.png" alt="BioCommerce">
+</div>
+
+---
+
+<div align="center">
+    <img src="./src/assets/res/announce.png" alt="announce">
+</div>
+
+BioCommerce is a simple e-commerce website for a fictional company. The key features of this website are:
+
+- User authentication
+- Product listing
+- Product details
+- Product filtering
+- User feedback (ratings and reviews) for products
+- Cart management
+- Favorites management
+- Transaction history
+- User profile management
+- Admin panel for managing products and users
 
 ## Setup
 

@@ -1,5 +1,5 @@
-const green_logo = '../assets/logo/agrovia-green.png';
-const white_logo = '../assets/logo/agrovia-white.png';
+const green_logo = '../assets/logo/biocommerce-green.png';
+const white_logo = '../assets/logo/biocommerce-white.png';
 
 
 document.addEventListener('DOMContentLoaded', function () {

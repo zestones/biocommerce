@@ -1,6 +1,6 @@
 -- Insert sample data into User table
 INSERT INTO User (firstname, lastname, email, username, icon, phone_number, password, is_admin)
-VALUES ('Mohamed', 'Benguezzou', 'admin@gmail.com', 'admin', '../assets/insert-data/avatar/avatar-4.jpg', '123456789', 'admin', 1),
+VALUES ('Admin', 'Admin', 'admin@gmail.com', 'admin', '../assets/insert-data/avatar/avatar-4.jpg', '123456789', 'admin', 1),
        ('John', 'Doe', 'john@example.com', 'zigmondy', '../assets/insert-data/avatar/avatar-3.webp', '987654321', 'password', 0),
        ('Alice', 'Smith', 'alice.smith@example.com', 'alice', '../assets/insert-data/avatar/avatar-1.png', '123456789', 'password', 0),
        ('Bob', 'Johnson', 'bob.johnson@example.com', 'bob', '../assets/insert-data/avatar/avatar-2.webp', '987654321', 'password', 0),
